@@ -1,0 +1,71 @@
+---
+title: "The Early Spread of Mass Media Increases the Probability of Civil War: A Research Note"
+author:
+- name: Justin Murphy
+  affiliation: University of Southampton
+  email: j.murphy@soton.ac.uk
+date: April 2014
+abstract: A recent article in *International Organization* suggests that by enhancing the soft power of states, the spread of mass media decreases the probability of civil war onset. This research note contributes a crucial correction to the logic of that argument (internal validity) and demonstrates a substantively different and improved accounting of the empirical relationship between mass media and civil war (external validity).
+
+...
+
+```{r setup, include=FALSE, warning=FALSE}
+opts_chunk$set(dev=c("pdf"), fig.width=14, fig.height=14, fig.show='hold', fig.lp="fig:", par=TRUE, echo=FALSE, results="hide", message=FALSE, warning=FALSE, error=FALSE)
+knit_hooks$set(par=function(before, options, envir){
+if (before && options$fig.show!='none') par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.3)
+}, crop=hook_pdfcrop)  
+```
+
+In a recent issue of *International Organization*, Camber Warren argues that mass media penetration makes civil wars less likely because mass media enhances state strength and therefore deters potential insurgents. Warren argues that the well-known cases in which mass media are often believed to have facilitated civil war, such as Yugoslavia and Rwanda in the early 1990s, are misleading examples selected on the dependent variable. Indeed, his account argues that these are cases of low mass media penetration [@Camber:2013ul, 124] and are better understood as examples of how weak mass media systems increase the probability of civil war.
+
+While Warren's article is an original and important study which presents numerous and convincing robustness checks for its main conclusion, the overall argument suffers from a crucial flaw. If 
+
+
+If the level of mass media *in general* decreases the probability of civil war, as Warren argues,
+then the complete absence of mass media should be associated with an even lower probability of civil war than low levels of mass media. Further, the very lowest levels of mass media should be associated with a higher probability of civil war than slightly higher levels of mass media. However, empirically, neither of these implications are true. First, the contemporary era in which mass media has most proliferated around the globe has seen more civil wars than the period prior to the proliferation of mass media, a stylized fact strikingly inconsistent with but unacknowledged by Warren's argument. Second, while the probability of observing civil war consistently approaches zero after a mass media density of roughly 35% consistently approaches zero (with not a single civil war in any country with more than a mass media density of 145%), the very lowest levels of observed mass media are more positively associated with civil war than countries with slightly more mass media.[^ Footnote about cutpoints and robustness]
+
+then a low level of mass media should be associated with a higher probability of civil war than the absence of mass media.
+
+Warren fails to consider the possibility 
+
+I argue that the *the introduction and early growth of mass media* increases the probability of civil war. While Warren demonstrates a theoretically and empirically robust negative relationship between levels of mass media and the probability of civil war onset, he 
+
+I provide an alternative characterization which extends    *low levels of mass media make civil war more likely than the absence of mass media,* but that beyond a certain threshold mass media make civil war less likely. In other words, Warren sets up a straw man to characterize the well-known cases of media and civil war, representing that hypothesis to mean "the more media, the more likely civil war". But perhaps the most theoretically sensible version of that hypothesis is that early growth of mass media makes civil wars more likely?
+
+I argue that this is precisely BECAUSE after about 35% of media density civil war against the state is no longer possible. Because state control with mass media is so much more durable than without the presence of mass media, once mass media is introduced into the national political arena, it increases incentives for insurgencies. People who previously believed in slow and steady
+non-violent struggle against the state realize that once the country is thoroughly penetrated by mass media, non-violent struggles to fundamentally challenge the state will become nearly impossible. This shifts some portion of the non-violent challengers to become violent rebels.
+
+If Warren's argument is correct, it implies incentives for civil war from the early spread of mass media.
+
+```{r, cache=TRUE}
+setwd("~/Dropbox/gh_projects/media_civil_war")
+require(foreign)
+require(plm)
+require(Zelig)
+require(ggplot2)
+require(reshape2)
+
+# Read in the data from Warren 2014
+df<-read.dta("data/Warren_IO_reg_data.dta")
+
+# Make country variable a factor instead of character
+df$country<-as.factor(df$country)
+
+# Make new variables panel-style
+pdf<-pdata.frame(df, index=c("cowcode", "year"))
+pdf$lonset<-lag(pdf$onset)
+pdf$lmdi<-lag(pdf$mdi)
+pdf$leadmdi<-lag(pdf$mdi, lag=-1)
+pdf$ld.mdi<-diff(pdf$lmdi, differences=1)
+pdf$lmdi2<-pdf$lmdi*pdf$lmdi
+pdf$ld.mdi2<-pdf$ld.mdi*pdf$ld.mdi
+df<-as.data.frame(pdf)
+df<-subset(df, select=(1:34))
+```
+
+    
+```{r, cache=TRUE}
+source("analyses/full_panel_plot.R")
+full_panel_plot
+```
+

@@ -1,0 +1,14 @@
+base
+bdsmatrix
+boot
+foreign
+Formula
+ggplot2
+knitr
+MASS
+nlme
+plm
+reshape2
+sandwich
+Zelig
+zoo
