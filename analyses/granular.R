@@ -2,12 +2,6 @@ setwd("~/Dropbox/gh_projects/media_civil_war")
 require(ggplot2)
 require(foreign)
 
-# Read in the data from Warren 2014
-df<-read.dta("data/Warren_IO_reg_data.dta")
-
-# Make country variable a factor instead of character
-df$country<-as.factor(df$country)
-
 # Civil war onsets as proportion of mdi categories (row proportions)
 # and as proportion of all civil wars (column proportions)
 df$mdicut<-cut(df$mdi, breaks=100)

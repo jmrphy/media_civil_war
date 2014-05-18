@@ -14,8 +14,6 @@ onsetcountries<-as.character(unique(onsets$country))
 
 cases<-subset(df, country %in% onsetcountries)
 
-cases[cases$onset==1, c("year","country")]
-
 case<-subset(cases, select=c("country","year","onset", "mdi","newsli", "radioli", "tvli"))
 case <- melt(case, id.vars=c("country","year", "onset"))
 

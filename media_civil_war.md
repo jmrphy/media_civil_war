@@ -5,9 +5,17 @@ author:
   affiliation: University of Southampton
   email: j.murphy@soton.ac.uk
 date: April 2014
-abstract: A recent article in *International Organization* suggests that by enhancing the soft power of states, the spread of mass media decreases the probability of civil war onset. This research note contributes a crucial correction to the logic of that argument (internal validity) and demonstrates a significantly different and improved account of the empirical relationship between mass media and civil war (external validity).
+abstract: A recent article in *International Organization* suggests that by enhancing
+  the soft power of states, the spread of mass media decreases the probability of
+  civil war onset. This research note contributes a crucial correction to the logic
+  of that argument (internal validity) and demonstrates a substantively different
+  and improved accounting of the empirical relationship between mass media and civil
+  war (external validity).
 
 ...
+
+
+
 
 
 
@@ -34,9 +42,68 @@ non-violent struggle against the state realize that once the country is thorough
 If Warren's argument is correct, it implies incentives for civil war from the early spread of mass media.
 
 
+ 
+ 
+![Violin plot of media density for all civil war onsets](figure/violinplot.pdf) 
 
 
-    
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.pdf) 
+\begin{table}[!htbp] \centering 
+  \caption{Early Growth of Media Density Compared to Media Density in General} 
+  \label{} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline \\[-1.8ex] 
+\\[-1.8ex] & \multicolumn{3}{c}{onset} \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ mdi & $-$0.03$^{***}$ &  &  \\ 
+  & (0.01) &  &  \\ 
+  ld.mdi &  & 0.51$^{**}$ &  \\ 
+  &  & (0.26) &  \\ 
+  ld.news &  &  & 1.44$^{*}$ \\ 
+  &  &  & (0.75) \\ 
+  ld.radio &  &  & 0.27 \\ 
+  &  &  & (0.31) \\ 
+  ld.tv &  &  & 2.10$^{*}$ \\ 
+  &  &  & (1.22) \\ 
+  lgdpl & $-$0.04 & $-$0.49 & $-$0.49 \\ 
+  & (0.17) & (0.32) & (0.31) \\ 
+  larea & $-$0.09 & 0.01 & 0.001 \\ 
+  & (0.09) & (0.15) & (0.15) \\ 
+  lmtn & 0.11$^{*}$ & 0.12 & 0.11 \\ 
+  & (0.06) & (0.09) & (0.09) \\ 
+  lpopl & 0.27$^{***}$ & 0.28$^{**}$ & 0.28$^{**}$ \\ 
+  & (0.09) & (0.13) & (0.13) \\ 
+  oil2l & 0.76$^{***}$ & 1.12$^{**}$ & 1.16$^{**}$ \\ 
+  & (0.28) & (0.47) & (0.48) \\ 
+  deml & 0.18$^{**}$ & 0.24$^{*}$ & 0.23$^{*}$ \\ 
+  & (0.08) & (0.12) & (0.12) \\ 
+  deml2 & $-$0.01$^{**}$ & $-$0.01 & $-$0.01 \\ 
+  & (0.003) & (0.01) & (0.01) \\ 
+  ethfracl & 0.20 & $-$0.73 & $-$0.59 \\ 
+  & (0.37) & (0.54) & (0.55) \\ 
+  relfracl & 1.38$^{***}$ & 1.27 & 1.38$^{*}$ \\ 
+  & (0.52) & (0.79) & (0.79) \\ 
+  pcyrs & $-$0.06 & $-$0.10 & $-$0.10 \\ 
+  & (0.09) & (0.12) & (0.12) \\ 
+  spline1 & $-$0.0001 & $-$0.001 & $-$0.002 \\ 
+  & (0.002) & (0.003) & (0.003) \\ 
+  spline2 & $-$0.0002 & 0.0003 & 0.0004 \\ 
+  & (0.001) & (0.001) & (0.001) \\ 
+  spline3 & 0.0001 & 0.0000 & $-$0.0000 \\ 
+  & (0.0002) & (0.0003) & (0.0003) \\ 
+  Constant & $-$8.35$^{***}$ & $-$9.59$^{***}$ & $-$9.65$^{***}$ \\ 
+  & (1.18) & (1.77) & (1.80) \\ 
+ N & 5,899 & 1,672 & 1,672 \\ 
+Log Likelihood & $-$527.50 & $-$219.80 & $-$218.40 \\ 
+AIC & 1,085.00 & 469.60 & 470.70 \\ 
+\hline \\[-1.8ex] 
+\multicolumn{4}{l}{$^{*}$p $<$ .1; $^{**}$p $<$ .05; $^{***}$p $<$ .01} \\ 
+\end{tabular} 
+\end{table} 
+
+ 
+ 
+![Disaggregated media density and all civil war onsets over time, by country](figure/full_panel_plot.pdf) 
 
 

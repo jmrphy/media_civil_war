@@ -5,7 +5,12 @@ author:
   affiliation: University of Southampton
   email: j.murphy@soton.ac.uk
 date: April 2014
-abstract: A recent article in *International Organization* suggests that by enhancing the soft power of states, the spread of mass media decreases the probability of civil war onset. This research note contributes a crucial correction to the logic of that argument (internal validity) and demonstrates a substantively different and improved accounting of the empirical relationship between mass media and civil war (external validity).
+abstract: A recent article in *International Organization* suggests that by enhancing
+  the soft power of states, the spread of mass media decreases the probability of
+  civil war onset. This research note contributes a crucial correction to the logic
+  of that argument (internal validity) and demonstrates a substantively different
+  and improved accounting of the empirical relationship between mass media and civil
+  war (external validity).
 
 ...
 
@@ -14,6 +19,39 @@ opts_chunk$set(dev=c("pdf"), fig.width=14, fig.height=14, fig.show='hold', fig.l
 knit_hooks$set(par=function(before, options, envir){
 if (before && options$fig.show!='none') par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.3)
 }, crop=hook_pdfcrop)  
+```
+
+```{r data, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+setwd("~/Dropbox/gh_projects/media_civil_war")
+require(foreign)
+require(plm)
+require(Zelig)
+require(ggplot2)
+require(reshape2)
+
+# Read in the data from Warren 2014
+df<-read.dta("data/Warren_IO_reg_data.dta")
+
+# Make country variable a factor instead of character
+df$country<-as.factor(df$country)
+
+# Make new variables panel-style
+pdf<-pdata.frame(df, index=c("cowcode", "year"))
+pdf$lonset<-lag(pdf$onset)
+pdf$lmdi<-lag(pdf$mdi)
+pdf$d.mdi<-diff(pdf$mdi, differences=1)
+pdf$ld.mdi<-diff(pdf$lmdi, differences=1)
+pdf$lnews<-lag(pdf$newsli)
+pdf$d.news<-diff(pdf$newsli, differences=1)
+pdf$ld.news<-diff(pdf$lnews, differences=1)
+pdf$lradio<-lag(pdf$radioli)
+pdf$d.radio<-diff(pdf$radioli, differences=1)
+pdf$ld.radio<-diff(pdf$lradio, differences=1)
+pdf$ltv<-lag(pdf$tvli)
+pdf$d.tv<-diff(pdf$tvli, differences=1)
+pdf$ld.tv<-diff(pdf$ltv, differences=1)
+df<-as.data.frame(pdf)
+df<-subset(df, select=(1:length(df)))
 ```
 
 In a recent issue of *International Organization*, Camber Warren argues that mass media penetration makes civil wars less likely because mass media enhances state strength and therefore deters potential insurgents. Warren argues that the well-known cases in which mass media are often believed to have facilitated civil war, such as Yugoslavia and Rwanda in the early 1990s, are misleading examples selected on the dependent variable. Indeed, his account argues that these are cases of low mass media penetration [@Camber:2013ul, 124] and are better understood as examples of how weak mass media systems increase the probability of civil war.
@@ -37,34 +75,26 @@ non-violent struggle against the state realize that once the country is thorough
 
 If Warren's argument is correct, it implies incentives for civil war from the early spread of mass media.
 
-```{r, cache=TRUE}
-setwd("~/Dropbox/gh_projects/media_civil_war")
-require(foreign)
-require(plm)
-require(Zelig)
-require(ggplot2)
-require(reshape2)
 
-# Read in the data from Warren 2014
-df<-read.dta("data/Warren_IO_reg_data.dta")
-
-# Make country variable a factor instead of character
-df$country<-as.factor(df$country)
-
-# Make new variables panel-style
-pdf<-pdata.frame(df, index=c("cowcode", "year"))
-pdf$lonset<-lag(pdf$onset)
-pdf$lmdi<-lag(pdf$mdi)
-pdf$leadmdi<-lag(pdf$mdi, lag=-1)
-pdf$ld.mdi<-diff(pdf$lmdi, differences=1)
-pdf$lmdi2<-pdf$lmdi*pdf$lmdi
-pdf$ld.mdi2<-pdf$ld.mdi*pdf$ld.mdi
-df<-as.data.frame(pdf)
-df<-subset(df, select=(1:34))
+ 
+ 
+```{r violinplot, fig.cap='Violin plot of media density for all civil war onsets', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+source("analyses/granular.R")
+violinplot
 ```
 
-    
-```{r, cache=TRUE}
+```{r mainregressions, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+source("analyses/main_regressions.R")
+stargazer(rep.model, diff.model, disag.model,
+                      title="Early Growth of Media Density Compared to Media Density in General",
+                      digits = 2,
+                      style = "apsr",
+                      font.size="footnotesize",
+                      header=FALSE)
+```
+ 
+ 
+```{r full_panel_plot, fig.cap='Disaggregated media density and all civil war onsets over time, by country', fig.height=10, fig.width=9, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 source("analyses/full_panel_plot.R")
 full_panel_plot
 ```
