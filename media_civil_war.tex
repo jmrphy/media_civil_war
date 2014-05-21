@@ -37,8 +37,9 @@ Research Note}
 \setsansfont[Mapping=tex-text]{Gill Sans} 
 \setmonofont[Mapping=tex-text,Scale=0.8]{Consolas}
 \chapterstyle{article-jmrphy}
+\pagestyle{kjh}
 
-\doublespacing
+\singlespacing
 
 
 \maketitle
@@ -89,22 +90,23 @@ transmissions can reach a mass public.\footnote{I assume throughout that
   throughout that, despite variable rates of change and short-run
   decreases, media density has a long-run tendency to increase. In other
   words, I assume that the dynamics of media density are non-stationary
-  and trend upward. Multiple unit-root tests for panel data, including
-  the Levin-Lin-Chu (2002) and Im-Pesaran-Shin (2003) tests, fail to
-  reject the null hypothesis that media density is non-stationary. See
-  the Appendix for details.} Second, if the level of mass media \emph{in
-general} increases state strength as Warren argues, then for this very
-reason, the \emph{first appearance and early growth} of mass media
-within a country should increase the utility of controlling the state
-relative to other means of merely influencing it, to control the state
-before its advantage in mass communications is established. In other
-words, if it is true that increasing mass media density makes state
-power increasingly safe from insurgency, then before media density
-crosses the threshold of constituting mass communications power, each
-increase in mass media density increases the payoffs to insurgency
-without increasing the risk. These two observations imply a crucial
-modification to the expectations laid out by Warren that increasing
-levels of mass media density will decrease the probability of civil war.
+  and trend upward. The Levin-Lin-Chu (2002) and Im-Pesaran-Shin (2003)
+  tests for stationarity in panel data fail to reject the null
+  hypothesis that media density is non-stationary (p = 0.7473 and p =
+  0.1, respectively). See the Appendix for details.} Second, if the
+level of mass media \emph{in general} increases state strength as Warren
+argues, then for this very reason, the \emph{first appearance and early
+growth} of mass media within a country should increase the utility of
+controlling the state relative to other means of merely influencing it,
+to control the state before its advantage in mass communications is
+established. In other words, if it is true that increasing mass media
+density makes state power increasingly safe from insurgency, then before
+media density crosses the threshold of constituting mass communications
+power, each increase in mass media density increases the payoffs to
+insurgency without increasing the risk. These two observations imply a
+crucial modification to the expectations laid out by Warren that
+increasing levels of mass media density will decrease the probability of
+civil war.
 
 The implication which follows, and the central hypothesis advanced in
 this research note, is that the \emph{early growth} of mass media
@@ -177,6 +179,8 @@ simply overlooks the even larger and equally robust effect of
 war.
 
 State findings up here, like effect sizes.
+
+\section{Literature Review}\label{literature-review}
 
 put in note about how graphical inspection is better for identifying
 structural breaks than statistically
@@ -321,6 +325,56 @@ AIC & 1,085.00 & 469.60 & 470.70 \\
 \caption{Disaggregated media density and all civil war onsets over time,
 by country}
 \end{figure}
+
+\section{Appendix}\label{appendix}
+
+The Levin-Lin-Chu statistic is a standard test for the presence of a
+unit root, otherwise known as non-stationarity or integration of order
+I(1), in a time series variable observed across multiple cross-sectional
+units. The Im-Pesaran-Shin test is a ``second generation'' test which is
+robust to cross-sectional dependence, common in cross-national panel
+data. For each test, the null hypothesis is the presence of a unit root.
+Because the tests require balanced panels, they were applied only to the
+24 countries with the maximum time-series of 55 years, a subset which
+still contains significant variation in geography, income, regime type,
+and other factors. Specifically, the countries in this subset are:
+Canada, Cuba, Haiti, Dominican Republic, Mexico, Honduras, El Salvador,
+Nicaragua, Costa Rica, Uruguay, Ireland, Netherlands, Belgium,
+Luxembourg, France, Switzerland, Hungary, Romania, Finland, Sweden,
+Norway, Denmark, Afghanistan, China.
+
+\begin{verbatim}
+Levin-Lin-Chu Unit-Root Test (ex. var. : Individual Intercepts
+and Trend )
+\end{verbatim}
+
+data: unit\$mdi z.x1 = -0.3222, p-value = 0.7473 alternative hypothesis:
+stationarity
+
+\begin{verbatim}
+Pesaran's CIPS test for unit roots
+\end{verbatim}
+
+data: unit\$mdi CIPS test = -2.064, lag order = 2, p-value = 0.1
+alternative hypothesis: Stationarity
+
+\pagebreak   
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt} \vspace*{-0.2in} \noindent
+
+Im, Kyung So, M Hashem Pesaran, and Yongcheol Shin. 2003. ``Testing for
+Unit Roots in Heterogeneous Panels.'' \emph{Journal of Econometrics}
+115(1): 53--74.
+\url{http://linkinghub.elsevier.com/retrieve/pii/S0304407603000927}.
+
+Levin, Andrew, Chien-Fu Lin, and Chia-Shang James Chu. 2002. ``Unit Root
+Tests in Panel Data: Asymptotic and Finite-Sample Properties.''
+\emph{Journal of Econometrics} 108(1): 1--24.
+\url{http://linkinghub.elsevier.com/retrieve/pii/S0304407601000987}.
 
 Warren, T Camber. 2014. ``Not by the Sword Alone: Soft Power, Mass
 Media, and the Production of State Sovereignty.'' \emph{International

@@ -43,6 +43,7 @@ unitcountry<-unique(as.character(unit$country))
                 
 # run levin-lin-chu test
 levinlin<-purtest(unit$mdi, lags="AIC", exo = "trend", test = "levinlin")
+summary(levinlin)
 
 # save p.value
 levinlin.p<-levinlin$statistic$p.value
