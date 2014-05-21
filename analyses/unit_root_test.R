@@ -1,9 +1,14 @@
-units <- pdf[!is.na(pdf$mdi)]
+# subset with no missing values
+unit <- pdf[!is.na(pdf$mdi)]
 
-units<-aggregate(units$mdi, by=list(units$country), FUN=length)
-units<-units[order(units$x),]
+# obtain number of time periods per country
+unit<-aggregate(unit$mdi, by=list(unit$country), FUN=length)
 
-units<-subset(pdf, country=="Uruguay" |
+# order to identify countries with longest time-series
+unit<-unit[order(unit$x),]
+
+# subset to only countries with longest panels (55 years)
+unit<-subset(pdf, country=="Uruguay" |
                    country=="U.S.A" |
                 country=="Switzerland" |
                 country=="Sweden" |
@@ -29,11 +34,22 @@ units<-subset(pdf, country=="Uruguay" |
                 country=="Canada" |
                 country=="Belgium" |
                 country=="Afghanistan")
+
+# count number of countries
+unitn<-length(unique(unit$country))
+
+# make list of countries
+unitcountry<-unique(as.character(unit$country))
                 
+# run levin-lin-chu test
+levinlin<-purtest(unit$mdi, lags="AIC", exo = "trend", test = "levinlin")
 
-purtest(units$mdi, lags="AIC", exo = "trend", test = "levinlin")
-purtest(units$mdi, lags="AIC", exo = "trend", test = "ips")
+# save p.value
+levinlin.p<-levinlin$statistic$p.value
 
-cipstest(units$mdi, type="trend")
+# run i-p-s test
+ips<-cipstest(unit$mdi, type="trend")
 
-subset(df, year==1945, select=c("country", "year", "mdi"))
+# save p.value
+ips.p<-ips$p.value
+
