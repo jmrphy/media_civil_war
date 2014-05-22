@@ -20,9 +20,9 @@ abstract: A recent article in *International Organization* suggests that by enha
 
 
 
- 
 
 
+\onehalfspacing
 
 In a recent issue of *International Organization*, Camber Warren argues that mass media penetration makes civil wars less likely because mass media enhances state strength and therefore deters potential insurgents. Warren argues that the well-known cases in which mass media are often believed to have facilitated civil war, such as Yugoslavia and Rwanda in the early 1990s, are misleading examples selected on the dependent variable. Indeed, his account argues that these are cases of low mass media penetration [@Camber:2013ul, 124] and are better understood as examples of how weak mass media systems increase the probability of civil war.
 
