@@ -1,0 +1,43 @@
+ provides a crucially improved theory of mass media technologies and civil war. This research note theorizes and demonstrates that levels of mass media technology decrease the likelihood of civil war only after they are sufficiently widespread throughout a country to effectively constitute a national system of mass communications; at levels of mass media density below this threshold--a disproportionately large subset of country-years in the sample and a majority of civil war onsets--every increase in mass media density is associated with an *increased* likelihood of civil war.
+
+
+ While Warren's article is an original and important study which presents numerous and convincing robustness checks for its main finding, the internal consistency of the argument suffers from two crucial oversights and the empirical analysis neglects to investigate two kinds of variance crucial to the role of mass media technology in civil war onset.
+
+If levels of mass media density in general decrease the probability of civil war, then civil war onsets should be more likely in countries with the very lowest levels of mass media relative to countries with low but slightly greater levels of mass media density. However, if the hypothesis proposed here is correct, then we would expect civil wars to be *less likely* at the very lowest levels of media density relative to slightly higher levels. Second, if levels of mass media density in general decrease the probability of civil war, then every increase in mass media density should be associated with a higher probability of observing civil war. However, if the hypothesis proposed here is correct, then we would expect that within the subset of country-years in which mass media density has not yet constituted a mass communications capacity, each increase in mass media density will be associated with an increase in the probability of civil war.^[Clearly, this subset of country-years would have to be non-trivial in size, not be a fragile artifact of an arbitrary cutoff, and contain a non-trivial quantity of civil wars for this hypothesis to be substantively meaningful. In fact, the pertinent subset is found to be substantially sized, robust to several alternative cutoffs, and containing a majority of the civil wars.] To place the original sample in a larger historical perspective, if mass media in general decreases the probability of civil war, then the historical period prior to the contemporary epoch of mass media should have witnessed more civil wars than the period of the original sample. While anecdotal evidence suggests the contrary, as civil wars are well-known to have proliferated in the second half of the twentieth century relative to the first, the theory presented here appears more consistent with this historical record as it predicts precisely that the early global spread of mass media after World War II would increase rather than decrease the probability of civil wars. To test this out-of-sample implication more rigorously, I exploit the fact that countries with effectively zero mass media in 1945 can be assumed to have effectively zero mass media in *all* of the years previously, extend the original sample accordingly, and re-assess the competing hypotheses.
+
+The findings suggest that while mass media density indeed exerts a large and robust pacifying effect on the probability of civil war onset, this simply overlooks the even larger and equally robust effect of *early increases* in mass media increasing the probability of civil war.
+
+
+put in note about how graphical inspection is better for identifying structural breaks than statistically
+
+
+Additionally, a second observable implication which can be deduced from this argument is that broadcast technologies s
+
+As for the threshold at which the growth of mass media constitutes a capacity for properly mass communications, there is no need to know *a priori* as that threshold is likely to be shaped by contextual factors such as land area, terrain, literacy
+
+Additionally, it is unclear at what threshold mass media density before which at which it truly represents mass communication, it is better thought of at
+
+consider a state and an opposition group
+they disagree over some policyf
+
+under no mass media.
+consider a state and an opposition group with an exogenous increase in mass media.
+mass media only increases state strength after a certain level of reach, before then it can only mobilize early adopters.
+but every increase in mass media decreases the likelihood the opposition will get its policy, because after a certain threshold it's chances are zero.
+
+
+compared to states with a complete absence of mass media 
+then the complete absence of mass media should be associated with an even lower probability of civil war than low levels of mass media. Further, the very lowest levels of mass media should be associated with a higher probability of civil war than slightly higher levels of mass media. However, empirically, neither of these implications are true. First, the contemporary era in which mass media has most proliferated around the globe has seen more civil wars than the period prior to the proliferation of mass media, a stylized fact strikingly inconsistent with but unacknowledged by Warren's argument. Second, while the probability of observing civil war consistently approaches zero after a mass media density of roughly 35% consistently approaches zero (with not a single civil war in any country with more than a mass media density of 145%), the very lowest levels of observed mass media are more positively associated with civil war than countries with slightly more mass media.^[Footnote about cutpoints and robustness]
+
+then a low level of mass media should be associated with a higher probability of civil war than the absence of mass media.
+
+Warren fails to consider the possibility 
+
+I argue that the *the introduction and early growth of mass media* increases the probability of civil war. While Warren demonstrates a theoretically and empirically robust negative relationship between levels of mass media and the probability of civil war onset, he 
+
+I provide an alternative characterization which extends    *low levels of mass media make civil war more likely than the absence of mass media,* but that beyond a certain threshold mass media make civil war less likely. In other words, Warren sets up a straw man to characterize the well-known cases of media and civil war, representing that hypothesis to mean "the more media, the more likely civil war". But perhaps the most theoretically sensible version of that hypothesis is that early growth of mass media makes civil wars more likely?
+
+I argue that this is precisely BECAUSE after about 35% of media density civil war against the state is no longer possible. Because state control with mass media is so much more durable than without the presence of mass media, once mass media is introduced into the national political arena, it increases incentives for insurgencies. People who previously believed in slow and steady
+non-violent struggle against the state realize that once the country is thoroughly penetrated by mass media, non-violent struggles to fundamentally challenge the state will become nearly impossible. This shifts some portion of the non-violent challengers to become violent rebels.
+
+If Warren's argument is correct, it implies incentives for civil war from the early spread of mass media.

@@ -1,6 +1,3 @@
-
-- summarize warren more concisely and fully in pgraph1 & standardize language
-
 - add note and citation of gelman and others about how graphical inspection is a good method
 
 - add cites for out of sample strategy, and increasing observable implications
