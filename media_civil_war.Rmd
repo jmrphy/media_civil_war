@@ -23,35 +23,7 @@ if (before && options$fig.show!='none') par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axi
 
 ```{r data, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 setwd("~/Dropbox/gh_projects/media_civil_war")
-require(foreign)
-require(plm)
-require(Zelig)
-require(ggplot2)
-require(reshape2)
-
-# Read in the data from Warren 2014
-df<-read.dta("data/Warren_IO_reg_data.dta")
-
-# Make country variable a factor instead of character
-df$country<-as.factor(df$country)
-
-# Make new variables panel-style
-pdf<-pdata.frame(df, index=c("cowcode", "year"))
-pdf$lonset<-lag(pdf$onset)
-pdf$lmdi<-lag(pdf$mdi)
-pdf$d.mdi<-diff(pdf$mdi, differences=1)
-pdf$ld.mdi<-diff(pdf$lmdi, differences=1)
-pdf$lnews<-lag(pdf$newsli)
-pdf$d.news<-diff(pdf$newsli, differences=1)
-pdf$ld.news<-diff(pdf$lnews, differences=1)
-pdf$lradio<-lag(pdf$radioli)
-pdf$d.radio<-diff(pdf$radioli, differences=1)
-pdf$ld.radio<-diff(pdf$lradio, differences=1)
-pdf$ltv<-lag(pdf$tvli)
-pdf$d.tv<-diff(pdf$tvli, differences=1)
-pdf$ld.tv<-diff(pdf$ltv, differences=1)
-df<-as.data.frame(pdf)
-df<-subset(df, select=(1:length(df)))
+source("data/warren_cleaning.R")
 ```
 
 ```{r unitroot, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
@@ -64,7 +36,7 @@ In a recent issue of *International Organization*, Camber Warren argues that the
 But if higher levels of mass media density decrease the likelihood of civil war, it is extremely puzzling that in modern history, the international system's most rapid and widespread proliferation of mass media density has coincided with its most dramatic increases in civil war. If mass media density decreases the likelihood of civil war as strongly and robustly as Warren argues, then why has the global proliferation of mass media since 1945 had no appreciable effect in pacifying the global prevalence of civil war?
 
 ```{r globalplot, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-source("analyses/historical.R")
+source("analyses/global_plot_intro.R")
 global.plot
 ```
 
@@ -102,11 +74,28 @@ source("analyses/main_regressions.R")
 stargazer(rep.model, diff.model, disag.model,
                       title="Early Growth of Media Density Compared to Media Density in General",
                       digits = 2,
-                      style = "apsr",
+                      style = "io",
                       font.size="footnotesize",
                       header=FALSE)
 ```
- 
+
+
+```{r longrunplot, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+source("analyses/historical.R")
+longrun.plot
+```
+
+
+```{r historicalregressions, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+#source("analyses/historical.R")
+stargazer(z.out,
+                      title="Historical Regressions",
+                      digits = 2,
+                      style = "io",
+                      font.size="footnotesize",
+                      header=FALSE)
+```
+
  
 ```{r full_panel_plot, fig.cap='Disaggregated media density and all civil war onsets over time, by country', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 source("analyses/full_panel_plot.R")

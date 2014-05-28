@@ -1,135 +1,34 @@
-require(ggplot2)
 require(reshape2)
-require(XLConnect)
+require(ggplot2)
 require(psData)
 
-setwd("~/Dropbox/R Code")
-source("shift.R")
+################# LOAD/TRANSFORM CLEANED DATA
 
-setwd("~/Dropbox/Data General/COW Intra-state Wars")
-war<-read.csv("Intra-StateWarData_v4.1.csv")
+setwd("~/Dropbox/gh_projects/media_civil_war")
+hist_intrastate<-read.csv("data/hist_intrastate.csv")
+warren<-read.csv("data/warren.csv")
+maddison<-read.csv("data/maddison.csv")
 
-setwd("~/Dropbox/Data General/maddison")
-maddison <- readWorksheet(loadWorkbook("mpd_2013-01.xlsx"),sheet=1,startRow=3, header=T)
+### Aggregate Warren data into yearly means
 
-
-### Make a full-year dataframe
-yearsdf<-as.data.frame(1816:1999)
-names(yearsdf)<-"Year"
-yearsdf$Year<-as.factor(yearsdf$Year)
-
-### Make a dataframe for # of intrastate war entries each year
-startyear.int<-as.data.frame(table(war$StartYear1))
-names(startyear.int)<-c("Year", "Entries.int")
-class(startyear.int$Year)
-
-### Merge dataframe for total war entries in all years
-yearsdf<-merge(yearsdf, startyear.int, by="Year", all.x=TRUE)
-yearsdf$Entries.int<-ifelse(is.na(yearsdf$Entries.int), 0, yearsdf$Entries.int)
-
-### Make a dataframe for # of war exits each year
-endyear.int<-as.data.frame(table(war$EndYear1))
-names(endyear.int)<-c("Year", "Exits.int")
-
-### Merge exits with entries
-yearsdf<-merge(yearsdf, endyear.int, by="Year", all.x=TRUE)
-yearsdf$Exits.int<-ifelse(is.na(yearsdf$Exits.int), 0, yearsdf$Exits.int)
-
-yearsdf$Exits.int<-as.ts(yearsdf$Exits.int)
-yearsdf$Entries.int<-as.ts(yearsdf$Entries.int)
-
-yearsdf$Exits2.int<-shift(yearsdf$Exits.int, -1)
-yearsdf$Exits2.int[is.na(yearsdf$Exits2.int)]<-0
-
-yearsdf$civil.wars<-cumsum(yearsdf$Entries.int - yearsdf$Exits2.int)
-data<-yearsdf
-data<-data[,c(1,5)]
-rm(yearsdf)
-rm(endyear.int)
-rm(startyear.int)
-
-data$Year<-as.numeric(levels(data$Year))
-summary(data$Year)
-
-hist<-subset(df, select=c("cowcode", "year", "mdi", "tvli", "radioli", "newsli"))
-attach(hist)
-hist <-aggregate(hist, by=list(year), 
+warren<-subset(warren, select=c("cowcode", "year", "mdi", "tvli", "radioli", "newsli"))
+attach(warren)
+warren <-aggregate(warren, by=list(year), 
                    FUN=mean, na.rm=TRUE)
-detach(hist)
-hist$Year<-as.numeric(levels(hist$Group.1))
+detach(warren)
+warren$Year<-warren$Group.1
+warren$tvlong<-warren$tvli
+warren$tvlong[warren$Year<=1944]<-0
 
-historical<-merge(data, hist, by=c("Year"), all.x=TRUE)
-historical<-historical[,c(1,2,6:9)]
+### Merge Warren and Intra-state war data
 
-molten<-melt(historical, id="Year")
-
-
-global.plot<-ggplot(molten, aes(x=Year)) +
-  geom_line(aes(y=value, colour=variable, linetype=variable)) +
-  labs(y="Value", title="Mass Media Density and Civil Wars Globally") +
-  theme_bw()
-
-historical$tvlong<-historical$tvli
-historical$tvlong[1:129]<-0
+globalmdi<-merge(hist_intrastate, warren, by=c("Year"), all.x=TRUE)
+globalmdi.war<-globalmdi[,c("Year", "civil.wars", "mdi", "tvli", "radioli", "newsli", "tvlong")]
+globalmdi.war$tvlong<-globalmdi.war$tvli
+globalmdi.war$tvlong[1:129]<-0
 
 
-setwd("~/Dropbox/Data General/historical_cross_country/CHAT")
-options(scipen=999)
-chat<-read.dta("CHAT.dta")
-chat$country<-as.factor(chat$country)
-
-#chat$chat.elec<-chat$elecprod/chat$xlpopulation
-chat$chat.radio<-chat$radio/chat$xlpopulation
-chat$chat.phone<-chat$telephone/chat$xlpopulation
-chat$chat.tgram<-chat$telegram/chat$xlpopulation
-chat$chat.mail<-chat$mail/chat$xlpopulation
-chat$chat.tv<-chat$tv/chat$xlpopulation
-chat$chat.news<-chat$newspaper/chat$xlpopulation
-chat$chat.cellphone<-chat$cellphone/chat$xlpopulation
-chat$Year<-chat$year
-
-chat<-subset(chat, select=c("country", "wbcode", "Year", "chat.radio", "chat.phone", "chat.tgram", "chat.mail",
-                            "chat.cellphone", "chat.news", "chat.tv"))
-attach(chat)
-chat <-aggregate(chat, by=list(Year), 
-                 FUN=mean, na.rm=TRUE)
-detach(chat)
-
-chat$hmdi<-rowMeans(chat[,5:length(names(chat))], na.rm=T)
-
-chat<-subset(chat, select=c("Year", "hmdi"))
-
-
-
-historical<-merge(historical, chat, by=c("Year"))
-
-cor(historical$mdi, historical$hmdi, use="complete.obs")
-cor(historical$radioli, historical$hmdi, use="complete.obs")
-cor(historical$tvli, historical$hmdi, use="complete.obs")
-cor(historical$newsli, historical$hmdi, use="complete.obs")
-
-
-maddison<-maddison[35:222,]
-maddison<-subset(maddison, select=-c(X12.W..Europe, X30.W..Europe., W..Offshoots., X7.E..Europe,
-                                     F..Yugoslavia., F..Czecho.slovakia, F..USSR., X8.L..America,
-                                     X15.L..America, L..America, X16.E..Asia, X30.E..Asia, X15.W..Asia,
-                                     Asia., Total.Africa., Col184, Total.World))
-
-maddison<- reshape(maddison, 
-                   varying = c(names(maddison[2:168])),
-                   v.names = "gdppc",
-                   timevar = "Col1", 
-                   times = c(names(maddison[2:168])),
-                   direction = "long")
-
-maddison$gdppc[maddison$gdppc==" "]<-NA
-maddison$gdppc[maddison$gdppc==""]<-NA
-class(maddison$gdppc)
-summary(maddison$gdppc)
-
-maddison$gdppc<-gsub(",", "", maddison$gdppc)
-
-maddison$gdppc<-as.numeric(maddison$gdppc)
+### Load and aggregate cleaned historical GDP data from Maddison 
 
 attach(maddison)
 maddison <-aggregate(maddison, by=list(id), 
@@ -138,23 +37,27 @@ detach(maddison)
 
 maddison$Year<-1816:2003
 
-historical<-merge(historical, maddison, by=c("Year"))
+mdi.war.mad<-merge(globalmdi.war, maddison, by=c("Year"))
+
+### Download Polity2
 
 polity <- PolityGet(vars = "polity2")
 polity<-subset(polity, year>=1816 & year<=2003)
 
 attach(polity)
 polity <-aggregate(polity, by=list(year), 
-                     FUN=mean, na.rm=TRUE)
+                   FUN=mean, na.rm=TRUE)
 detach(polity)
 
 polity$Year<-polity$year
 
-historical<-merge(historical, polity, by=c("Year"))
+historical<-merge(mdi.war.mad, polity, by=c("Year"))
 
 
-longrun<-subset(historical, select=c("Year", "hmdi", "civil.wars", "gdppc", "polity2"))
-longrun.unscaled<-subset(historical, select=c("Year", "hmdi", "civil.wars", "gdppc", "polity2"))
+longrun<-subset(historical, select=c("Year", "tvlong", "civil.wars", "gdppc", "polity2"))
+longrun.unscaled<-subset(historical, select=c("Year", "tvlong", "civil.wars", "gdppc", "polity2"))
+require(tseries)
+adf.test(longrun.unscaled$civil.wars)
 
 detach("package:Zelig", unload=TRUE)
 require(arm)
@@ -167,70 +70,83 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 longrun.plot<-ggplot(molten, aes(x=Year)) +
   geom_line(aes(y=value, colour=variable, linetype=variable)) +
   scale_colour_manual(values=cbbPalette) +
-  labs(y="Value", title="Television, Civil War, and Economic Growth in the Long Run") +
+  labs(y="Z (standardized)") +
   theme_bw()
 
-longrun<-subset(historical, select=c("Year", "hmdi", "civil.wars", "gdppc", "polity2"))
-longrun[c(2,4:length(names(longrun)))]<-sapply(longrun[c(2,4:length(names(longrun)))], function(x) rescale(x))
+## Make subset for count models, standardizing all but civil war counts
+modelvars<-subset(historical, select=c("Year", "tvlong", "civil.wars", "gdppc", "polity2"))
+modelvars[c(2,4:length(names(modelvars)))]<-sapply(modelvars[c(2,4:length(names(modelvars)))], function(x) rescale(x))
 detach("package:arm", unload=TRUE)
 
 require(Zelig)
 
 
-longrun$d.civil.wars[2:184]<-diff(longrun$civil.wars)
-longrun$l.civil.wars[2:184]<-lag(longrun$civil.wars)
-longrun$d.hmdi[2:184]<-diff(longrun$hmdi)
-longrun$l.hmdi[2:184]<-lag(longrun$hmdi)
-longrun$d.gdppc[2:184]<-diff(longrun$gdppc)
-longrun$l.gdppc[2:184]<-lag(longrun$gdppc)
-longrun$d.polity2[2:184]<-diff(longrun$polity2)
-longrun$l.polity2[2:184]<-lag(longrun$polity2)
-longrun$l2.polity2[2:184]<-lag(longrun$polity2)*lag(longrun$polity2)
+modelvars$d.civil.wars[2:184]<-diff(modelvars$civil.wars)
+modelvars$ld.civil.wars[3:184]<-lag(modelvars$d.civil.wars)
+modelvars$l.civil.wars[2:184]<-lag(modelvars$civil.wars)
+modelvars$l2.civil.wars[3:184]<-lag(modelvars$civil.wars, lag=2)
+modelvars$d.tvlong[2:184]<-diff(modelvars$tvlong)
+modelvars$ld.tvlong[3:184]<-lag(modelvars$d.tvlong)
+modelvars$l.tvlong[2:184]<-lag(modelvars$tvlong)
 
-longrun[c(2,4:length(names(longrun)))]<-sapply(longrun[c(2,4:length(names(longrun)))], function(x) x+abs(min(longrun$polity2)))
+modelvars$l2.tvlong[3:184]<-lag(modelvars$tvlong, lag=2)
+modelvars$d.gdppc[2:184]<-diff(modelvars$gdppc)
+modelvars$ld.gdppc[3:184]<-lag(modelvars$d.gdppc)
 
-longrun<-longrun[complete.cases(longrun),]
-model<-zelig(civil.wars ~ l.gdppc + d.gdppc + l.hmdi +
-            d.hmdi + l.polity2 +
-            d.polity2 + l2.polity2 + l.civil.wars + d.civil.wars + Year,
-            model="negbinom",
-            data=longrun)
-summary(model)
+modelvars$l.gdppc[2:184]<-lag(modelvars$gdppc)
+modelvars$l2.gdppc[3:184]<-lag(modelvars$gdppc, lag=2)
+modelvars$d.polity2[2:184]<-diff(modelvars$polity2)
+modelvars$ld.polity2[3:184]<-lag(modelvars$d.polity2)
 
-longrun2<-longrun.unscaled
-longrun2$d.civil.wars[2:184]<-diff(longrun2$civil.wars)
-longrun2$l.civil.wars[2:184]<-lag(longrun2$civil.wars)
-longrun2$d.hmdi[2:184]<-diff(longrun2$hmdi)
-longrun2$l.hmdi[2:184]<-lag(longrun2$hmdi)
-longrun2$d.gdppc[2:184]<-diff(longrun2$gdppc)
-longrun2$l.gdppc[2:184]<-lag(longrun2$gdppc)
-longrun2$d.polity2[2:184]<-diff(longrun2$polity2)
-longrun2$l.polity2[2:184]<-lag(longrun2$polity2)
-longrun2$l2.polity2[2:184]<-lag(longrun2$polity2)*lag(longrun2$polity2)
-longrun2<-longrun2[complete.cases(longrun2),]
+modelvars$l.polity2[2:184]<-lag(modelvars$polity2)
+modelvars$l2.polity2[3:184]<-lag(modelvars$polity2, lag=2)
 
-model2<-zelig(civil.wars ~ l.gdppc + d.gdppc + l.hmdi +
-               d.hmdi + l.polity2 +
-               d.polity2 + l2.polity2 + l.civil.wars + d.civil.wars + Year,
+modelvars$l.polity2.2[2:184]<-lag(modelvars$polity2)*lag(modelvars$polity2)
+modelvars$l2.polity2.2[3:184]<-lag(modelvars$polity2, lag=2)*lag(modelvars$polity2, lag=2)
+
+
+modelvars[c(2,4:length(names(modelvars)))]<-sapply(modelvars[c(2,4:length(names(modelvars)))], function(x) x+abs(min(modelvars$polity2)))
+
+modelvars<-modelvars[complete.cases(modelvars),]
+modelvars$fortyfive<-ifelse(modelvars$Year==1945,1,0)
+modelvars$ww2<-ifelse(modelvars$Year>=1939 & modelvars$Year>=1944,1,0)
+modelvars$ww1<-ifelse(modelvars$Year>=1914 & modelvars$Year>=1918,1,0)
+
+z.out<-zelig(civil.wars ~ d.gdppc + d.gdppc + l.tvlong +
+                d.tvlong + l.polity2 +
+                d.polity2 + l.civil.wars + d.civil.wars + Year +
+                ww1 + ww2,
+              model="negbinom",
+              data=modelvars)
+summary(z.out)
+
+# plot(z.out$result$fitted.values, z.out$result$residuals, )
+# plot(z.out$result$residuals, z.out$result$y)
+
+
+modelvars2<-longrun.unscaled
+modelvars2$d.civil.wars[2:184]<-diff(modelvars2$civil.wars)
+modelvars2$l.civil.wars[2:184]<-lag(modelvars2$civil.wars)
+modelvars2$d.tvlong[2:184]<-diff(modelvars2$tvlong)
+modelvars2$l.tvlong[2:184]<-lag(modelvars2$tvlong)
+modelvars2$d.gdppc[2:184]<-diff(modelvars2$gdppc)
+modelvars2$l.gdppc[2:184]<-lag(modelvars2$gdppc)
+modelvars2$d.polity2[2:184]<-diff(modelvars2$polity2)
+modelvars2$l.polity2[2:184]<-lag(modelvars2$polity2)
+modelvars2$l2.polity2[2:184]<-lag(modelvars2$polity2)*lag(modelvars2$polity2)
+modelvars2<-modelvars2[complete.cases(modelvars2),]
+
+modelvars2$fortyfive<-ifelse(modelvars2$Year==1945,1,0)
+modelvars2$ww2<-ifelse(modelvars2$Year>=1939 & modelvars2$Year>=1944,1,0)
+modelvars2$ww1<-ifelse(modelvars2$Year>=1914 & modelvars2$Year>=1918,1,0)
+
+z.out2<-zelig(civil.wars ~ d.gdppc + d.gdppc + l.tvlong +
+               d.tvlong + l.polity2 +
+               d.polity2 + l.civil.wars + d.civil.wars + Year +
+               ww1 + ww2,
              model="negbinom",
-             data=longrun2)
-summary(model2)
+             data=modelvars2)
+summary(z.out2)
 
 
-# doesn't work:
-dtv.r <- seq(min(longrun2$d.tvlong), max(longrun2$d.tvlong), .1)
-
-x.dtv<-setx(model2, d.tvlong=dtv.r)
-s.out<-sim(model2, x = x.dtv)
-plot.ci(s.out, ci=c(90,95,99), qi="ev", leg=3, ylim=0:1,
-                  xlab="Change in Television Density Global Mean",
-                  ylab="Expected Number of Civil Wars")
-
-x.lo <- setx(model2, d.tvlong=0)
-x.hi <- setx(model2, d.tvlong=mean(longrun2$d.tvlong))
-s.out <- sim(model2, x = x.lo, x1 = x.hi)
-dtv.plot<-plot(s.out, ci=c(90,95,99), qi="ev", leg=3, ylim=0:1,
-                  xlab="Change in Television Density Global Mean",
-                  ylab="Expected Number of Civil Wars")
-mean(s.out.fdi$qi$fd)
 
