@@ -117,7 +117,8 @@ z.out<-zelig(civil.wars ~ d.gdppc + d.gdppc + l.tvlong +
                 d.polity2 + l.civil.wars + d.civil.wars + Year +
                 ww1 + ww2,
               model="negbinom",
-              data=modelvars)
+              data=modelvars,
+             cite=F)
 summary(z.out)
 
 # plot(z.out$result$fitted.values, z.out$result$residuals, )
@@ -145,7 +146,8 @@ z.out2<-zelig(civil.wars ~ d.gdppc + d.gdppc + l.tvlong +
                d.polity2 + l.civil.wars + d.civil.wars + Year +
                ww1 + ww2,
              model="negbinom",
-             data=modelvars2)
+             data=modelvars2,
+             cite=F)
 summary(z.out2)
 
 
