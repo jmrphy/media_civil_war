@@ -112,10 +112,9 @@ modelvars$fortyfive<-ifelse(modelvars$Year==1945,1,0)
 modelvars$ww2<-ifelse(modelvars$Year>=1939 & modelvars$Year>=1944,1,0)
 modelvars$ww1<-ifelse(modelvars$Year>=1914 & modelvars$Year>=1918,1,0)
 
-z.out<-zelig(civil.wars ~ d.gdppc + d.gdppc + l.tvlong +
-                d.tvlong + l.polity2 +
-                d.polity2 + l.civil.wars + d.civil.wars + Year +
-                ww1 + ww2,
+z.out<-zelig(civil.wars ~ l.tvlong +
+                d.tvlong + l.gdppc + d.gdppc + l.polity2 +
+                d.polity2 + l.civil.wars + d.civil.wars + Year,
               model="negbinom",
               data=modelvars,
              cite=F)
@@ -141,8 +140,8 @@ modelvars2$fortyfive<-ifelse(modelvars2$Year==1945,1,0)
 modelvars2$ww2<-ifelse(modelvars2$Year>=1939 & modelvars2$Year>=1944,1,0)
 modelvars2$ww1<-ifelse(modelvars2$Year>=1914 & modelvars2$Year>=1918,1,0)
 
-z.out2<-zelig(civil.wars ~ d.gdppc + d.gdppc + l.tvlong +
-               d.tvlong + l.polity2 +
+z.out2<-zelig(civil.wars ~ l.tvlong +
+               d.tvlong + l.gdppc + d.gdppc + l.polity2 +
                d.polity2 + l.civil.wars + d.civil.wars + Year +
                ww1 + ww2,
              model="negbinom",
