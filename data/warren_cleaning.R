@@ -29,4 +29,8 @@ pdf$ld.tv<-diff(pdf$ltv, differences=1)
 df<-as.data.frame(pdf)
 df<-subset(df, select=(1:length(df)))
 
+df$logmdi<-log(df$mdi+1)
+df$mdi2<-df$mdi*df$mdi
+
+
 write.csv(df, "data/warren.csv")
