@@ -1,3 +1,15 @@
+- need find historical population estimates
+- cite Brandt on time series in strategy section for observable implication 3
+- cite Polity IV
+- cite Maddison
+- run non linear regressions for disaggregated media
+
+
+
+
+
+
+
 - Put in following sections
 
 	Mass Media, Mass Communications, and State Power

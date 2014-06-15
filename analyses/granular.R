@@ -29,18 +29,27 @@ tbl2<-ggplot(props, aes(x=rownames, y=colprops)) +
 
 colpropsum<-sum(props$colprops)
 
+median.quartile <- function(x){
+  out <- quantile(x, probs = c(0.25,0.5,0.75))
+  names(out) <- c("ymin","y","ymax")
+  return(out) 
+}
+
 violinplot1 <- ggplot(subset(df), aes(factor(onset), mdi)) +
   geom_violin(fill = "grey80", colour = "#000000", scale="count") +
+  stat_summary(fun.y=median.quartile, geom="point", shape=1, size=2) +
   scale_y_continuous(breaks=seq(0,320,10)) +
   theme_bw()
 
 violinplot2 <- ggplot(subset(df, onset==0), aes(factor(onset), mdi)) +
   geom_violin(fill = "grey80", colour = "#000000", scale="count") +
+  stat_summary(fun.y=median.quartile, geom="point", shape=1, size=2) +
   scale_y_continuous(breaks=seq(0,320,10)) +
   theme_bw()
 
 violinplot3 <- ggplot(subset(df, onset==1), aes(factor(onset), mdi)) +
   geom_violin(fill = "grey80", colour = "#000000", scale="count") +
+  stat_summary(fun.y=median.quartile, geom="point", shape=1, size=2) +
   scale_y_continuous(limits = c(0,320), breaks=seq(0,320,10)) +
   theme_bw()
 
