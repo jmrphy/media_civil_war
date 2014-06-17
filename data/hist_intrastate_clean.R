@@ -14,7 +14,7 @@ startyear.int<-as.data.frame(table(war$StartYear1))
 names(startyear.int)<-c("Year", "Entries.int")
 class(startyear.int$Year)
 
-### Merge dataframe for total war entries in all years
+### Merge dataframe for total intra-state war entries in all years
 yearsdf<-merge(yearsdf, startyear.int, by="Year", all.x=TRUE)
 yearsdf$Entries.int<-ifelse(is.na(yearsdf$Entries.int), 0, yearsdf$Entries.int)
 
@@ -33,8 +33,9 @@ yearsdf$Exits2.int<-shift(yearsdf$Exits.int, -1)
 yearsdf$Exits2.int[is.na(yearsdf$Exits2.int)]<-0
 
 yearsdf$civil.wars<-cumsum(yearsdf$Entries.int - yearsdf$Exits2.int)
+yearsdf$onsets<-yearsdf$Entries.int
 data<-yearsdf
-data<-data[,c(1,5)]
+data<-data[,c(1,5,6)]
 rm(yearsdf)
 rm(endyear.int)
 rm(startyear.int)
