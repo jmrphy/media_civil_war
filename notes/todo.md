@@ -1,7 +1,6 @@
-- change historical regression table to reflect updates models
+- finalize var names in historical regression output
 
-- need find historical population estimates
-- cite Brandt on time series in strategy section for observable implication 3
+
 - cite Polity IV
 - cite Maddison
 - run non linear regressions for disaggregated media

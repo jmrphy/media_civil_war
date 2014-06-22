@@ -153,39 +153,63 @@ Figure 2 efficiently illustrates several important facts about the distributions
   \caption{Historical Regressions} 
   \label{} 
 \footnotesize 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
 \\[-1.8ex]\hline \\[-1.8ex] 
-\\[-1.8ex] & civil.wars \\ 
+\\[-1.8ex] & \multicolumn{2}{c}{onsets} \\ 
+\\[-1.8ex] & (1) & (2)\\ 
 \hline \\[-1.8ex] 
- TV & $-$0.37$^{**}$ \\ 
-  & (0.16) \\ 
-  $\Delta$TV & 2.20$^{*}$ \\ 
-  & (1.30) \\ 
-  GDP PER CAPITA & $-$0.03 \\ 
-  & (0.18) \\ 
-  $\Delta$GDP PER CAPITA & 0.32 \\ 
-  & (0.33) \\ 
-  DEMOCRACY & $-$0.09 \\ 
-  & (0.09) \\ 
-  DEMOCRACY$^2$ & $-$1.20$^{***}$ \\ 
-  & (0.25) \\ 
-  CIVIL WARS$_{t-1}$ & 0.09$^{***}$ \\ 
-  & (0.01) \\ 
-  $\Delta$CIVIL WARS & 0.09$^{***}$ \\ 
-  & (0.01) \\ 
-  YEAR & 0.002 \\ 
-  & (0.002) \\ 
-  CONSTANT & $-$4.80$^{**}$ \\ 
-  & (2.40) \\ 
- \textit{Observations} & 181 \\ 
-\textit{Log likelihood} & $-$376.00 \\ 
-$\theta$ & 186,980.00  (1,919,136.00) \\ 
-\textit{Akaike information criterion} & 772.00 \\ 
+ L.TVLONG & $-$0.70$^{***}$ & $-$0.40 \\ 
+  & (0.27) & (0.31) \\ 
+  D.TVLONG & 0.32$^{**}$ & 0.42$^{***}$ \\ 
+  & (0.14) & (0.14) \\ 
+  L.GDPPC & $-$0.33 & $-$0.23 \\ 
+  & (0.43) & (0.43) \\ 
+  L.POLITY2 & 0.12 & 0.77$^{***}$ \\ 
+  & (0.15) & (0.22) \\ 
+  L2.POLITY2 & 0.24 & 0.35$^{*}$ \\ 
+  & (0.16) & (0.20) \\ 
+  CIVIL.WARS & 0.72$^{***}$ & 0.74$^{***}$ \\ 
+  & (0.23) & (0.24) \\ 
+  L.ONSETS & 0.97$^{***}$ & 1.00$^{***}$ \\ 
+  & (0.16) & (0.16) \\ 
+  D.ONSETS & 0.17$^{***}$ & 0.17$^{***}$ \\ 
+  & (0.02) & (0.02) \\ 
+  YEAR & 0.29 & $-$0.65 \\ 
+  & (0.35) & (0.51) \\ 
+  WW1 &  & $-$0.03 \\ 
+  &  & (0.16) \\ 
+  WW2 &  & 0.40$^{**}$ \\ 
+  &  & (0.20) \\ 
+  COLD &  & $-$0.90$^{***}$ \\ 
+  &  & (0.20) \\ 
+  CONSTANT & 0.54$^{***}$ & 0.54$^{***}$ \\ 
+  & (0.04) & (0.08) \\ 
+ \textit{Observations} & 182 & 182 \\ 
+\textit{Log likelihood} & $-$262.00 & $-$259.00 \\ 
+$\theta$ & 42,142.00  (485,118.00) & 43,550.00  (463,921.00) \\ 
+\textit{Akaike information criterion} & 543.00 & 543.00 \\ 
 \hline \\[-1.8ex] 
-\textit{Notes:} & \multicolumn{1}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
+\textit{Notes:} & \multicolumn{2}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
 \end{table} 
 
+\clearpage
+\begin{figure} 
+\includegraphics{figure/tv_effect.pdf} 
+\caption{Levels} 
+\label{myFigure} 
+\end{figure} 
+
+\clearpage
+\begin{figure} 
+\includegraphics{figure/dtv_effect.pdf} 
+\caption{Changes} 
+\label{myFigur} 
+\end{figure} 
+
+\clearpage
+
+ 
  
 ![Disaggregated media density and all civil war onsets over time, by country](figure/full_panel_plot.pdf) 
 

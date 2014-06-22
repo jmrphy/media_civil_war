@@ -18,7 +18,11 @@ abstract: A recent article in *International Organization* suggests that by enha
 opts_chunk$set(dev=c("pdf"), fig.width=12, fig.height=10, fig.show='hold', fig.lp="fig:", par=TRUE, echo=FALSE, results="hide", message=FALSE, warning=FALSE, error=FALSE)
 knit_hooks$set(par=function(before, options, envir){
 if (before && options$fig.show!='none') par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.3)
-}, crop=hook_pdfcrop)  
+}, crop=hook_pdfcrop)
+
+my_pdf = function(file, width, height) {
+  pdf(file, width = width, height = height, pointsize = 20)
+  }
 ```
 
 ```{r data, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
@@ -147,22 +151,39 @@ longrun.plot
 
 ```{r historicalregressions, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 #source("analyses/historical.R")
-stargazer(z.out,
+stargazer(z.out.hist1, z.out.hist2,
                       title="Historical Regressions",
-                      covariate.labels=c("TV",
-                      	"$\\Delta$TV",
-                      	"GDP PER CAPITA",
-                      	"$\\Delta$GDP PER CAPITA",
-                      	"DEMOCRACY",
-                      	"DEMOCRACY$^2$",
-                      	"CIVIL WARS$_{t-1}$",
-                      	"$\\Delta$CIVIL WARS"),
+#                       covariate.labels=c("TV",
+#                       	"$\\Delta$TV",
+#                       	"GDP PER CAPITA",
+#                       	"$\\Delta$GDP PER CAPITA",
+#                       	"DEMOCRACY",
+#                       	"DEMOCRACY$^2$",
+#                       	"CIVIL WARS$_{t-1}$",
+#                       	"$\\Delta$CIVIL WARS"),
                       digits = 2,
                       style = "io",
                       font.size="footnotesize",
                       header=FALSE)
 ```
 
+\clearpage
+\begin{figure} 
+\includegraphics{figure/tv_effect.pdf} 
+\caption{Levels} 
+\label{myFigure} 
+\end{figure} 
+
+\clearpage
+\begin{figure} 
+\includegraphics{figure/dtv_effect.pdf} 
+\caption{Changes} 
+\label{myFigur} 
+\end{figure} 
+
+\clearpage
+
+ 
  
 ```{r full_panel_plot, fig.cap='Disaggregated media density and all civil war onsets over time, by country', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 source("analyses/full_panel_plot.R")
