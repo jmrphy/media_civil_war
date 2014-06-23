@@ -39,9 +39,9 @@ rep.model.nonlin <- gam(onset ~ s(logmdi) + lgdpl + larea + lmtn + lpopl + oil2l
 # summary(rep.model.nonlin)
 
 # anova(rep.model.lin.log, rep.model.nonlin, test="Chisq")
-
-
-# plot(rep.model.nonlin, main="title")
+# 
+# 
+# plot(rep.model.nonlin, main="Effect of MDI on Civil War Across Levels of MDI")
 
 
 # Using Zelig

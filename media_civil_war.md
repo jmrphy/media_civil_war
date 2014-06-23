@@ -4,13 +4,16 @@ author:
 - name: Justin Murphy
   affiliation: University of Southampton
   email: j.murphy@soton.ac.uk
-date: April 2014
+date: June 2014
 abstract: A recent article in *International Organization* suggests that by enhancing
   the soft power of states, the spread of mass media decreases the probability of
   civil war onset. This research note contributes an improvement to the logic
   of that argument (internal consistency) and demonstrates a substantively different
   and improved accounting of the empirical relationship between mass media and civil
-  war (internal and external validity).
+  war (internal and external validity). Mass media density decreases the likelihood
+  of civil war only after the treshold at which it constitutes a mass communications system;
+  before that threshold, year-to-year increases in mass media density significantly increase
+  the likelihood of civil war.
 
 ...
 
@@ -87,6 +90,13 @@ Figure 2 efficiently illustrates several important facts about the distributions
 
 ![Violin plot of media density for all civil war onsets](figure/violinplot.pdf) 
 
+\clearpage
+
+Non-linear regression suggests there is a non-linear relationship between mass media density and civil war onset. ANOVA suggests this relationship is significant.
+
+![The Non-Linear Effect of MDI on Civil War Across Levels of MDI](figure/nonlinear-regression.pdf) 
+
+\clearpage
 
  Table 1 shows coefficients and standard errors from several rare-events logistic regressions modeling the determinants of civil war onset.^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years [@King:2001ta]. There are 119 (2.06%) onsets in the full sample and 63 (3.47%) in the subset of low-MDI country years.]
  
