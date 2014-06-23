@@ -142,6 +142,19 @@ stargazer(rep.model, diff.model, disag.model,
                       header=FALSE)
 ```
 
+\clearpage
+\begin{figure} 
+\includegraphics{figure/mdi_effect.pdf} 
+\caption{Changes} 
+\label{myFigur} 
+\end{figure} 
+
+\clearpage
+\begin{figure} 
+\includegraphics{figure/d_mdi_effect.pdf} 
+\caption{Changes} 
+\label{myFigz} 
+\end{figure} 
 
 ```{r longrunplot, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='TV, Democracy, Economic Growth, and Civil Wars Globally, 1816-1999'}
 source("analyses/historical.R")
@@ -151,7 +164,7 @@ longrun.plot
 
 ```{r historicalregressions, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 #source("analyses/historical.R")
-stargazer(z.out.hist1, z.out.hist2,
+stargazer(z.out.hist1, z.out.hist2, z.out.hist3,
                       title="Historical Regressions",
 #                       covariate.labels=c("TV",
 #                       	"$\\Delta$TV",
@@ -167,12 +180,6 @@ stargazer(z.out.hist1, z.out.hist2,
                       header=FALSE)
 ```
 
-\clearpage
-\begin{figure} 
-\includegraphics{figure/tv_effect.pdf} 
-\caption{Levels} 
-\label{myFigure} 
-\end{figure} 
 
 \clearpage
 \begin{figure} 

@@ -73,7 +73,7 @@ historical$d2.onsets[3:184]<-diff(historical$onsets,2)
 historical$d3.onsets[4:184]<-diff(historical$onsets,3)
 historical$d4.onsets[5:184]<-diff(historical$onsets,4)
 
-historical$ld.onsets<-shift(historical$onsets, -1)
+historical$ld.onsets<-shift(historical$d.onsets, -1)
 historical$ld2.onsets<-shift(historical$d2.onsets, -2)
 
 historical$l.onsets<-shift(historical$onsets, -1)
@@ -112,7 +112,7 @@ longrun.plot<-ggplot(molten, aes(x=Year)) +
 ## Make subset for count models, standardizing all but civil war counts
 
 modelvars2.unscaled<-subset(historical, select=c("Year", "d.civil.wars", "d.onsets", "onsets", "ww1", "ww2", "cold", "l.tvlong", "d.tvlong", "l.gdppc",
-                                        "l.polity2", "l2.polity2", "civil.wars", "l.civil.wars", "d2.civil.wars", "l.onsets", "l2.onsets",
+                                        "l.polity2", "l2.polity2", "d.polity2", "d.gdppc", "civil.wars", "l.civil.wars", "d2.civil.wars", "l.onsets", "l2.onsets",
                                         "d2.onsets"))
 modelvars2.unscaled<-modelvars2.unscaled[complete.cases(modelvars2.unscaled),]
 
@@ -125,22 +125,24 @@ modelvars2.unscaled<-modelvars2.unscaled[complete.cases(modelvars2.unscaled),]
 detach("package:Zelig", unload=TRUE)
 require(arm)
 modelvars2<-subset(historical, select=c("Year", "d.civil.wars", "d.onsets", "onsets", "ww1", "ww2", "cold", "l.tvlong", "d.tvlong", "l.gdppc",
-                                       "l.polity2", "l2.polity2", "civil.wars", "l.civil.wars", "d2.civil.wars", "l.onsets", "l2.onsets",
-                                       "d2.onsets"))
+                                       "l.polity2", "l2.polity2", "d.gdppc", "d.polity2", "civil.wars", "l.civil.wars", "d2.civil.wars", "l.onsets", "l2.onsets",
+                                       "d2.onsets", "ld.onsets"))
 modelvars2[c(1,6:length(names(modelvars2)))]<-sapply(modelvars2[c(1,6:length(names(modelvars2)))], function(x) rescale(x))
 modelvars2<-modelvars2[complete.cases(modelvars2),]
 
 detach("package:arm", unload=TRUE)
 require(Zelig)
 
-z.out.hist1<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + l.polity2 + l2.polity2 + civil.wars + l.onsets + d.onsets + Year,
+z.out.hist1<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
+                     l.onsets + d.onsets + Year,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2,
                    cite=F)
 # summary(z.out.hist1)
 
-z.out.hist2<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + l.polity2 + l2.polity2 + civil.wars + l.onsets + d.onsets + Year + ww1 + ww2 + cold,
+z.out.hist2<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
+                     l.onsets + d.onsets + Year + ww1 + ww2 + cold,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2,
@@ -150,12 +152,26 @@ z.out.hist2<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + l.polity2 + l2.polit
 # plot(modelvars2$l.tvlong, z.out.hist3$result$residuals)
 # plot(modelvars2$onsets, z.out.hist3$result$residuals)
 
-z.out.hist2.unscaled<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + l.polity2 + l2.polity2 + civil.wars + l.onsets + d.onsets + Year + ww1 + ww2 + cold,
+short<-modelvars2[74:182,] # from 1891
+z.out.hist3<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
+                     l.onsets + d.onsets + Year + ww1 + ww2 + cold,
+                   model="negbinom",
+                   robust=TRUE,
+                   data=short,
+                   cite=F)
+# summary(z.out.hist3)
+# plot(modelvars2$Year, z.out.hist3$result$residuals)
+# plot(modelvars2$l.tvlong, z.out.hist3$result$residuals)
+# plot(modelvars2$onsets, z.out.hist3$result$residuals)
+
+
+z.out.hist2.unscaled<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 +
+                              civil.wars + l.onsets + d.onsets + Year + ww1 + ww2 + cold,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2.unscaled,
                    cite=F)
-#summary(z.out.hist2.unscaled)
+# summary(z.out.hist2.unscaled)
 
 dtv.r<-seq(-.1827,.9664,.1)
 tv.r<-seq(0,20,1)
@@ -169,19 +185,9 @@ s.out <- sim(z.out.hist2.unscaled, x = x.tv)
 pdf(file="figure/dtv_effect.pdf", pointsize=15)
 par(xpd=TRUE)
 plot(s.out.d,
-     xlab="Change in TV Density",
-     ylab="Predicted Number of Civil Wars",
+     xlab="Change in International Mean of TV Density",
+     ylab="Predicted Number of Civil Wars Onsets",
      cex.lab=3,
-     ci=c(90,95,99.9),
-     leg=3)
-dev.off()
-
-pdf(file="figure/tv_effect.pdf", pointsize=15)
-par(xpd=TRUE)
-
-plot(s.out,
-     xlab="Level of TV Density",
-     ylab="Predicted Number of Civil Wars",
      ci=c(90,95,99.9),
      leg=3)
 dev.off()
