@@ -38,7 +38,7 @@ rep.model.nonlin <- gam(onset ~ s(logmdi) + lgdpl + larea + lmtn + lpopl + oil2l
                           family=binomial)
 # summary(rep.model.nonlin)
 
-# anova(rep.model.lin.log, rep.model.nonlin, test="Chisq")
+anov<-anova(rep.model.lin.log, rep.model.nonlin, test="Chisq")
 # 
 # 
 # plot(rep.model.nonlin, main="Effect of MDI on Civil War Across Levels of MDI")
@@ -72,6 +72,14 @@ rep.model<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                    deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                    spline3,
                  data=model1vars,
+                 model="relogit",
+                 robust=TRUE,
+                 cite=F)
+
+rep.belowmed<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                   deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                   spline3,
+                 data=subset(model1vars, mdi<quantile(model1vars$mdi, .60, na.rm=TRUE)),
                  model="relogit",
                  robust=TRUE,
                  cite=F)

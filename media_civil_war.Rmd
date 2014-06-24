@@ -108,6 +108,28 @@ To gain a better sense of the bivariate relationship between mass media density 
 
 Figure 2 efficiently illustrates several important facts about the distributions of civil war onset and mass media density in this sample of countries between 1945-1999.
 
+First, these distributions challenge Warren's key rationale for questioning the prior belief that mass media plays a causal role in generating civil war onsets. Warren argues that those cases in which mass media are known to have played a significant role in civil war--cases such as Yugoslavia and Rwanda in the early 1990s (MDIs of 40.5 and 6.3, respectively)--"unrepresentative cases... characterized by unusual levels of mass media weakness" (Warren 2014, 132). Warren argues that because analysts have effectively selected these cases on the dependent variable, they "observe mass communication behavior only in those countries that are experiencing the outbreak of large-scale civil conflict"(Warren 2014, 132). The implication is that the positive association between mass media and civil war established by previous qualitative research is "spurious" (132) and that "expanding our focus to the full universe of cases reveals quite a different picture" (123).
+
+Illustrating the entire distribution of the full universe of cases, however, Figure 2 illustrates that cases such as Yugoslavia and Rwanda are indeed fairly typical country-years in the period 1945-1999. While it is true that in these cases mass media density is below the global average *in that year*, these cases bracket the global median of MDI (`r median(warren$mdi, na.rm=TRUE)`) by less than half of one standard deviation (`r sd(warren$mdi, na.rm=TRUE) / 2`) on either side. Thus, some of the well-known cases which illustrate the bellicose effects of mass media are indeed highly representative of MDI levels globally in the post-war period until 1999. 
+
+Second, if there is a problem of unrepresentativeness it is that the extreme right-skew of MDI in peaceful country-years likely drives a disproportionate amount of the negative association between MDI and civil war. Figure 2 illustrates that no civil war has ever been observed in any country-year characterized by MDI greater than roughly 150, but that these are highly unrepresentative cases (in the 94% percentile). This is important because, as the following stage of analysis will investigate more thoroughly, it indicates that the actual relationship between mass media and civil war in *most cases* could be driven by a minority of cases with extreme values on the independent variable.
+
+
+The inferential problem of selecting on a dependent variable *Y* is that its association with independent variable *X* might be different at different values of *Y*. If the relationship between MDI and civil war is unique within the subset of cases where civil war occurs, the inferences *risk* spuriousness but do not imply spuriousness *ipso facto*. If the relationship between MDI and civil war is not unique to the subset of cases in which civil war occurrs, then selecting on the dependent variable does not lead to spuriousness
+
+if the analyst identifies some causal factor, inferences about this causal factor will be spurious *to the degree* that this causal factor is also present in many cases (neglected by the analyst) where the dependent variable takes a different value (neglected by the analyst).
+
+the c also present  not consider cases in which the hypothesized explanatory variable 
+
+
+
+
+Yet, while it is true that in these cases mass media density is below the global average *in that year*, Figure 2 illustrates that these cases are indeed fairly typical cases in the period 1945-1999. 
+
+The first is that the data are skewed strongly to the right, due to the relatively small set of countries which saw mass media density rise to globally unprecedented levels by 1999. This is important because
+
+The 
+
 ```{r violinplot, fig.cap='Violin plot of media density for all civil war onsets', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 source("analyses/granular.R")
 ```
@@ -116,7 +138,11 @@ source("analyses/granular.R")
 
 Non-linear regression suggests there is a non-linear relationship between mass media density and civil war onset. ANOVA suggests this relationship is significant.
 
-```{r nonlinear-regression, fig.cap='The Non-Linear Effect of MDI on Civil War Across Levels of MDI', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+```{r nonlinear-anova, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+stargazer(anov, title="ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset")
+```
+
+```{r nonlinear-plot, fig.cap='The Non-Linear Effect of MDI on Civil War Across Levels of MDI', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 plot(rep.model.nonlin, main="")
 ```
 
