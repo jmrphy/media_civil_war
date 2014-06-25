@@ -84,60 +84,53 @@ Another drawback to this strategy is that considering only television density ap
 
 # Analysis
 
-To gain a better sense of the bivariate relationship between mass media density and civil war onset, while keeping the distributions in perspective, Figure 2 displays four violin plots.^[The violin plot is a relatively new but simple graphical device similar to the traditional boxplot but with a density trace [@Kastellec:2007ha; @Hintze:1998fu].] The violin plots on the left display the distribution of mass media density for all country-years in which there is no civil war onset, while the violin plots on the left display the same distribution for all country-years in which there is a civil war onset. The violin plots in the top half of the figure are scaled by the total count of cases for all country-years whereas the plots in the bottom half are scaled with respect to the count of cases within each distribution. Each plot contains three points which indicate the 25th percentile, median, and 75th percentile within each distribution.
+## Graphical analysis
 
-Figure 2 efficiently illustrates several important facts about the distributions of civil war onset and mass media density in this sample of countries between 1945-1999.
+To gain a better sense of the bivariate relationship between mass media density and civil war onset, while keeping the distributions in perspective, Figure 2 displays four violin plots.^[The violin plot is a relatively new but simple graphical device similar to the traditional boxplot but with a density trace [@Kastellec:2007ha; @Hintze:1998fu].] The violin plots on the left display the distribution of mass media density for all country-years in which there is no civil war onset, while the violin plots on the left display the same distribution for all country-years in which there is a civil war onset. The violin plots in the top half of the figure are scaled by the total count of cases for all country-years whereas the plots in the bottom half are scaled with respect to the count of cases within each distribution. Each plot contains three points which indicate the 25th percentile, median, and 75th percentile within each distribution. These plots illustrate three important facts about the distributions of civil war onset and mass media density in this sample of countries between 1945-1999.
+
+\clearpage
+![Violin plot of media density for all civil war onsets](figure/violinplot.pdf) 
+\clearpage
 
 First, these distributions challenge Warren's key rationale for questioning the prior belief that mass media plays a causal role in generating civil war onsets. Warren argues that those cases in which mass media are known to have played a significant role in civil war--cases such as Yugoslavia and Rwanda in the early 1990s (MDIs of 40.5 and 6.3, respectively)--"unrepresentative cases... characterized by unusual levels of mass media weakness" (Warren 2014, 132). Warren argues that because analysts have effectively selected these cases on the dependent variable, they "observe mass communication behavior only in those countries that are experiencing the outbreak of large-scale civil conflict"(Warren 2014, 132). The implication is that the positive association between mass media and civil war established by previous qualitative research is "spurious" (132) and that "expanding our focus to the full universe of cases reveals quite a different picture" (123).
 
 Illustrating the entire distribution of the full universe of cases, however, Figure 2 illustrates that cases such as Yugoslavia and Rwanda are indeed fairly typical country-years in the period 1945-1999. While it is true that in these cases mass media density is below the global average *in that year*, these cases bracket the global median of MDI (37.03) by less than half of one standard deviation (8) on either side. Thus, some of the well-known cases which illustrate the bellicose effects of mass media are indeed highly representative of MDI levels globally in the post-war period until 1999. 
 
-Second, if there is a problem of unrepresentativeness it is that the extreme right-skew of MDI in peaceful country-years likely drives a disproportionate amount of the negative association between MDI and civil war. Figure 2 illustrates that no civil war has ever been observed in any country-year characterized by MDI greater than roughly 150, but that these are highly unrepresentative cases (in the 94% percentile). This is important because, as the following stage of analysis will investigate more thoroughly, it indicates that the actual relationship between mass media and civil war in *most cases* could be driven by a minority of cases with extreme values on the independent variable.
+Second, if there is a problem of unrepresentativeness it is that the extreme right-skew of MDI in peaceful country-years likely drives a disproportionate amount of the negative association between levels of MDI and civil war. Figure 2 illustrates that no civil war has ever been observed in any country-year characterized by MDI greater than roughly 150, but that these are highly unrepresentative cases (in the 94% percentile). This is important because, as the following stage of analysis will investigate more thoroughly, it indicates that the actual relationship between mass media and civil war may be driven by a minority of cases with uncommonly high values on the independent variable, leading us to inferences which do not necessarily describe most cases.
+
+Finally, civil wars are most frequently observed at low but positive levels of MDI, compared to the zero level. *Prima facie* this is contrary to what we would expect from the general pacification hypothesis; if the relationship between MDI and civil war onset is negative and monotonic, we would expect civil wars to be more frequent at the zero level of mass media density. Rather, the distribution suggests the possibility of non-linearity at low levels of mass media density, precisely as predicted by the war-before-peace hypothesis. Of course, some third variable could very well account for this apparent non-linearity in the bivariate relationship. For this reason, the following section turns to a statistical test of this non-linearity, controlling for all of the other variables in the original model.
+
+## Considering Non-Linearity with Semi-Paramtric Regression
+
+To test whether mass media density has a non-linear effect on civil war onset, this section compares the fit of a baseline logistic regression replicated from Warren (2014) with an additive semi-parametric regression model identical in every respect except that the effect of MDI is estimated with a nonparametric smooth allowing it to vary at different levels of MDI. Specifically, I estimate the model
+
+$$ Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i $$
+
+where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline ([@Fox:2002us; Wood:2000jb]) and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
+
+Figure 3 plots the value of the smooth terms for each level of the logarithm of MDI, i.e. the estimated effect of the logarithm of MDI on the probability of civil war onset across its range. The result is consistent with the war-before-peace hypothesis: MDI is positively associated with civil war onset up to a threshold, the estimated effect slightly increasing up to that threshold, before changing direction and decreasing monotonically. To determine whether the non-linear fit is superior to the linear fit, a simple analysis of variance (ANOVA) can be used to contrast the deviance of each model. Table 3 displays the results, which suggest that the non-linear fit reduces the deviance by 17.9 and is highly statistically significant.
 
 
-The inferential problem of selecting on a dependent variable *Y* is that its association with independent variable *X* might be different at different values of *Y*. If the relationship between MDI and civil war is unique within the subset of cases where civil war occurs, the inferences *risk* spuriousness but do not imply spuriousness *ipso facto*. If the relationship between MDI and civil war is not unique to the subset of cases in which civil war occurrs, then selecting on the dependent variable does not lead to spuriousness
+![The Non-Linear Effect of MDI on Civil War Across Levels of MDI](figure/nonlinear-plot.pdf) 
 
-if the analyst identifies some causal factor, inferences about this causal factor will be spurious *to the degree* that this causal factor is also present in many cases (neglected by the analyst) where the dependent variable takes a different value (neglected by the analyst).
-
-the c also present  not consider cases in which the hypothesized explanatory variable 
-
-
-
-
-Yet, while it is true that in these cases mass media density is below the global average *in that year*, Figure 2 illustrates that these cases are indeed fairly typical cases in the period 1945-1999. 
-
-The first is that the data are skewed strongly to the right, due to the relatively small set of countries which saw mass media density rise to globally unprecedented levels by 1999. This is important because
-
-The 
-
-![Violin plot of media density for all civil war onsets](figure/violinplot.pdf) 
-
-\clearpage
-
-Non-linear regression suggests there is a non-linear relationship between mass media density and civil war onset. ANOVA suggests this relationship is significant.
 
 
 % Table created by stargazer v.5.0 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Jun 24, 2014 - 11:42:22
+% Date and time: Wed, Jun 25, 2014 - 19:07:10
 \begin{table}[!htbp] \centering 
   \caption{ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset} 
   \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\begin{tabular}{@{\extracolsep{5pt}} cccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
-Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
-Resid. Df & 2 & 5,883.000 & 1.100 & 5,882.000 & 5,884.000 \\ 
-Resid. Dev & 2 & 1,061.000 & 13.000 & 1,052.000 & 1,070.000 \\ 
-Df & 1 & 1.600 &  & 1.600 & 1.600 \\ 
-Deviance & 1 & 18.000 &  & 18.000 & 18.000 \\ 
-Pr(\textgreater Chi) & 1 & 0.0001 &  & 0.0001 & 0.0001 \\ 
+ & Resid. Df & Resid. Dev & Df & Deviance & Pr(\textgreater Chi) \\ 
+1 & $5,884$ & $1,070.000$ & $$ & $$ & $$ \\ 
+2 & $5,882.000$ & $1,052.000$ & $1.600$ & $18.000$ & $0.0001$ \\ 
 \hline \\[-1.8ex] 
 \end{tabular} 
 \end{table} 
 
-![The Non-Linear Effect of MDI on Civil War Across Levels of MDI](figure/nonlinear-plot.pdf) 
 
-\clearpage
 
  Table 1 shows coefficients and standard errors from several rare-events logistic regressions modeling the determinants of civil war onset.^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years [@King:2001ta]. There are 119 (2.06%) onsets in the full sample and 63 (3.47%) in the subset of low-MDI country years.]
  
