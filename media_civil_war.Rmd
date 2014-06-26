@@ -128,25 +128,32 @@ To test whether mass media density has a non-linear effect on civil war onset, t
 
 $$ Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i $$
 
-where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline ([@Fox:2002us; Wood:2000jb]) and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
+where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline [@Fox:2002us; Wood:2000jb] and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
 
 Figure 3 plots the value of the smooth terms for each level of the logarithm of MDI, i.e. the estimated effect of the logarithm of MDI on the probability of civil war onset across its range. The result is consistent with the war-before-peace hypothesis: MDI is positively associated with civil war onset up to a threshold, the estimated effect slightly increasing up to that threshold, before changing direction and decreasing monotonically. To determine whether the non-linear fit is superior to the linear fit, a simple analysis of variance (ANOVA) can be used to contrast the deviance of each model. Table 3 displays the results, which suggest that the non-linear fit reduces the deviance by 17.9 and is highly statistically significant.
 
 
 ```{r nonlinear-plot, fig.cap='The Non-Linear Effect of MDI on Civil War Across Levels of MDI', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 plot(rep.model.nonlin, main="")
+abline(a=0,b=0, col = "red", lty = 9)
 ```
 
 
 ```{r nonlinear-anova, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 stargazer(anov,
           summary=FALSE,
-          title="ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset")
+          title="ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset",
+          digits = 2,
+          style = "io",
+          font.size="footnotesize",
+          header=FALSE)
 ```
 
+Due to the atheoretical nature of nonparametric regression and the difficulty of drawing inferences from multiple smoothed regression splines, the following section proceeds with traditional parametric logistic regressions on subsets of the sample suggested by the semi-parametric model. The second observable implication is also considered.
 
+## Estimating the Effect of Mass Media Density Before and After the Threshold of Mass Communications
 
- Table 1 shows coefficients and standard errors from several rare-events logistic regressions modeling the determinants of civil war onset.^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years [@King:2001ta]. There are `r table(model1vars$onset)[2]` (`r table(model1vars$onset)[2]/table(model1vars$onset)[1]*100`%) onsets in the full sample and `r table(low.model1vars$onset)[2]` (`r table(low.model1vars$onset)[2]/table(low.model1vars$onset)[1]*100`%) in the subset of low-MDI country years.]
+ Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare-events [@King:2001ta].^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are `r table(model1vars$onset)[2]` (`r table(model1vars$onset)[2]/table(model1vars$onset)[1]*100`%) onsets in the full sample and `r table(low.model1vars$onset)[2]` (`r table(low.model1vars$onset)[2]/table(low.model1vars$onset)[1]*100`%) in the subset of low-MDI country years.]
  
 ```{r mainregressions, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 stargazer(rep.model, diff.model, disag.model,
@@ -202,14 +209,17 @@ longrun.plot
 #source("analyses/historical.R")
 stargazer(z.out.hist1, z.out.hist2, z.out.hist3,
                       title="Historical Regressions",
-#                       covariate.labels=c("TV",
-#                       	"$\\Delta$TV",
-#                       	"GDP PER CAPITA",
-#                       	"$\\Delta$GDP PER CAPITA",
-#                       	"DEMOCRACY",
-#                       	"DEMOCRACY$^2$",
-#                       	"CIVIL WARS$_{t-1}$",
-#                       	"$\\Delta$CIVIL WARS"),
+# #                       covariate.labels=c("TV",
+# #                       	"$\\Delta$TV",
+# #                       	"GDP PER CAPITA",
+# #                       	"$\\Delta$GDP PER CAPITA",
+# #                       	"$\\Delta$DEMOCRACY",
+#                           "DEMOCRACY",
+# #                       	"DEMOCRACY$^2$",
+# #                       	"CIVIL WARS$_{t-1}$",
+#                           "ONSETS$_{t-1}$",
+#                           "$\\Delta$ONSETS$_{t-1}$",
+# #                       	"$\\Delta$CIVIL WARS"),
                       digits = 2,
                       style = "io",
                       font.size="footnotesize",
@@ -245,6 +255,18 @@ print(levinlin)
 print(ips)   
 ```
 
+The following plots display the smoothed terms for each of the components of MDI, controlling for all the independent variables of the baseline model and the other components of MDI. All of the components of MDI are logged before estimation. Each plot was generated by a semi-parametric regression in which all independent variables are estimated parametrically except the variable of interest. The dashed line represent 95% confidence bands.
+```{r disaggregated-nonlinear, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+par(mfrow=c(3,1))
+plot(rep.model.tv.nonlin, main="Effect of TV Density on Civil War Across Levels of TV Density")
+abline(a=0,b=0, col = "red", lty = 9)
+
+plot(rep.model.radio.nonlin, main="Effect of Radio Density on Civil War Across Levels of Radio Density")
+abline(a=0,b=0, col = "red", lty = 9)
+
+plot(rep.model.news.nonlin, main="Effect of Radio Density on Civil War Across Levels of Radio Density")
+abline(a=0,b=0, col = "darkred", lty = 9)
+```
 \pagebreak   
    
    

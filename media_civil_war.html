@@ -251,14 +251,14 @@ the likelihood of civil war.</li>
 
 <p>\[  Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i  \]</p>
 
-<p>where the partial-regression function \( f_1 (\cdot) \) is fit by a smoothing spline ([@Fox:2002us; Wood:2000jb]) and  \( CONTROLS_{it} \) is the vector of control variables used in Warren&#39;s original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.<sup>[The</sup> model was estimated using the function <em>gam</em> in the <em>mgcv</em> package for R.]</p>
+<p>where the partial-regression function \( f_1 (\cdot) \) is fit by a smoothing spline [@Fox:2002us; Wood:2000jb] and  \( CONTROLS_{it} \) is the vector of control variables used in Warren&#39;s original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.<sup>[The</sup> model was estimated using the function <em>gam</em> in the <em>mgcv</em> package for R.]</p>
 
 <p>Figure 3 plots the value of the smooth terms for each level of the logarithm of MDI, i.e. the estimated effect of the logarithm of MDI on the probability of civil war onset across its range. The result is consistent with the war-before-peace hypothesis: MDI is positively associated with civil war onset up to a threshold, the estimated effect slightly increasing up to that threshold, before changing direction and decreasing monotonically. To determine whether the non-linear fit is superior to the linear fit, a simple analysis of variance (ANOVA) can be used to contrast the deviance of each model. Table 3 displays the results, which suggest that the non-linear fit reduces the deviance by 17.9 and is highly statistically significant.</p>
 
 <p><img src="figure/nonlinear-plot.pdf" alt="The Non-Linear Effect of MDI on Civil War Across Levels of MDI"/> </p>
 
 <p>% Table created by stargazer v.5.0 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, Jun 25, 2014 - 19:07:10
+% Date and time: Thu, Jun 26, 2014 - 12:05:35
 \begin{table}[!htbp] \centering 
   \caption{ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset} 
   \label{} 
@@ -266,13 +266,17 @@ the likelihood of civil war.</li>
 \[-1.8ex]\hline 
 \hline \[-1.8ex] 
  &amp; Resid. Df &amp; Resid. Dev &amp; Df &amp; Deviance &amp; Pr(\textgreater Chi) \ 
-1 &amp; \( 5,884 \) &amp; \( 1,070.000 \) &amp; \[  &  \] &amp; $$ \ 
-2 &amp; \( 5,882.000 \) &amp; \( 1,052.000 \) &amp; \( 1.600 \) &amp; \( 18.000 \) &amp; \( 0.0001 \) \ 
+1 &amp; \( 5,772 \) &amp; \( 1,025.000 \) &amp; \[  &  \] &amp; $$ \ 
+2 &amp; \( 5,770.000 \) &amp; \( 1,008.000 \) &amp; \( 1.500 \) &amp; \( 17.000 \) &amp; \( 0.0001 \) \ 
 \hline \[-1.8ex] 
 \end{tabular} 
 \end{table} </p>
 
-<p>Table 1 shows coefficients and standard errors from several rare-events logistic regressions modeling the determinants of civil war onset.<sup>[Traditional</sup> logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years [@King:2001ta]. There are 119 (2.06%) onsets in the full sample and 63 (3.47%) in the subset of low-MDI country years.]</p>
+<p>Due to the atheoretical nature of nonparametric regression and the difficulty of drawing inferences from multiple smoothed regression splines, the following section proceeds with traditional parametric logistic regressions on subsets of the sample suggested by the semi-parametric model. The second observable implication is also considered.</p>
+
+<h2>Estimating the Effect of Mass Media Density Before and After the Threshold of Mass Communications</h2>
+
+<p>Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare-events [@King:2001ta].<sup>[Traditional</sup> logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are 114 (2.01%) onsets in the full sample and 63 (3.47%) in the subset of low-MDI country years.]</p>
 
 <p>\begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
@@ -283,7 +287,7 @@ the likelihood of civil war.</li>
  &amp; Warren &amp; \multicolumn{2}{c}{Low MDI} \ 
 \[-1.8ex] &amp; (1) &amp; (2) &amp; (3)\ 
 \hline \[-1.8ex] 
- MDI &amp; $-\( 2.60 \)<sup>{***}$</sup> &amp;  &amp;  \ 
+ MDI &amp; $-\( 2.50 \)<sup>{***}$</sup> &amp;  &amp;  \ 
   &amp; (0.71) &amp;  &amp;  \ 
   $\Delta\( MDI &  & 0.43 \)<sup>{*}$</sup> &amp;  \ 
   &amp;  &amp; (0.25) &amp;  \ 
@@ -293,37 +297,37 @@ the likelihood of civil war.</li>
   &amp;  &amp;  &amp; (0.25) \ 
   $\Delta\( TV &  &  & 0.40 \)<sup>{*}$</sup> \ 
   &amp;  &amp;  &amp; (0.22) \ 
-  GDP PER CAPITA &amp; $-$0.09 &amp; $-\( 0.77 \)<sup>{*}$</sup> &amp; $-\( 0.78 \)<sup>{*}$</sup> \ 
-  &amp; (0.36) &amp; (0.40) &amp; (0.40) \ 
-  AREA &amp; $-\( 0.31 & 0.10 & 0.01 \\ 
-  & (0.32) & (0.48) & (0.48) \\ 
-  MOUNTAINOUS TERRAIN & 0.45 \)<sup>{*}$</sup> &amp; 0.34 &amp; 0.37 \ 
-  &amp; (0.24) &amp; (0.39) &amp; (0.40) \ 
-  POPULATION &amp; 0.80\( ^{***} \) &amp; 0.75\( ^{*} \) &amp; 0.80\( ^{*} \) \ 
-  &amp; (0.25) &amp; (0.41) &amp; (0.42) \ 
-  OIL EXPORTER &amp; 0.76\( ^{***} \) &amp; 1.30\( ^{***} \) &amp; 1.30\( ^{***} \) \ 
+  GDP PER CAPITA &amp; $-$0.23 &amp; $-\( 0.77 \)<sup>{*}$</sup> &amp; $-\( 0.78 \)<sup>{*}$</sup> \ 
+  &amp; (0.37) &amp; (0.40) &amp; (0.40) \ 
+  AREA &amp; $-\( 0.39 & 0.10 & 0.01 \\ 
+  & (0.33) & (0.48) & (0.48) \\ 
+  MOUNTAINOUS TERRAIN & 0.49 \)<sup>{**}$</sup> &amp; 0.34 &amp; 0.37 \ 
+  &amp; (0.25) &amp; (0.39) &amp; (0.40) \ 
+  POPULATION &amp; 0.86\( ^{***} \) &amp; 0.75\( ^{*} \) &amp; 0.80\( ^{*} \) \ 
+  &amp; (0.26) &amp; (0.41) &amp; (0.42) \ 
+  OIL EXPORTER &amp; 0.83\( ^{***} \) &amp; 1.30\( ^{***} \) &amp; 1.30\( ^{***} \) \ 
   &amp; (0.28) &amp; (0.49) &amp; (0.50) \ 
-  DEMOCRACY &amp; 2.70\( ^{**} \) &amp; 2.70\( ^{*} \) &amp; 2.50 \ 
-  &amp; (1.10) &amp; (1.50) &amp; (1.50) \ 
-  DEMOCRACY\( ^2 \) &amp; $-\( 2.50 \)<sup>{**}$</sup> &amp; $-$2.20 &amp; $-$2.00 \ 
+  DEMOCRACY &amp; 3.10\( ^{***} \) &amp; 2.70\( ^{*} \) &amp; 2.50 \ 
+  &amp; (1.20) &amp; (1.50) &amp; (1.50) \ 
+  DEMOCRACY\( ^2 \) &amp; $-\( 2.90 \)<sup>{**}$</sup> &amp; $-$2.20 &amp; $-$2.00 \ 
   &amp; (1.20) &amp; (1.40) &amp; (1.50) \ 
   ETHNIC FRACTIONALIZATION &amp; 0.11 &amp; $-$0.43 &amp; $-\( 0.38 \\ 
-  & (0.21) & (0.35) & (0.36) \\ 
-  RELIGIOUS FRACTIONALIZATION & 0.60 \)<sup>{***}$</sup> &amp; 0.40 &amp; 0.47 \ 
+  & (0.22) & (0.35) & (0.36) \\ 
+  RELIGIOUS FRACTIONALIZATION & 0.62 \)<sup>{***}$</sup> &amp; 0.40 &amp; 0.47 \ 
   &amp; (0.23) &amp; (0.36) &amp; (0.36) \ 
-  PEACE YEARS &amp; $-$1.90 &amp; $-$0.55 &amp; $-$0.18 \ 
+  PEACE YEARS &amp; $-$1.50 &amp; $-$0.55 &amp; $-$0.18 \ 
   &amp; (2.60) &amp; (2.60) &amp; (2.60) \ 
-  SPLINE 1 &amp; $-$0.55 &amp; 3.30 &amp; 4.50 \ 
+  SPLINE 1 &amp; 0.27 &amp; 3.30 &amp; 4.50 \ 
   &amp; (16.00) &amp; (13.00) &amp; (13.00) \ 
-  SPLINE 2 &amp; $-$5.20 &amp; $-$6.00 &amp; $-$6.60 \ 
-  &amp; (18.00) &amp; (15.00) &amp; (15.00) \ 
+  SPLINE 2 &amp; $-$5.70 &amp; $-$6.00 &amp; $-$6.60 \ 
+  &amp; (19.00) &amp; (15.00) &amp; (15.00) \ 
   SPLINE 3 &amp; 3.50 &amp; 1.80 &amp; 1.60 \ 
   &amp; (5.60) &amp; (4.70) &amp; (4.70) \ 
-  CONSTANT &amp; $-\( 4.50 \)<sup>{***}$</sup> &amp; $-\( 3.80 \)<sup>{***}$</sup> &amp; $-\( 3.80 \)<sup>{***}$</sup> \ 
+  CONSTANT &amp; $-\( 4.60 \)<sup>{***}$</sup> &amp; $-\( 3.80 \)<sup>{***}$</sup> &amp; $-\( 3.80 \)<sup>{***}$</sup> \ 
   &amp; (0.18) &amp; (0.22) &amp; (0.22) \ 
- \textit{Observations} &amp; 5,899 &amp; 1,445 &amp; 1,445 \ 
-\textit{Log likelihood} &amp; $-$528.00 &amp; $-$182.00 &amp; $-$182.00 \ 
-\textit{Akaike information criterion} &amp; 1,085.00 &amp; 395.00 &amp; 397.00 \ 
+ \textit{Observations} &amp; 5,787 &amp; 1,445 &amp; 1,445 \ 
+\textit{Log likelihood} &amp; $-$506.00 &amp; $-$182.00 &amp; $-$182.00 \ 
+\textit{Akaike information criterion} &amp; 1,042.00 &amp; 395.00 &amp; 397.00 \ 
 \hline \[-1.8ex] 
 \textit{Notes:} &amp; \multicolumn{3}{l}{$<sup>{***}$p</sup> \( < \) .01; $<sup>{**}$p</sup> \( < \) .05; $<sup>{*}$p</sup> \( < \) .1} \ 
 \end{tabular} 
@@ -425,7 +429,9 @@ alternative hypothesis: stationarity</p>
 CIPS test = -2.1, lag order = 2, p-value = 0.1
 alternative hypothesis: Stationarity</p>
 
-<p>\pagebreak   </p>
+<p>The following plots display the smoothed terms for each of the components of MDI, controlling for all the independent variables of the baseline model and the other components of MDI. All of the components of MDI are logged before estimation. Each plot was generated by a semi-parametric regression in which all independent variables are estimated parametrically except the variable of interest. The dashed line represent 95% confidence bands.
+<img src="figure/disaggregated-nonlinear.pdf" alt="plot of chunk disaggregated-nonlinear"/> 
+\pagebreak   </p>
 
 <h1>References</h1>
 

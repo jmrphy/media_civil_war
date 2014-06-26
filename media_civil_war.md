@@ -106,7 +106,7 @@ To test whether mass media density has a non-linear effect on civil war onset, t
 
 $$ Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i $$
 
-where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline ([@Fox:2002us; Wood:2000jb]) and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
+where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline [@Fox:2002us; Wood:2000jb] and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
 
 Figure 3 plots the value of the smooth terms for each level of the logarithm of MDI, i.e. the estimated effect of the logarithm of MDI on the probability of civil war onset across its range. The result is consistent with the war-before-peace hypothesis: MDI is positively associated with civil war onset up to a threshold, the estimated effect slightly increasing up to that threshold, before changing direction and decreasing monotonically. To determine whether the non-linear fit is superior to the linear fit, a simple analysis of variance (ANOVA) can be used to contrast the deviance of each model. Table 3 displays the results, which suggest that the non-linear fit reduces the deviance by 17.9 and is highly statistically significant.
 
@@ -116,7 +116,7 @@ Figure 3 plots the value of the smooth terms for each level of the logarithm of 
 
 
 % Table created by stargazer v.5.0 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, Jun 25, 2014 - 19:07:10
+% Date and time: Thu, Jun 26, 2014 - 12:05:35
 \begin{table}[!htbp] \centering 
   \caption{ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset} 
   \label{} 
@@ -124,15 +124,17 @@ Figure 3 plots the value of the smooth terms for each level of the logarithm of 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & Resid. Df & Resid. Dev & Df & Deviance & Pr(\textgreater Chi) \\ 
-1 & $5,884$ & $1,070.000$ & $$ & $$ & $$ \\ 
-2 & $5,882.000$ & $1,052.000$ & $1.600$ & $18.000$ & $0.0001$ \\ 
+1 & $5,772$ & $1,025.000$ & $$ & $$ & $$ \\ 
+2 & $5,770.000$ & $1,008.000$ & $1.500$ & $17.000$ & $0.0001$ \\ 
 \hline \\[-1.8ex] 
 \end{tabular} 
 \end{table} 
 
+Due to the atheoretical nature of nonparametric regression and the difficulty of drawing inferences from multiple smoothed regression splines, the following section proceeds with traditional parametric logistic regressions on subsets of the sample suggested by the semi-parametric model. The second observable implication is also considered.
 
+## Estimating the Effect of Mass Media Density Before and After the Threshold of Mass Communications
 
- Table 1 shows coefficients and standard errors from several rare-events logistic regressions modeling the determinants of civil war onset.^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years [@King:2001ta]. There are 119 (2.06%) onsets in the full sample and 63 (3.47%) in the subset of low-MDI country years.]
+ Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare-events [@King:2001ta].^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are 114 (2.01%) onsets in the full sample and 63 (3.47%) in the subset of low-MDI country years.]
  
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
@@ -143,7 +145,7 @@ Figure 3 plots the value of the smooth terms for each level of the logarithm of 
  & Warren & \multicolumn{2}{c}{Low MDI} \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- MDI & $-$2.60$^{***}$ &  &  \\ 
+ MDI & $-$2.50$^{***}$ &  &  \\ 
   & (0.71) &  &  \\ 
   $\Delta$MDI &  & 0.43$^{*}$ &  \\ 
   &  & (0.25) &  \\ 
@@ -153,37 +155,37 @@ Figure 3 plots the value of the smooth terms for each level of the logarithm of 
   &  &  & (0.25) \\ 
   $\Delta$TV &  &  & 0.40$^{*}$ \\ 
   &  &  & (0.22) \\ 
-  GDP PER CAPITA & $-$0.09 & $-$0.77$^{*}$ & $-$0.78$^{*}$ \\ 
-  & (0.36) & (0.40) & (0.40) \\ 
-  AREA & $-$0.31 & 0.10 & 0.01 \\ 
-  & (0.32) & (0.48) & (0.48) \\ 
-  MOUNTAINOUS TERRAIN & 0.45$^{*}$ & 0.34 & 0.37 \\ 
-  & (0.24) & (0.39) & (0.40) \\ 
-  POPULATION & 0.80$^{***}$ & 0.75$^{*}$ & 0.80$^{*}$ \\ 
-  & (0.25) & (0.41) & (0.42) \\ 
-  OIL EXPORTER & 0.76$^{***}$ & 1.30$^{***}$ & 1.30$^{***}$ \\ 
+  GDP PER CAPITA & $-$0.23 & $-$0.77$^{*}$ & $-$0.78$^{*}$ \\ 
+  & (0.37) & (0.40) & (0.40) \\ 
+  AREA & $-$0.39 & 0.10 & 0.01 \\ 
+  & (0.33) & (0.48) & (0.48) \\ 
+  MOUNTAINOUS TERRAIN & 0.49$^{**}$ & 0.34 & 0.37 \\ 
+  & (0.25) & (0.39) & (0.40) \\ 
+  POPULATION & 0.86$^{***}$ & 0.75$^{*}$ & 0.80$^{*}$ \\ 
+  & (0.26) & (0.41) & (0.42) \\ 
+  OIL EXPORTER & 0.83$^{***}$ & 1.30$^{***}$ & 1.30$^{***}$ \\ 
   & (0.28) & (0.49) & (0.50) \\ 
-  DEMOCRACY & 2.70$^{**}$ & 2.70$^{*}$ & 2.50 \\ 
-  & (1.10) & (1.50) & (1.50) \\ 
-  DEMOCRACY$^2$ & $-$2.50$^{**}$ & $-$2.20 & $-$2.00 \\ 
+  DEMOCRACY & 3.10$^{***}$ & 2.70$^{*}$ & 2.50 \\ 
+  & (1.20) & (1.50) & (1.50) \\ 
+  DEMOCRACY$^2$ & $-$2.90$^{**}$ & $-$2.20 & $-$2.00 \\ 
   & (1.20) & (1.40) & (1.50) \\ 
   ETHNIC FRACTIONALIZATION & 0.11 & $-$0.43 & $-$0.38 \\ 
-  & (0.21) & (0.35) & (0.36) \\ 
-  RELIGIOUS FRACTIONALIZATION & 0.60$^{***}$ & 0.40 & 0.47 \\ 
+  & (0.22) & (0.35) & (0.36) \\ 
+  RELIGIOUS FRACTIONALIZATION & 0.62$^{***}$ & 0.40 & 0.47 \\ 
   & (0.23) & (0.36) & (0.36) \\ 
-  PEACE YEARS & $-$1.90 & $-$0.55 & $-$0.18 \\ 
+  PEACE YEARS & $-$1.50 & $-$0.55 & $-$0.18 \\ 
   & (2.60) & (2.60) & (2.60) \\ 
-  SPLINE 1 & $-$0.55 & 3.30 & 4.50 \\ 
+  SPLINE 1 & 0.27 & 3.30 & 4.50 \\ 
   & (16.00) & (13.00) & (13.00) \\ 
-  SPLINE 2 & $-$5.20 & $-$6.00 & $-$6.60 \\ 
-  & (18.00) & (15.00) & (15.00) \\ 
+  SPLINE 2 & $-$5.70 & $-$6.00 & $-$6.60 \\ 
+  & (19.00) & (15.00) & (15.00) \\ 
   SPLINE 3 & 3.50 & 1.80 & 1.60 \\ 
   & (5.60) & (4.70) & (4.70) \\ 
-  CONSTANT & $-$4.50$^{***}$ & $-$3.80$^{***}$ & $-$3.80$^{***}$ \\ 
+  CONSTANT & $-$4.60$^{***}$ & $-$3.80$^{***}$ & $-$3.80$^{***}$ \\ 
   & (0.18) & (0.22) & (0.22) \\ 
- \textit{Observations} & 5,899 & 1,445 & 1,445 \\ 
-\textit{Log likelihood} & $-$528.00 & $-$182.00 & $-$182.00 \\ 
-\textit{Akaike information criterion} & 1,085.00 & 395.00 & 397.00 \\ 
+ \textit{Observations} & 5,787 & 1,445 & 1,445 \\ 
+\textit{Log likelihood} & $-$506.00 & $-$182.00 & $-$182.00 \\ 
+\textit{Akaike information criterion} & 1,042.00 & 395.00 & 397.00 \\ 
 \hline \\[-1.8ex] 
 \textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
@@ -290,6 +292,8 @@ data:  unit$mdi
 CIPS test = -2.1, lag order = 2, p-value = 0.1
 alternative hypothesis: Stationarity
 
+The following plots display the smoothed terms for each of the components of MDI, controlling for all the independent variables of the baseline model and the other components of MDI. All of the components of MDI are logged before estimation. Each plot was generated by a semi-parametric regression in which all independent variables are estimated parametrically except the variable of interest. The dashed line represent 95% confidence bands.
+![plot of chunk disaggregated-nonlinear](figure/disaggregated-nonlinear.pdf) 
 \pagebreak   
    
    

@@ -10,7 +10,7 @@ require(arm)
 warren<-read.csv("data/warren.csv")
 
 model1vars<-subset(warren, select=c("country", "year", "onset", "oil2l", "mdi", "logmdi", "mdi2", "lgdpl", "larea",
-                                    "lmtn", "lpopl", "deml",
+                                    "lmtn", "lpopl", "deml", "ltv", "lradio", "lnews",
                    "deml2", "ethfracl", "relfracl", "pcyrs", "spline1", "spline2", "spline3"))
 model1vars.unscaled<-model1vars
 
@@ -39,10 +39,40 @@ rep.model.nonlin <- gam(onset ~ s(logmdi) + lgdpl + larea + lmtn + lpopl + oil2l
 # summary(rep.model.nonlin)
 
 anov<-anova(rep.model.lin.log, rep.model.nonlin, test="Chisq")
-
-# 
-# 
 # plot(rep.model.nonlin, main="Effect of MDI on Civil War Across Levels of MDI")
+# abline(a=0,b=0, col = "red", lty = 9)
+
+
+rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + log(lnews+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                          deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                          spline3,
+                        data=model1vars,
+                        family=binomial)
+# summary(rep.model.tv.nonlin)
+
+# plot(rep.model.tv.nonlin, main="Effect of TV Density on Civil War Across Levels of TV Density")
+# abline(a=0,b=0, col = "red", lty = 9)
+
+rep.model.radio.nonlin <- gam(onset ~ s(log(lradio+1)) + log(ltv+1) + log(lnews+1) +  lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                             deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                             spline3,
+                           data=model1vars,
+                           family=binomial)
+# summary(rep.model.radio.nonlin)
+
+# plot(rep.model.radio.nonlin, main="Effect of Radio Density on Civil War Across Levels of Radio Density")
+# abline(a=0,b=0, col = "red", lty = 9)
+
+rep.model.news.nonlin <- gam(onset ~ s(log(lnews+1)) + log(ltv+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                                deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                                spline3,
+                              data=model1vars,
+                              family=binomial)
+#summary(rep.model.news.nonlin)
+
+# plot(rep.model.news.nonlin, main="Effect of Radio Density on Civil War Across Levels of Radio Density")
+# abline(a=0,b=0, col = "darkred", lty = 9)
+
 
 
 # Using Zelig
