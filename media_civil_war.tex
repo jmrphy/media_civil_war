@@ -584,12 +584,11 @@ different levels of MDI. Specifically, I estimate the model
 \[ Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i \]
 
 where the partial-regression function $f_1 (\cdot)$ is fit by a
-smoothing spline {[}Fox (2002); Wood:2000jb{]} and $CONTROLS_{it}$ is
-the vector of control variables used in Warren's original models. The
-number of smoothing splines is determined by generalized cross
-validation as part of the estimation procedure.\footnote{The model was
-  estimated using the function \emph{gam} in the \emph{mgcv} package for
-  R.}
+smoothing spline (Fox 2002; Wood 2000) and $CONTROLS_{it}$ is the vector
+of control variables used in Warren's original models. The number of
+smoothing splines is determined by generalized cross validation as part
+of the estimation procedure.\footnote{The model was estimated using the
+  function \emph{gam} in the \emph{mgcv} package for R.}
 
 Figure 3 plots the value of the smooth terms for each level of the
 logarithm of MDI, i.e.~the estimated effect of the logarithm of MDI on
@@ -601,7 +600,7 @@ decreasing monotonically. To determine whether the non-linear fit is
 superior to the linear fit, a simple analysis of variance (ANOVA) can be
 used to contrast the deviance of each model. Table 3 displays the
 results, which suggest that the non-linear fit reduces the deviance by
-17.9 and is highly statistically significant.
+17.9 and is statistically significant.
 
 \begin{figure}[htbp]
 \centering
@@ -609,33 +608,52 @@ results, which suggest that the non-linear fit reduces the deviance by
 \caption{The Non-Linear Effect of MDI on Civil War Across Levels of MDI}
 \end{figure}
 
-\% Table created by stargazer v.5.0 by Marek Hlavac, Harvard University.
-E-mail: hlavac at fas.harvard.edu \% Date and time: Thu, Jun 26, 2014 -
-12:05:35
-
 \begin{table}[!htbp] \centering 
   \caption{ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset} 
   \label{} 
+\footnotesize 
 \begin{tabular}{@{\extracolsep{5pt}} cccccc} 
-\\[-1.8ex]\hline 
+\\[-1.8ex]\hline \\[-1.8ex] 
+ & RESID. DF & RESID. DEV & DF & DEVIANCE & P-VALUE \\ 
 \hline \\[-1.8ex] 
- & Resid. Df & Resid. Dev & Df & Deviance & Pr(\textgreater Chi) \\ 
-1 & $5,772$ & $1,025.000$ & $$ & $$ & $$ \\ 
-2 & $5,770.000$ & $1,008.000$ & $1.500$ & $17.000$ & $0.0001$ \\ 
+1 & $5,884$ & $1,070.00$ & $$ & $$ & $$ \\ 
+2 & $5,882.00$ & $1,052.00$ & $1.60$ & $18.00$ & $0.0001$ \\ 
 \hline \\[-1.8ex] 
 \end{tabular} 
 \end{table}
 
 Due to the atheoretical nature of nonparametric regression and the
-difficulty of drawing inferences from multiple smoothed regression
-splines, the following section proceeds with traditional parametric
-logistic regressions on subsets of the sample suggested by the
-semi-parametric model. The second observable implication is also
-considered.
+difficulty of drawing inferences from multiple smoothed terms, the
+following section proceeds with traditional parametric logistic
+regressions on subsets of the sample suggested by the semi-parametric
+model. The second observable implication is also considered in the
+following section.
 
 \subsection{Estimating the Effect of Mass Media Density Before and After
 the Threshold of Mass
 Communications}\label{estimating-the-effect-of-mass-media-density-before-and-after-the-threshold-of-mass-communications}
+
+To further test the hypothesis that MDI increases the likelihood of
+civil war before it is sufficiently high to represent a mass
+communications system (and to obtain a parsimonious estimate of the
+effect size), I began by creating a subset of the original sample
+containing only country-years with MDI levels below the inflection point
+identified by the non-linear regression. Figure 2 suggests that the
+relationship between MDI and civil war begins to change direction when
+the logarithm of MDI is equal to about 2, which is an MDI level of about
+6.38. While it is reasonable to think such a low threshold might only
+correspond to a substantively trivial number of cases, on the contrary,
+this subset contained 1358 cases or about 20\% of the original sample.
+Furthermore, to ensure the robustness of the results, all of the models
+in this section pertaining to this subset of pre-mass communications
+systems were tested separately using a series lower and higher cutoff
+values. The main results reported below for changes in MDI under the
+threshold of mass communications are consistent using a cutoff as low as
+4 (13\% percentile) and as high as 10 (27\% percentile).\footnote{See
+  online appendix for full results.} To avoid ``cherry-picking'' a
+cutoff within this range, the models below report results for the 25\%
+percentile (MDI = 28.23), a conventional value for segmenting
+distributions.
 
 Table 1 shows coefficients and standard errors from several logistic
 regressions modeling the determinants of civil war onset, with
@@ -643,61 +661,61 @@ adjustment for rare-events (Gary King and Zeng 2001).\footnote{Traditional
   logistic regression estimated by maximum-likelihood would likely
   underestimate the probability of civil war onsets because civil wars
   begin in relatively very few country-years. There are 114 (2.01\%)
-  onsets in the full sample and 63 (3.47\%) in the subset of low-MDI
+  onsets in the full sample and 53 (3.36\%) in the subset of low-MDI
   country years.}
 
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
   \label{} 
 \footnotesize 
-\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
 \\[-1.8ex]\hline \\[-1.8ex] 
- & Warren & \multicolumn{2}{c}{Low MDI} \\ 
-\\[-1.8ex] & (1) & (2) & (3)\\ 
+ & Warren & Warren < 60th Percentile & \multicolumn{2}{c}{< Mass Comms System} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
 \hline \\[-1.8ex] 
- MDI & $-$2.50$^{***}$ &  &  \\ 
-  & (0.71) &  &  \\ 
-  $\Delta$MDI &  & 0.43$^{*}$ &  \\ 
-  &  & (0.25) &  \\ 
-  $\Delta$NEWSPAPER &  &  & 0.26 \\ 
-  &  &  & (0.32) \\ 
-  $\Delta$RADIO &  &  & 0.30 \\ 
-  &  &  & (0.25) \\ 
-  $\Delta$TV &  &  & 0.40$^{*}$ \\ 
-  &  &  & (0.22) \\ 
-  GDP PER CAPITA & $-$0.23 & $-$0.77$^{*}$ & $-$0.78$^{*}$ \\ 
-  & (0.37) & (0.40) & (0.40) \\ 
-  AREA & $-$0.39 & 0.10 & 0.01 \\ 
-  & (0.33) & (0.48) & (0.48) \\ 
-  MOUNTAINOUS TERRAIN & 0.49$^{**}$ & 0.34 & 0.37 \\ 
-  & (0.25) & (0.39) & (0.40) \\ 
-  POPULATION & 0.86$^{***}$ & 0.75$^{*}$ & 0.80$^{*}$ \\ 
-  & (0.26) & (0.41) & (0.42) \\ 
-  OIL EXPORTER & 0.83$^{***}$ & 1.30$^{***}$ & 1.30$^{***}$ \\ 
-  & (0.28) & (0.49) & (0.50) \\ 
-  DEMOCRACY & 3.10$^{***}$ & 2.70$^{*}$ & 2.50 \\ 
-  & (1.20) & (1.50) & (1.50) \\ 
-  DEMOCRACY$^2$ & $-$2.90$^{**}$ & $-$2.20 & $-$2.00 \\ 
-  & (1.20) & (1.40) & (1.50) \\ 
-  ETHNIC FRACTIONALIZATION & 0.11 & $-$0.43 & $-$0.38 \\ 
-  & (0.22) & (0.35) & (0.36) \\ 
-  RELIGIOUS FRACTIONALIZATION & 0.62$^{***}$ & 0.40 & 0.47 \\ 
-  & (0.23) & (0.36) & (0.36) \\ 
-  PEACE YEARS & $-$1.50 & $-$0.55 & $-$0.18 \\ 
-  & (2.60) & (2.60) & (2.60) \\ 
-  SPLINE 1 & 0.27 & 3.30 & 4.50 \\ 
-  & (16.00) & (13.00) & (13.00) \\ 
-  SPLINE 2 & $-$5.70 & $-$6.00 & $-$6.60 \\ 
-  & (19.00) & (15.00) & (15.00) \\ 
-  SPLINE 3 & 3.50 & 1.80 & 1.60 \\ 
-  & (5.60) & (4.70) & (4.70) \\ 
-  CONSTANT & $-$4.60$^{***}$ & $-$3.80$^{***}$ & $-$3.80$^{***}$ \\ 
-  & (0.18) & (0.22) & (0.22) \\ 
- \textit{Observations} & 5,787 & 1,445 & 1,445 \\ 
-\textit{Log likelihood} & $-$506.00 & $-$182.00 & $-$182.00 \\ 
-\textit{Akaike information criterion} & 1,042.00 & 395.00 & 397.00 \\ 
+ MDI & $-$2.50$^{***}$ & $-$2.00 &  &  \\ 
+  & (0.71) & (1.50) &  &  \\ 
+  $\Delta$MDI &  &  & 0.43$^{*}$ &  \\ 
+  &  &  & (0.25) &  \\ 
+  $\Delta$NEWSPAPER &  &  &  & 0.26 \\ 
+  &  &  &  & (0.32) \\ 
+  $\Delta$RADIO &  &  &  & 0.30 \\ 
+  &  &  &  & (0.25) \\ 
+  $\Delta$TV &  &  &  & 0.40$^{*}$ \\ 
+  &  &  &  & (0.22) \\ 
+  GDP PER CAPITA & $-$0.23 & $-$0.08 & $-$0.77$^{*}$ & $-$0.78$^{*}$ \\ 
+  & (0.37) & (0.42) & (0.40) & (0.40) \\ 
+  AREA & $-$0.39 & $-$0.37 & 0.10 & 0.01 \\ 
+  & (0.33) & (0.36) & (0.48) & (0.48) \\ 
+  MOUNTAINOUS TERRAIN & 0.49$^{**}$ & 0.49$^{*}$ & 0.34 & 0.37 \\ 
+  & (0.25) & (0.26) & (0.39) & (0.40) \\ 
+  POPULATION & 0.86$^{***}$ & 0.89$^{***}$ & 0.75$^{*}$ & 0.80$^{*}$ \\ 
+  & (0.26) & (0.27) & (0.41) & (0.42) \\ 
+  OIL EXPORTER & 0.83$^{***}$ & 0.62$^{*}$ & 1.30$^{***}$ & 1.30$^{***}$ \\ 
+  & (0.28) & (0.32) & (0.49) & (0.50) \\ 
+  DEMOCRACY & 3.10$^{***}$ & 2.50$^{*}$ & 2.70$^{*}$ & 2.50 \\ 
+  & (1.20) & (1.30) & (1.50) & (1.50) \\ 
+  DEMOCRACY$^2$ & $-$2.90$^{**}$ & $-$2.30$^{*}$ & $-$2.20 & $-$2.00 \\ 
+  & (1.20) & (1.40) & (1.40) & (1.50) \\ 
+  ETHNIC FRACTIONALIZATION & 0.11 & 0.17 & $-$0.43 & $-$0.38 \\ 
+  & (0.22) & (0.23) & (0.35) & (0.36) \\ 
+  RELIGIOUS FRACTIONALIZATION & 0.62$^{***}$ & 0.62$^{**}$ & 0.40 & 0.47 \\ 
+  & (0.23) & (0.25) & (0.36) & (0.36) \\ 
+  PEACE YEARS & $-$1.50 & $-$1.80 & $-$0.55 & $-$0.18 \\ 
+  & (2.60) & (2.70) & (2.60) & (2.60) \\ 
+  SPLINE 1 & 0.27 & $-$1.40 & 3.30 & 4.50 \\ 
+  & (16.00) & (17.00) & (13.00) & (13.00) \\ 
+  SPLINE 2 & $-$5.70 & $-$2.40 & $-$6.00 & $-$6.60 \\ 
+  & (19.00) & (20.00) & (15.00) & (15.00) \\ 
+  SPLINE 3 & 3.50 & 1.20 & 1.80 & 1.60 \\ 
+  & (5.60) & (6.30) & (4.70) & (4.70) \\ 
+  CONSTANT & $-$4.60$^{***}$ & $-$4.20$^{***}$ & $-$3.80$^{***}$ & $-$3.80$^{***}$ \\ 
+  & (0.18) & (0.45) & (0.22) & (0.22) \\ 
+ \textit{Observations} & 5,787 & 3,472 & 1,445 & 1,445 \\ 
+\textit{Log likelihood} & $-$506.00 & $-$433.00 & $-$182.00 & $-$182.00 \\ 
+\textit{Akaike information criterion} & 1,042.00 & 897.00 & 395.00 & 397.00 \\ 
 \hline \\[-1.8ex] 
-\textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
+\textit{Notes:} & \multicolumn{4}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
 \end{table}
 
@@ -877,6 +895,11 @@ Sambanis, N. 2004. ``What Is Civil War?: Conceptual and Empirical
 Complexities of an Operational Definition.'' \emph{Journal of Conflict
 Resolution} 48(6): 814--58.
 \url{http://jcr.sagepub.com/cgi/doi/10.1177/0022002704269355}.
+
+Wood, S N. 2000. ``Modelling and Smoothing Parameter Estimation with
+Multiple Quadratic Penalties.'' \emph{Journal of the Royal Statistical
+Society (B)} 62(2): 413--28.
+\url{http://onlinelibrary.wiley.com/doi/10.1111/1467-9868.00240/abstract}.
 
 
 \end{document}

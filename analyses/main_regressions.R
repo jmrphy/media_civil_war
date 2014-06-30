@@ -27,21 +27,27 @@ require(ZeligGAM)
 rep.model.lin.log <- gam(onset ~ logmdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                        deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                        spline3,
-                     data=model1vars,
+                     data=model1vars.unscaled,
                      family=binomial)
 # summary(rep.model.lin.log)
 
 rep.model.nonlin <- gam(onset ~ s(logmdi) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                             deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                             spline3,
-                          data=model1vars,
+                          data=model1vars.unscaled,
                           family=binomial)
 # summary(rep.model.nonlin)
 
 anov<-anova(rep.model.lin.log, rep.model.nonlin, test="Chisq")
+names(anov)<-c("Resid. Df","Resid. Dev", "Df", "Deviance", "P-value")
 # plot(rep.model.nonlin, main="Effect of MDI on Civil War Across Levels of MDI")
 # abline(a=0,b=0, col = "red", lty = 9)
 
+threshold<-mean(warren$mdi[warren$logmdi>=1.99 & warren$logmdi<=2.01], na.rm=TRUE)
+numcases<-nrow(subset(warren, mdi<=threshold))
+numcases.percent<-round(nrow(subset(warren, mdi<=threshold))/length(warren$mdi)*100)
+percentunder4<-round(nrow(subset(warren, mdi<=4))/length(warren$mdi)*100)
+percentunder10<-round(nrow(subset(warren, mdi<=10))/length(warren$mdi)*100)
 
 rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + log(lnews+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                           deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
@@ -107,13 +113,14 @@ rep.model<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                  robust=TRUE,
                  cite=F)
 
-rep.belowmed<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+rep.belowsixtieth<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                    deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                    spline3,
                  data=subset(model1vars, mdi<quantile(model1vars$mdi, .60, na.rm=TRUE)),
                  model="relogit",
                  robust=TRUE,
                  cite=F)
+# summary(rep.belowsixtieth)
 
 # rep.model.mass<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
 #                    deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
@@ -127,7 +134,7 @@ rep.belowmed<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
 
 
 
-low.model1vars<-subset(warren, mdi<= 10)
+low.model1vars<-subset(warren, mdi<= quantile(warren$mdi, .25, na.rm=TRUE))
 
 (table(warren$onset)[2]/table(warren$onset)[1])*100
 (table(low.model1vars$onset)[2]/table(low.model1vars$onset)[1])*100

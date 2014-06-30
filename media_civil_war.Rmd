@@ -128,9 +128,9 @@ To test whether mass media density has a non-linear effect on civil war onset, t
 
 $$ Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i $$
 
-where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline [@Fox:2002us; Wood:2000jb] and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
+where the partial-regression function $f_1 (\cdot)$ is fit by a smoothing spline [@Fox:2002us; @Wood:2000jb] and  $CONTROLS_{it}$ is the vector of control variables used in Warren's original models. The number of smoothing splines is determined by generalized cross validation as part of the estimation procedure.^[The model was estimated using the function *gam* in the *mgcv* package for R.]
 
-Figure 3 plots the value of the smooth terms for each level of the logarithm of MDI, i.e. the estimated effect of the logarithm of MDI on the probability of civil war onset across its range. The result is consistent with the war-before-peace hypothesis: MDI is positively associated with civil war onset up to a threshold, the estimated effect slightly increasing up to that threshold, before changing direction and decreasing monotonically. To determine whether the non-linear fit is superior to the linear fit, a simple analysis of variance (ANOVA) can be used to contrast the deviance of each model. Table 3 displays the results, which suggest that the non-linear fit reduces the deviance by 17.9 and is highly statistically significant.
+Figure 3 plots the value of the smooth terms for each level of the logarithm of MDI, i.e. the estimated effect of the logarithm of MDI on the probability of civil war onset across its range. The result is consistent with the war-before-peace hypothesis: MDI is positively associated with civil war onset up to a threshold, the estimated effect slightly increasing up to that threshold, before changing direction and decreasing monotonically. To determine whether the non-linear fit is superior to the linear fit, a simple analysis of variance (ANOVA) can be used to contrast the deviance of each model. Table 3 displays the results, which suggest that the non-linear fit reduces the deviance by 17.9 and is statistically significant.
 
 
 ```{r nonlinear-plot, fig.cap='The Non-Linear Effect of MDI on Civil War Across Levels of MDI', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
@@ -149,17 +149,19 @@ stargazer(anov,
           header=FALSE)
 ```
 
-Due to the atheoretical nature of nonparametric regression and the difficulty of drawing inferences from multiple smoothed regression splines, the following section proceeds with traditional parametric logistic regressions on subsets of the sample suggested by the semi-parametric model. The second observable implication is also considered.
+Due to the atheoretical nature of nonparametric regression and the difficulty of drawing inferences from multiple smoothed terms, the following section proceeds with traditional parametric logistic regressions on subsets of the sample suggested by the semi-parametric model. The second observable implication is also considered in the following section.
 
 ## Estimating the Effect of Mass Media Density Before and After the Threshold of Mass Communications
 
- Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare-events [@King:2001ta].^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are `r table(model1vars$onset)[2]` (`r table(model1vars$onset)[2]/table(model1vars$onset)[1]*100`%) onsets in the full sample and `r table(low.model1vars$onset)[2]` (`r table(low.model1vars$onset)[2]/table(low.model1vars$onset)[1]*100`%) in the subset of low-MDI country years.]
+To further test the hypothesis that MDI increases the likelihood of civil war before it is sufficiently high to represent a mass communications system (and to obtain a parsimonious estimate of the effect size), I began by creating a subset of the original sample containing only country-years with MDI levels below the inflection point identified by the non-linear regression. Figure 2 suggests that the relationship between MDI and civil war begins to change direction when the logarithm of MDI is equal to about 2, which is an MDI level of about `r threshold`. While it is reasonable to think such a low threshold might only correspond to a substantively trivial number of cases, on the contrary, this subset contained `r numcases` cases or about `r numcases.percent`% of the original sample. Furthermore, to ensure the robustness of the results, all of the models in this section pertaining to this subset of pre-mass communications systems were tested separately using a series lower and higher cutoff values. The main results reported below for changes in MDI under the threshold of mass communications are consistent using a cutoff as low as 4 (`r percentunder4`% percentile) and as high as 10 (`r percentunder10`% percentile).^[See online appendix for full results.] To avoid "cherry-picking" a cutoff within this range, the models below report results for the 25% percentile (MDI = `r quantile(warren$mdi, .25, na.rm=TRUE)`), a conventional value for segmenting distributions.
+
+ Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare-events [@King:2001ta].^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are `r table(model1vars$onset)[2]` (`r table(model1vars$onset)[2]/table(model1vars$onset)[1]*100`%) onsets in the full sample and `r table(low.model1vars$onset)[2]` (`r table(low.model1vars$onset)[2]/table(low.model1vars$onset)[1]*100`%) in the subset of low-MDI country-years.]
  
 ```{r mainregressions, results='asis', cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-stargazer(rep.model, diff.model, disag.model,
+stargazer(rep.model, rep.belowsixtieth, diff.model, disag.model,
                       title="Early Growth of Media Density Compared to Media Density in General",
-                      column.labels=c("Warren", "Low MDI"),
-                      column.separate=c(1,2),
+                      column.labels=c("Warren", "Warren < 60th Percentile", "< Mass Comms System"),
+                      column.separate=c(1,1,2),
                       covariate.labels=c("MDI",
                       	"$\\Delta$MDI",
                       	"$\\Delta$NEWSPAPER",
