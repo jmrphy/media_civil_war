@@ -48,6 +48,8 @@ numcases<-nrow(subset(warren, mdi<=threshold))
 numcases.percent<-round(nrow(subset(warren, mdi<=threshold))/length(warren$mdi)*100)
 percentunder4<-round(nrow(subset(warren, mdi<=4))/length(warren$mdi)*100)
 percentunder10<-round(nrow(subset(warren, mdi<=10))/length(warren$mdi)*100)
+mindiff<-min(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
+maxdiff<-max(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
 
 rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + log(lnews+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                           deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +

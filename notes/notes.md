@@ -41,3 +41,4 @@ I argue that this is precisely BECAUSE after about 35% of media density civil wa
 non-violent struggle against the state realize that once the country is thoroughly penetrated by mass media, non-violent struggles to fundamentally challenge the state will become nearly impossible. This shifts some portion of the non-violent challengers to become violent rebels.
 
 If Warren's argument is correct, it implies incentives for civil war from the early spread of mass media.
+

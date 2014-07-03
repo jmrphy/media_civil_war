@@ -162,7 +162,7 @@ civil war onset. This research note contributes an improvement to the logic
 of that argument (internal consistency) and demonstrates a substantively different
 and improved accounting of the empirical relationship between mass media and civil
 war (internal and external validity). Mass media density decreases the likelihood
-of civil war only after the treshold at which it constitutes a mass communications system;
+of civil war only after the threshold at which it constitutes a mass communications system;
 before that threshold, year-to-year increases in mass media density significantly increase
 the likelihood of civil war.</li>
 </ul>
@@ -277,7 +277,9 @@ the likelihood of civil war.</li>
 
 <p>To further test the hypothesis that MDI increases the likelihood of civil war before it is sufficiently high to represent a mass communications system (and to obtain a parsimonious estimate of the effect size), I began by creating a subset of the original sample containing only country-years with MDI levels below the inflection point identified by the non-linear regression. Figure 2 suggests that the relationship between MDI and civil war begins to change direction when the logarithm of MDI is equal to about 2, which is an MDI level of about 6.38. While it is reasonable to think such a low threshold might only correspond to a substantively trivial number of cases, on the contrary, this subset contained 1358 cases or about 20% of the original sample. Furthermore, to ensure the robustness of the results, all of the models in this section pertaining to this subset of pre-mass communications systems were tested separately using a series lower and higher cutoff values. The main results reported below for changes in MDI under the threshold of mass communications are consistent using a cutoff as low as 4 (13% percentile) and as high as 10 (27% percentile).<sup>[See</sup> online appendix for full results.] To avoid &ldquo;cherry-picking&rdquo; a cutoff within this range, the models below report results for the 25% percentile (MDI = 28.23), a conventional value for segmenting distributions.</p>
 
-<p>Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare-events [@King:2001ta].<sup>[Traditional</sup> logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are 114 (2.01%) onsets in the full sample and 53 (3.36%) in the subset of low-MDI country years.]</p>
+<p>Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare events [@King:2001ta].<sup>[Traditional</sup> logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are 114 (2.01%) onsets in the full sample and 53 (3.36%) in the subset of low-MDI country-years.] Before analysis, I subtracted the mean from each continuous independent variable and then divided it by two standard deviations so that all resulting coefficients are readily comparable.<sup>[For</sup> continuous independent variables, the coefficient indicates the change in log-odds of a civil war beginning due to a two standard deviation increase from the mean of the independent variable; for dichotomous variables, the coefficient reflects the change in log-odds of a civil war beginning due to a change from 0 to 1 on the dichotomous variable, which is roughly equivalent to a two-standard deviation change in a continuous variable [@Gelman:2008gz].]</p>
+
+<p>The first two columns of the following table display the results of a baseline model which replicates Warren&#39;s original findings (Model 1) and the same model estimated on the subset of country-years below the median level of MDI (37.03). While Model 1 successfully replicates Warren&#39;s main finding with a negative and statistically significant coefficient for MDI levels, Model 2 indicates that this coefficient is not statistically significant for country-years below the median level of MDI. The second two columns estimate models nearly equivalent to the first two but only for country-years below the 25th percentile of MDI, roughly the inflection point suggested by the semi-parametric regression estimated in the previous stage of analysis. Distinct from Models 1 and 2, the independent variables of interest in Models 3 and 4 are first differences of media density (\( X_{t} - X_{t-1} \)), rather than levels of MDI, for two reasons. First, by restricting attention to the 25th percentile of media density, Models 3 and 4 are, in effect, already controlling for the level of media density because they only include units at a relatively similar (low) level of the independent variable. Thus, level of media density would unlikely capture any causal effect, positive or negative, which media density may exert on the likelihood of civil war onset, whereas the first-differenced variable within this subset effectively captures variations in national experiences of the early spread of mass media.<sup>[The</sup> smallest year-to-year change within this subset is -5.43 and the maximum is 3.41.] In other words, year-to-year differences are both substantively pertinent and theoretically appropriate for testing the observable implications of the hypothesis developed above.</p>
 
 <p>\begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
@@ -285,7 +287,7 @@ the likelihood of civil war.</li>
 \footnotesize 
 \begin{tabular}{@{\extracolsep{5pt}}lcccc} 
 \[-1.8ex]\hline \[-1.8ex] 
- &amp; Warren &amp; Warren &lt; 60th Percentile &amp; \multicolumn{2}{c}{&lt; Mass Comms System} \ 
+ &amp; Warren &amp; Warren &lt; Median MDI &amp; \multicolumn{2}{c}{&lt; 25th Percentile MDI} \ 
 \[-1.8ex] &amp; (1) &amp; (2) &amp; (3) &amp; (4)\ 
 \hline \[-1.8ex] 
  MDI &amp; $-\( 2.50 \)<sup>{***}$</sup> &amp; $-$2.00 &amp;  &amp;  \ 
@@ -407,11 +409,15 @@ the likelihood of civil war.</li>
 
 <p>\clearpage</p>
 
-<p><img src="figure/full_panel_plot.pdf" alt="Disaggregated media density and all civil war onsets over time, by country"/> </p>
+<p>The following plots display the smoothed terms for each of the components of MDI, controlling for all the independent variables of the baseline model and the other components of MDI. All of the components of MDI are logged before estimation. Each plot was generated by a semi-parametric regression in which all independent variables are estimated parametrically except the variable of interest. The dashed line represent 95% confidence bands.
+<img src="figure/disaggregated-nonlinear.pdf" alt="plot of chunk disaggregated-nonlinear"/> 
+\pagebreak   </p>
 
 <h1>Conclusion</h1>
 
-<h1>Appendix</h1>
+<h1>Supporting Information</h1>
+
+<p><img src="figure/full_panel_plot.pdf" alt="Disaggregated media density and all civil war onsets over time, by country"/> </p>
 
 <p>The Levin-Lin-Chu statistic is a standard test for the presence of a unit root, otherwise known as non-stationarity or integration of order I(1), in a time series variable observed across multiple cross-sectional units. The Im-Pesaran-Shin test is a &ldquo;second generation&rdquo; test which is robust to cross-sectional dependence, common in cross-national panel data. For each test, the null hypothesis is the presence of a unit root. Because the tests require balanced panels, they were applied only to the 24 countries with the maximum time-series of 55 years, a subset which still contains significant variation in geography, income, regime type, and other factors. Specifically, the countries in this subset are: Canada, Cuba, Haiti, Dominican Republic, Mexico, Honduras, El Salvador, Nicaragua, Costa Rica, Uruguay, Ireland, Netherlands, Belgium, Luxembourg, France, Switzerland, Hungary, Romania, Finland, Sweden, Norway, Denmark, Afghanistan, China.</p>
 
@@ -429,10 +435,6 @@ alternative hypothesis: stationarity</p>
 <p>data:  unit$mdi
 CIPS test = -2.1, lag order = 2, p-value = 0.1
 alternative hypothesis: Stationarity</p>
-
-<p>The following plots display the smoothed terms for each of the components of MDI, controlling for all the independent variables of the baseline model and the other components of MDI. All of the components of MDI are logged before estimation. Each plot was generated by a semi-parametric regression in which all independent variables are estimated parametrically except the variable of interest. The dashed line represent 95% confidence bands.
-<img src="figure/disaggregated-nonlinear.pdf" alt="plot of chunk disaggregated-nonlinear"/> 
-\pagebreak   </p>
 
 <h1>References</h1>
 
