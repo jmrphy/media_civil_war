@@ -65,7 +65,7 @@ mass media density significantly increase the likelihood of civil war.
 \newpage
 
 
-\includegraphics{figure/unitroot.pdf} \onehalfspacing
+\onehalfspacing
 
 \subsection{Intro}\label{intro}
 
@@ -450,8 +450,8 @@ variables in the main regressions are not available for such a long
 historical period and their omission could lead to biased or spurious
 estimates. Luckily, there are several good reasons why the threat of
 omitted variable bias is outweighed by the leverage gained by testing
-these hypotheses from an international-level and elongated time-series
-perspective. First, the variables related to physical geography such as
+these hypotheses at the international-level and with an elongated
+time-series. First, the variables related to physical geography such as
 \emph{OIL EXPORTER}, \emph{LAND AREA} and \emph{MOUNTAINOUS TERRAIN} are
 unlikely to vary appreciably because, while in principle they can vary
 from changes in the number or size of states, they refer to quantities
@@ -501,20 +501,19 @@ fuller measure of mass media density.
 To gain a better sense of the bivariate relationship between mass media
 density and civil war onset, while keeping the distributions in
 perspective, Figure 2 displays four violin plots.\footnote{The violin
-  plot is a relatively new but simple graphical device similar to the
-  traditional boxplot but with a density trace (Hintze and Nelson 1998;
-  Kastellec and Leoni 2007).} The violin plots on the left display the
-distribution of mass media density for all country-years in which there
-is no civil war onset, while the violin plots on the left display the
-same distribution for all country-years in which there is a civil war
-onset. The violin plots in the top half of the figure are scaled by the
-total count of cases for all country-years whereas the plots in the
-bottom half are scaled with respect to the count of cases within each
-distribution. Each plot contains three points which indicate the 25th
-percentile, median, and 75th percentile within each distribution. These
-plots illustrate three important facts about the distributions of civil
-war onset and mass media density in this sample of countries between
-1945-1999.
+  plot is a simple graphical device similar to the traditional boxplot
+  but with a density trace (Hintze and Nelson 1998; Kastellec and Leoni
+  2007).} The violin plots on the left display the distribution of mass
+media density for all country-years in which there is no civil war
+onset, while the violin plots on the left display the same distribution
+for all country-years in which there is a civil war onset. The violin
+plots in the top half of the figure are scaled by the total count of
+cases for all country-years whereas the plots in the bottom half are
+scaled with respect to the count of cases within each distribution. Each
+plot contains three points which indicate the 25th percentile, median,
+and 75th percentile within each distribution. These plots illustrate
+three important facts about the distributions of civil war onset and
+mass media density in this sample of countries between 1945-1999.
 
 \clearpage
 \includegraphics{figure/violinplot.pdf} \clearpage
@@ -696,18 +695,30 @@ positive or negative, which media density may exert on the likelihood of
 civil war onset, whereas the first-differenced variable within this
 subset effectively captures variations in national experiences of the
 early spread of mass media.\footnote{The smallest year-to-year change
-  within this subset is ∞ and the maximum is -∞.} In other words,
-year-to-year differences are both historically pertinent and
+  within this subset is -5.43 and the maximum is 3.41.} In other words,
+year-to-year differences are both substantively pertinent and
 theoretically appropriate for testing the observable implications of the
 hypothesis developed above.
+
+The results suggest that Warren's general pacification theory would
+significantly under-estimate the probability of civil war onset in
+countries first observing the introduction and early spread of mass
+media. Warren's baseline model (Model 1) would lead us to predict that a
+country moving from zero MDI to the 25th percentile (7.65) would, on
+average, cause the probability of civil war onset to decrease negligibly
+by -0.01, from an already low 0.03 to 0.03. However, when we estimate
+the same model on only those country-years in the 25th percentile of
+mass media density (Model 3), we would predict that an increase of 7.65
+would cause the probability of civil war onset to increase by an average
+of 0.51, from 0.02 to 0.53.
 
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
   \label{} 
-\footnotesize 
+\scriptsize 
 \begin{tabular}{@{\extracolsep{5pt}}lcccc} 
 \\[-1.8ex]\hline \\[-1.8ex] 
- & Warren & Warren < Median MDI & \multicolumn{2}{c}{< 25th Percentile MDI} \\ 
+ & Warren & < Median MDI & \multicolumn{2}{c}{< 25th Percentile MDI} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
 \hline \\[-1.8ex] 
  MDI & $-$2.50$^{***}$ & $-$2.00 &  &  \\ 
@@ -724,7 +735,7 @@ hypothesis developed above.
   & (0.37) & (0.42) & (0.40) & (0.40) \\ 
   AREA & $-$0.39 & $-$0.37 & 0.10 & 0.01 \\ 
   & (0.33) & (0.36) & (0.48) & (0.48) \\ 
-  MOUNTAINOUS TERRAIN & 0.49$^{**}$ & 0.49$^{*}$ & 0.34 & 0.37 \\ 
+  MOUNTAINOUS & 0.49$^{**}$ & 0.49$^{*}$ & 0.34 & 0.37 \\ 
   & (0.25) & (0.26) & (0.39) & (0.40) \\ 
   POPULATION & 0.86$^{***}$ & 0.89$^{***}$ & 0.75$^{*}$ & 0.80$^{*}$ \\ 
   & (0.26) & (0.27) & (0.41) & (0.42) \\ 
@@ -734,9 +745,9 @@ hypothesis developed above.
   & (1.20) & (1.30) & (1.50) & (1.50) \\ 
   DEMOCRACY$^2$ & $-$2.90$^{**}$ & $-$2.30$^{*}$ & $-$2.20 & $-$2.00 \\ 
   & (1.20) & (1.40) & (1.40) & (1.50) \\ 
-  ETHNIC FRACTIONALIZATION & 0.11 & 0.17 & $-$0.43 & $-$0.38 \\ 
+  ETHNIC FRAC. & 0.11 & 0.17 & $-$0.43 & $-$0.38 \\ 
   & (0.22) & (0.23) & (0.35) & (0.36) \\ 
-  RELIGIOUS FRACTIONALIZATION & 0.62$^{***}$ & 0.62$^{**}$ & 0.40 & 0.47 \\ 
+  RELIGIOUS FRAC. & 0.62$^{***}$ & 0.62$^{**}$ & 0.40 & 0.47 \\ 
   & (0.23) & (0.25) & (0.36) & (0.36) \\ 
   PEACE YEARS & $-$1.50 & $-$1.80 & $-$0.55 & $-$0.18 \\ 
   & (2.60) & (2.70) & (2.60) & (2.60) \\ 
@@ -756,6 +767,33 @@ hypothesis developed above.
 \end{tabular} 
 \end{table}
 
+While the difference between zero MDI and the 25th percentile 7.65 is a
+useful yardstick with respect to the entire range of \emph{levels}
+observed in the sample, the mean year-to-year change observed in the
+subset of pre-mass communications systems is only 0.24 and the maximum
+is only 3.41. Thus, to gain a more realistic sense of how the early
+spread of mass media shapes civil war onset in the world, and to better
+compare the substantive implications of the general pacification effect
+with the war-before-peace effect, Figures 3 and 4 display the predicted
+probability of civil war onset given different values of MDI levels and
+year-to-year MDI changes across their historically observed ranges.
+
+Considering all communications systems, the predicted probability of
+civil war onset decreases from about .03 at the zero level of MDI to
+roughly zero for any level of MDI greater than about 150, on average.
+However, considering only pre-mass communications systems, a 3-point
+change in MDI increases the probability of civil war onset from about
+.03 to roughly .1, on average. Figures 3 and 4 also highlight the
+essential assymetry of estimating negative influences, compared to
+positive influences, on an already rare type of event. The pacifying
+effect of levels of MDI as identified by Warren is an inherently small
+effect because the probability of observing civil war onset is already
+very small in general. However, the size of the war-before-peace effect
+is notably larger (and arguably more politically salient) in part for
+the same reason. Indeed, it is within the 95\% confidence bands that a
+3-point change in MDI is associated with as much as a 30\% increase in
+the probability of civil war onset.
+
 \clearpage
 
 \begin{figure} 
@@ -772,6 +810,18 @@ hypothesis developed above.
 \label{myFigz} 
 \end{figure}
 
+To further assess the hypothesized mechanism, Model 4 considers the
+separate effects estimated for each component of MDI (newspapers,
+radios, and televisions per person), within the subset of pre-mass
+communications systems. The results suggest mixed evidence of Observable
+Implication 3, namely that television density should have the strongest
+bellicose effect, whereas newspaper and radio density should have the
+second and least strongest effects, respectively. Model 4 reveals that
+controlling for each component, television does appear to have the
+largest and most statistically robust effect compared to newspaper and
+radio. However, the model provides no evidence that newspaper or radio
+have any independent effect.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{figure/longrunplot.pdf}
@@ -780,7 +830,7 @@ hypothesis developed above.
 \end{figure}
 
 \begin{table}[!htbp] \centering 
-  \caption{Historical Regressions} 
+  \caption{International Regressions} 
   \label{} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{5pt}}lccc} 
@@ -788,33 +838,33 @@ hypothesis developed above.
 \\[-1.8ex] & \multicolumn{3}{c}{onsets} \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- L.TVLONG & $-$0.80$^{***}$ & $-$0.53 & $-$0.40 \\ 
+ TV$_{t-1}$ & $-$0.80$^{***}$ & $-$0.53 & $-$0.40 \\ 
   & (0.30) & (0.35) & (0.34) \\ 
-  D.TVLONG & 0.36$^{**}$ & 0.46$^{***}$ & 0.37$^{***}$ \\ 
+  $\Delta$TV & 0.36$^{**}$ & 0.46$^{***}$ & 0.37$^{***}$ \\ 
   & (0.14) & (0.15) & (0.12) \\ 
-  L.GDPPC & $-$0.11 & $-$0.06 & 0.80 \\ 
+  GDP PER CAPITA$_{t-1}$ & $-$0.11 & $-$0.06 & 0.80 \\ 
   & (0.50) & (0.55) & (0.53) \\ 
-  D.GDPPC & $-$0.01 & $-$0.03 & $-$0.01 \\ 
+  $\Delta$GDP PER CAPITA & $-$0.01 & $-$0.03 & $-$0.01 \\ 
   & (0.06) & (0.06) & (0.06) \\ 
-  L.POLITY2 & 0.20 & 0.86$^{***}$ & 0.75$^{***}$ \\ 
+  DEMOCRACY$_{t-1}$ & 0.20 & 0.86$^{***}$ & 0.75$^{***}$ \\ 
   & (0.16) & (0.22) & (0.24) \\ 
-  D.POLITY2 & $-$0.21$^{**}$ & $-$0.21$^{**}$ & $-$0.27$^{***}$ \\ 
+  $\Delta$DEMOCRACY & $-$0.21$^{**}$ & $-$0.21$^{**}$ & $-$0.27$^{***}$ \\ 
   & (0.09) & (0.09) & (0.08) \\ 
-  L2.POLITY2 & 0.21 & 0.36$^{*}$ & $-$0.21 \\ 
+  DEMOCRACY$^2_{t-1}$ & 0.21 & 0.36$^{*}$ & $-$0.21 \\ 
   & (0.15) & (0.20) & (0.50) \\ 
-  CIVIL.WARS & 0.94$^{***}$ & 0.97$^{***}$ & 0.85$^{***}$ \\ 
+  CIVIL WARS & 0.94$^{***}$ & 0.97$^{***}$ & 0.85$^{***}$ \\ 
   & (0.22) & (0.24) & (0.22) \\ 
-  L.ONSETS & 0.91$^{***}$ & 0.97$^{***}$ & 0.77$^{***}$ \\ 
+  ONSETS$_{t-1}$ & 0.91$^{***}$ & 0.97$^{***}$ & 0.77$^{***}$ \\ 
   & (0.16) & (0.16) & (0.14) \\ 
-  D.ONSETS & 0.16$^{***}$ & 0.17$^{***}$ & 0.14$^{***}$ \\ 
+  $\Delta$ONSETS & 0.16$^{***}$ & 0.17$^{***}$ & 0.14$^{***}$ \\ 
   & (0.02) & (0.02) & (0.02) \\ 
   YEAR & $-$0.09 & $-$0.93$^{*}$ & $-$2.70$^{***}$ \\ 
   & (0.39) & (0.55) & (0.84) \\ 
-  WW1 &  & $-$0.10 & 0.17 \\ 
+  WWI &  & $-$0.10 & 0.17 \\ 
   &  & (0.17) & (0.18) \\ 
-  WW2 &  & 0.43$^{**}$ & 0.72$^{***}$ \\ 
+  WWII &  & 0.43$^{**}$ & 0.72$^{***}$ \\ 
   &  & (0.22) & (0.27) \\ 
-  COLD &  & $-$0.88$^{***}$ & $-$0.62$^{***}$ \\ 
+  COLD WAR &  & $-$0.88$^{***}$ & $-$0.62$^{***}$ \\ 
   &  & (0.20) & (0.20) \\ 
   CONSTANT & 0.53$^{***}$ & 0.56$^{***}$ & 0.66$^{***}$ \\ 
   & (0.04) & (0.08) & (0.22) \\ 

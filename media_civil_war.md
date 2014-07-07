@@ -77,7 +77,7 @@ Observable implication 3 seeks causal leverage from a level of analysis distinct
 
 To test observable implication 3, I estimate a series of regressions using the negative binomial distribution for count data, where the dependent variable is the total count of civil wars in the international system. While the theoretical issues of time-series modeling of count data are not negligible, a lagged dependent variable is conventiently interpretable as a growth rate and adequately controls for autocorrelation given an integrated dependent variable (BRANDT). To increase robustness, I consider two versions of the dependent variable. A first model considers the count of onsets, as in the main analyses, and a second model considers the number of intra-state wars taking place (civil war prevalance).
 
-One drawback to this strategy is that several of the other control variables in the main regressions are not available for such a long historical period and their omission could lead to biased or spurious estimates. Luckily, there are several good reasons why the threat of omitted variable bias is outweighed by the leverage gained by testing these hypotheses from an international-level and elongated time-series perspective. First, the variables related to physical geography such as *OIL EXPORTER*, *LAND AREA* and *MOUNTAINOUS TERRAIN* are unlikely to vary appreciably because, while in principle they can vary from changes in the number or size of states, they refer to quantities which are ultimately fixed at the international level. Second, while variables such as *RELIGIOUS FRACTIONALIZATION* and *ETHNIC FRACTIONALIZATION* are likely to have varied since 1816, a far greater proportion of their variance is likely to be cross-sectional and therefore irrelevant to modeling civil wars at the international level. Third, if one re-estimates the original models from the 1945-1999 period with only the democracy variables and GDP per capita as the only control variables, the estimates are not substantially different than the full models with all controls, suggesting that time-series analysis excluding these variables is still a credible strategy for hypothesis testing. The fourth key reason why these risks of omitted variable bias are not prohibitive is that the theoretical and subsantive gains of extending the original sample to a long-run historical time-series analysis are great: theoretically it is necessary because the arbitrarily truncated nature of the original sample does not contain enough information regarding the key relevant comparison (namely, the difference between positive and zero mass media density), substantively because the most politically salient and puzzling stylized fact about civil war is its far greater prevalence in the period 1945-1999 *compared* to the previous period of modern world history.
+One drawback to this strategy is that several of the other control variables in the main regressions are not available for such a long historical period and their omission could lead to biased or spurious estimates. Luckily, there are several good reasons why the threat of omitted variable bias is outweighed by the leverage gained by testing these hypotheses at the international-level and with an elongated time-series. First, the variables related to physical geography such as *OIL EXPORTER*, *LAND AREA* and *MOUNTAINOUS TERRAIN* are unlikely to vary appreciably because, while in principle they can vary from changes in the number or size of states, they refer to quantities which are ultimately fixed at the international level. Second, while variables such as *RELIGIOUS FRACTIONALIZATION* and *ETHNIC FRACTIONALIZATION* are likely to have varied since 1816, a far greater proportion of their variance is likely to be cross-sectional and therefore irrelevant to modeling civil wars at the international level. Third, if one re-estimates the original models from the 1945-1999 period with only the democracy variables and GDP per capita as the only control variables, the estimates are not substantially different than the full models with all controls, suggesting that time-series analysis excluding these variables is still a credible strategy for hypothesis testing. The fourth key reason why these risks of omitted variable bias are not prohibitive is that the theoretical and subsantive gains of extending the original sample to a long-run historical time-series analysis are great: theoretically it is necessary because the arbitrarily truncated nature of the original sample does not contain enough information regarding the key relevant comparison (namely, the difference between positive and zero mass media density), substantively because the most politically salient and puzzling stylized fact about civil war is its far greater prevalence in the period 1945-1999 *compared* to the previous period of modern world history.
 
 Another drawback to this strategy is that considering only television density apart from newspaper and radio density may fail to capture mass media density in general. However, first, television density is highly correlated with mass media density and disaggregated regressions in the original analyses also show that television density has strong and robust effects in the same, expected direction of mass media density. Second, because television, with newspapers, is subject to greater economies of scale than radio and is therefore more likely to be pacifying, it should therefore be a relatively harder test of the war-before-peace hypothesis than mass media density in general. If mass media density truly has a monotonic pacifiying effect on the likelihood of civil war rather than the non-linear effect hypothesized here, then a long-run time-series analysis of television density should be more likely to suggest monotonic pacification than mass media density in general. If the war-before-peace implication is observed for television density, it would be stronger evidence of the hypothesis than would be a fuller measure of mass media density.
 
@@ -86,7 +86,7 @@ Another drawback to this strategy is that considering only television density ap
 
 ## Graphical analysis
 
-To gain a better sense of the bivariate relationship between mass media density and civil war onset, while keeping the distributions in perspective, Figure 2 displays four violin plots.^[The violin plot is a relatively new but simple graphical device similar to the traditional boxplot but with a density trace [@Kastellec:2007ha; @Hintze:1998fu].] The violin plots on the left display the distribution of mass media density for all country-years in which there is no civil war onset, while the violin plots on the left display the same distribution for all country-years in which there is a civil war onset. The violin plots in the top half of the figure are scaled by the total count of cases for all country-years whereas the plots in the bottom half are scaled with respect to the count of cases within each distribution. Each plot contains three points which indicate the 25th percentile, median, and 75th percentile within each distribution. These plots illustrate three important facts about the distributions of civil war onset and mass media density in this sample of countries between 1945-1999.
+To gain a better sense of the bivariate relationship between mass media density and civil war onset, while keeping the distributions in perspective, Figure 2 displays four violin plots.^[The violin plot is a simple graphical device similar to the traditional boxplot but with a density trace [@Kastellec:2007ha; @Hintze:1998fu].] The violin plots on the left display the distribution of mass media density for all country-years in which there is no civil war onset, while the violin plots on the left display the same distribution for all country-years in which there is a civil war onset. The violin plots in the top half of the figure are scaled by the total count of cases for all country-years whereas the plots in the bottom half are scaled with respect to the count of cases within each distribution. Each plot contains three points which indicate the 25th percentile, median, and 75th percentile within each distribution. These plots illustrate three important facts about the distributions of civil war onset and mass media density in this sample of countries between 1945-1999.
 
 \clearpage
 ![Violin plot of media density for all civil war onsets](figure/violinplot.pdf) 
@@ -137,14 +137,16 @@ To further test the hypothesis that MDI increases the likelihood of civil war be
  Table 1 shows coefficients and standard errors from several logistic regressions modeling the determinants of civil war onset, with adjustment for rare events [@King:2001ta].^[Traditional logistic regression estimated by maximum-likelihood would likely underestimate the probability of civil war onsets because civil wars begin in relatively very few country-years. There are 114 (2.01%) onsets in the full sample and 53 (3.36%) in the subset of low-MDI country-years.] Before analysis, I subtracted the mean from each continuous independent variable and then divided it by two standard deviations so that all resulting coefficients are readily comparable.^[For continuous independent variables, the coefficient indicates the change in log-odds of a civil war beginning due to a two standard deviation increase from the mean of the independent variable; for dichotomous variables, the coefficient reflects the change in log-odds of a civil war beginning due to a change from 0 to 1 on the dichotomous variable, which is roughly equivalent to a two-standard deviation change in a continuous variable [@Gelman:2008gz].]
  
 The first two columns of the following table display the results of a baseline model which replicates Warren's original findings (Model 1) and the same model estimated on the subset of country-years below the median level of MDI (37.03). While Model 1 successfully replicates Warren's main finding with a negative and statistically significant coefficient for MDI levels, Model 2 indicates that this coefficient is not statistically significant for country-years below the median level of MDI. The second two columns estimate models nearly equivalent to the first two but only for country-years below the 25th percentile of MDI, roughly the inflection point suggested by the semi-parametric regression estimated in the previous stage of analysis. Distinct from Models 1 and 2, the independent variables of interest in Models 3 and 4 are first differences of media density ($X_{t} - X_{t-1}$), rather than levels of MDI, for two reasons. First, by restricting attention to the 25th percentile of media density, Models 3 and 4 are, in effect, already controlling for the level of media density because they only include units at a relatively similar (low) level of the independent variable. Thus, level of media density would unlikely capture any causal effect, positive or negative, which media density may exert on the likelihood of civil war onset, whereas the first-differenced variable within this subset effectively captures variations in national experiences of the early spread of mass media.^[The smallest year-to-year change within this subset is -5.43 and the maximum is 3.41.] In other words, year-to-year differences are both substantively pertinent and theoretically appropriate for testing the observable implications of the hypothesis developed above.
+
+The results suggest that Warren's general pacification theory would significantly under-estimate the probability of civil war onset in countries first observing the introduction and early spread of mass media. Warren's baseline model (Model 1) would lead us to predict that a country moving from zero MDI to the 25th percentile (7.65) would, on average, cause the probability of civil war onset to decrease negligibly by -0.01, from an already low 0.03 to 0.03. However, when we estimate the same model on only those country-years in the 25th percentile of mass media density (Model 3), we would predict that an increase of 7.65 would cause the probability of civil war onset to increase by an average of 0.51, from 0.02 to 0.53.
  
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
   \label{} 
-\footnotesize 
+\scriptsize 
 \begin{tabular}{@{\extracolsep{5pt}}lcccc} 
 \\[-1.8ex]\hline \\[-1.8ex] 
- & Warren & Warren < Median MDI & \multicolumn{2}{c}{< 25th Percentile MDI} \\ 
+ & Warren & < Median MDI & \multicolumn{2}{c}{< 25th Percentile MDI} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
 \hline \\[-1.8ex] 
  MDI & $-$2.50$^{***}$ & $-$2.00 &  &  \\ 
@@ -161,7 +163,7 @@ The first two columns of the following table display the results of a baseline m
   & (0.37) & (0.42) & (0.40) & (0.40) \\ 
   AREA & $-$0.39 & $-$0.37 & 0.10 & 0.01 \\ 
   & (0.33) & (0.36) & (0.48) & (0.48) \\ 
-  MOUNTAINOUS TERRAIN & 0.49$^{**}$ & 0.49$^{*}$ & 0.34 & 0.37 \\ 
+  MOUNTAINOUS & 0.49$^{**}$ & 0.49$^{*}$ & 0.34 & 0.37 \\ 
   & (0.25) & (0.26) & (0.39) & (0.40) \\ 
   POPULATION & 0.86$^{***}$ & 0.89$^{***}$ & 0.75$^{*}$ & 0.80$^{*}$ \\ 
   & (0.26) & (0.27) & (0.41) & (0.42) \\ 
@@ -171,9 +173,9 @@ The first two columns of the following table display the results of a baseline m
   & (1.20) & (1.30) & (1.50) & (1.50) \\ 
   DEMOCRACY$^2$ & $-$2.90$^{**}$ & $-$2.30$^{*}$ & $-$2.20 & $-$2.00 \\ 
   & (1.20) & (1.40) & (1.40) & (1.50) \\ 
-  ETHNIC FRACTIONALIZATION & 0.11 & 0.17 & $-$0.43 & $-$0.38 \\ 
+  ETHNIC FRAC. & 0.11 & 0.17 & $-$0.43 & $-$0.38 \\ 
   & (0.22) & (0.23) & (0.35) & (0.36) \\ 
-  RELIGIOUS FRACTIONALIZATION & 0.62$^{***}$ & 0.62$^{**}$ & 0.40 & 0.47 \\ 
+  RELIGIOUS FRAC. & 0.62$^{***}$ & 0.62$^{**}$ & 0.40 & 0.47 \\ 
   & (0.23) & (0.25) & (0.36) & (0.36) \\ 
   PEACE YEARS & $-$1.50 & $-$1.80 & $-$0.55 & $-$0.18 \\ 
   & (2.60) & (2.70) & (2.60) & (2.60) \\ 
@@ -193,6 +195,12 @@ The first two columns of the following table display the results of a baseline m
 \end{tabular} 
 \end{table} 
 
+While the difference between zero MDI and the 25th percentile 7.65 is a useful yardstick with respect to the entire range of *levels* observed in the sample, the mean year-to-year change observed in the subset of pre-mass communications systems is only 0.24 and the maximum is only 3.41. Thus, to gain a more realistic sense of how the early spread of mass media shapes civil war onset in the world, and to better compare the substantive implications of the general pacification effect with the war-before-peace effect, Figures 3 and 4 display the predicted probability of civil war onset given different values of MDI levels and year-to-year MDI changes across their historically observed ranges.
+
+Considering all communications systems, the predicted probability of civil war onset decreases from about .03 at the zero level of MDI to roughly zero for any level of MDI greater than about 150, on average. However, considering only pre-mass communications systems, a 3-point change in MDI increases the probability of civil war onset from about .03 to roughly .1, on average. Figures 3 and 4 also highlight the essential assymetry of estimating negative influences, compared to positive influences, on an already rare type of event. The pacifying effect of levels of MDI as identified by Warren is an inherently small effect because the probability of observing civil war onset is already very small in general. However, the size of the war-before-peace effect is notably larger (and arguably more politically salient) in part for the same reason. Indeed, it is within the 95% confidence bands that a 3-point change in MDI is associated with as much as a 30% increase in the probability of civil war onset.
+
+
+
 \clearpage
 \begin{figure} 
 \includegraphics{figure/mdi_effect.pdf} 
@@ -207,11 +215,14 @@ The first two columns of the following table display the results of a baseline m
 \label{myFigz} 
 \end{figure} 
 
+To further assess the hypothesized mechanism, Model 4 considers the separate effects estimated for each component of MDI (newspapers, radios, and televisions per person), within the subset of pre-mass communications systems. The results suggest mixed evidence of Observable Implication 3, namely that television density should have the strongest bellicose effect, whereas newspaper and radio density should have the second and least strongest effects, respectively. Model 4 reveals that controlling for each component, television does appear to have the largest and most statistically robust effect compared to newspaper and radio. However, the model provides no evidence that newspaper or radio have any independent effect.
+
+
 ![TV, Democracy, Economic Growth, and Civil Wars Globally, 1816-1999](figure/longrunplot.pdf) 
 
 
 \begin{table}[!htbp] \centering 
-  \caption{Historical Regressions} 
+  \caption{International Regressions} 
   \label{} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{5pt}}lccc} 
@@ -219,33 +230,33 @@ The first two columns of the following table display the results of a baseline m
 \\[-1.8ex] & \multicolumn{3}{c}{onsets} \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- L.TVLONG & $-$0.80$^{***}$ & $-$0.53 & $-$0.40 \\ 
+ TV$_{t-1}$ & $-$0.80$^{***}$ & $-$0.53 & $-$0.40 \\ 
   & (0.30) & (0.35) & (0.34) \\ 
-  D.TVLONG & 0.36$^{**}$ & 0.46$^{***}$ & 0.37$^{***}$ \\ 
+  $\Delta$TV & 0.36$^{**}$ & 0.46$^{***}$ & 0.37$^{***}$ \\ 
   & (0.14) & (0.15) & (0.12) \\ 
-  L.GDPPC & $-$0.11 & $-$0.06 & 0.80 \\ 
+  GDP PER CAPITA$_{t-1}$ & $-$0.11 & $-$0.06 & 0.80 \\ 
   & (0.50) & (0.55) & (0.53) \\ 
-  D.GDPPC & $-$0.01 & $-$0.03 & $-$0.01 \\ 
+  $\Delta$GDP PER CAPITA & $-$0.01 & $-$0.03 & $-$0.01 \\ 
   & (0.06) & (0.06) & (0.06) \\ 
-  L.POLITY2 & 0.20 & 0.86$^{***}$ & 0.75$^{***}$ \\ 
+  DEMOCRACY$_{t-1}$ & 0.20 & 0.86$^{***}$ & 0.75$^{***}$ \\ 
   & (0.16) & (0.22) & (0.24) \\ 
-  D.POLITY2 & $-$0.21$^{**}$ & $-$0.21$^{**}$ & $-$0.27$^{***}$ \\ 
+  $\Delta$DEMOCRACY & $-$0.21$^{**}$ & $-$0.21$^{**}$ & $-$0.27$^{***}$ \\ 
   & (0.09) & (0.09) & (0.08) \\ 
-  L2.POLITY2 & 0.21 & 0.36$^{*}$ & $-$0.21 \\ 
+  DEMOCRACY$^2_{t-1}$ & 0.21 & 0.36$^{*}$ & $-$0.21 \\ 
   & (0.15) & (0.20) & (0.50) \\ 
-  CIVIL.WARS & 0.94$^{***}$ & 0.97$^{***}$ & 0.85$^{***}$ \\ 
+  CIVIL WARS & 0.94$^{***}$ & 0.97$^{***}$ & 0.85$^{***}$ \\ 
   & (0.22) & (0.24) & (0.22) \\ 
-  L.ONSETS & 0.91$^{***}$ & 0.97$^{***}$ & 0.77$^{***}$ \\ 
+  ONSETS$_{t-1}$ & 0.91$^{***}$ & 0.97$^{***}$ & 0.77$^{***}$ \\ 
   & (0.16) & (0.16) & (0.14) \\ 
-  D.ONSETS & 0.16$^{***}$ & 0.17$^{***}$ & 0.14$^{***}$ \\ 
+  $\Delta$ONSETS & 0.16$^{***}$ & 0.17$^{***}$ & 0.14$^{***}$ \\ 
   & (0.02) & (0.02) & (0.02) \\ 
   YEAR & $-$0.09 & $-$0.93$^{*}$ & $-$2.70$^{***}$ \\ 
   & (0.39) & (0.55) & (0.84) \\ 
-  WW1 &  & $-$0.10 & 0.17 \\ 
+  WWI &  & $-$0.10 & 0.17 \\ 
   &  & (0.17) & (0.18) \\ 
-  WW2 &  & 0.43$^{**}$ & 0.72$^{***}$ \\ 
+  WWII &  & 0.43$^{**}$ & 0.72$^{***}$ \\ 
   &  & (0.22) & (0.27) \\ 
-  COLD &  & $-$0.88$^{***}$ & $-$0.62$^{***}$ \\ 
+  COLD WAR &  & $-$0.88$^{***}$ & $-$0.62$^{***}$ \\ 
   &  & (0.20) & (0.20) \\ 
   CONSTANT & 0.53$^{***}$ & 0.56$^{***}$ & 0.66$^{***}$ \\ 
   & (0.04) & (0.08) & (0.22) \\ 

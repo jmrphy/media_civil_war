@@ -49,6 +49,7 @@ numcases.percent<-round(nrow(subset(warren, mdi<=threshold))/length(warren$mdi)*
 percentunder4<-round(nrow(subset(warren, mdi<=4))/length(warren$mdi)*100)
 percentunder10<-round(nrow(subset(warren, mdi<=10))/length(warren$mdi)*100)
 mindiff<-min(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
+meandiff<-mean(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
 maxdiff<-max(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
 
 rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + log(lnews+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
@@ -83,28 +84,6 @@ rep.model.news.nonlin <- gam(onset ~ s(log(lnews+1)) + log(ltv+1) + log(lradio+1
 
 
 
-# Using Zelig
-
-z.nonlin <- zelig(onset ~ s(logmdi) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
-                          deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
-                          spline3,
-                        data=model1vars,
-                        model="logit.gam")
-# summary(z.nonlin)
-
-# quantile(warren$mdi, .05, na.rm=TRUE)
-# quantile(warren$mdi, .25, na.rm=TRUE)
-
-x.low <- setx(z.nonlin, logmdi= -1.18) # lowest value
-x.high <- setx(z.nonlin, logmdi= quantile(model1vars$logmdi, .25)) # 25% of cases
-s.out <- sim(z.nonlin, x=x.low, x1=x.high)
-# summary(s.out)
-# plot(s.out)
-
-x.real.high <- setx(z.nonlin, logmdi= quantile(model1vars$logmdi, .90, na.rm=TRUE)) # 25% of cases
-s.out <- sim(z.nonlin, x=x.low, x1=x.real.high)
-# summary(s.out)
-# plot(s.out)
 
 
 rep.model<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
@@ -153,15 +132,14 @@ rep.model2<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
 summary(rep.model2)
 
 
-lowmdi<-subset(warren, mdi<= quantile(warren$mdi, .25, na.rm=TRUE))
+model2vars<-subset(warren, mdi<= quantile(warren$mdi, .25, na.rm=TRUE))
 
-model2vars<-subset(lowmdi, select=c("country", "year", "onset", "oil2l", "mdi", "lgdpl", "larea",
+model2vars<-subset(model2vars, select=c("country", "year", "onset", "oil2l", "mdi", "lgdpl", "larea",
                                     "lmtn", "lpopl", "deml", "ld.mdi", "ld.tv", "ld.news", "ld.radio",
                                     "deml2", "ethfracl", "relfracl", "pcyrs", "spline1", "spline2", "spline3"))
-model2vars<-model2vars[complete.cases(model2vars),]
 
-lowmdi<-model2vars
-lowmdi<-lowmdi[complete.cases(lowmdi),]
+model2vars.unscaled<-model2vars[complete.cases(model2vars),]
+model2vars<-model2vars[complete.cases(model2vars),]
 
 
 detach("package:ZeligGAM", unload=TRUE)
@@ -179,6 +157,30 @@ diff.model<-zelig(onset ~ ld.mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
              robust=TRUE,
              cite=F)
 
+disag.model.news<-zelig(onset ~ ld.news + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                     deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                     spline3,
+                   data=model2vars,
+                   model="relogit",
+                   robust=TRUE,
+                   cite=F)
+
+disag.model.radio<-zelig(onset ~ ld.radio + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                          deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                          spline3,
+                        data=model2vars,
+                        model="relogit",
+                        robust=TRUE,
+                        cite=F)
+
+disag.model.tv<-zelig(onset ~ ld.tv + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+                           deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
+                           spline3,
+                         data=model2vars,
+                         model="relogit",
+                         robust=TRUE,
+                         cite=F)
+
 disag.model<-zelig(onset ~ ld.news + ld.radio + ld.tv + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                      deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                      spline3,
@@ -190,6 +192,9 @@ disag.model<-zelig(onset ~ ld.news + ld.radio + ld.tv + lgdpl + larea + lmtn + l
 
 
 model1vars.unscaled<-model1vars.unscaled[complete.cases(model1vars.unscaled),]
+
+
+### Predicted probability plot
 
 warren.unscaled<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                          deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
@@ -204,6 +209,7 @@ mdi.r<-seq(0,300,50) # ~ min to max in sample
 x.mdi <- setx(warren.unscaled, mdi= mdi.r)
 s.out <- sim(warren.unscaled, x = x.mdi)
 
+
 pdf(file="figure/mdi_effect.pdf", pointsize=15)
 par(xpd=TRUE)
 plot(s.out,
@@ -215,14 +221,33 @@ plot(s.out,
      leg=4)
 dev.off()
 
+### Estimate baseline prediction of moving from 0 MDI to 25th percentile
+
+x.low<-setx(warren.unscaled, mdi = 0)
+x.hi<-setx(warren.unscaled, mdi = quantile(model1vars.unscaled$mdi, .25, na.rm=TRUE))
+
+s.out.warren <- sim(warren.unscaled, x = x.low, x1 = x.hi)
+
+# summary(s.out.warren)
+
 
 diff.unscaled<-zelig(onset ~ ld.mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                      deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                      spline3,
-                   data=lowmdi,
+                   data=model2vars.unscaled,
                    model="relogit",
                    robust=TRUE,
                    cite=F)
+
+### Estimate baseline prediction of moving from 0 MDI to 25th percentile
+
+x.low<-setx(diff.unscaled, ld.mdi = 0)
+x.hi<-setx(diff.unscaled, ld.mdi = quantile(model1vars.unscaled$mdi, .25, na.rm=TRUE))
+
+s.out.diff <- sim(diff.unscaled, x = x.low, x1 = x.hi)
+
+# summary(s.out.diff)
+
 
 ld.mdi.r<-seq(0,3,.5) # ~ min to max in sample
 
