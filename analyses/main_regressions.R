@@ -52,17 +52,18 @@ mindiff<-min(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, n
 meandiff<-mean(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
 maxdiff<-max(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
 
-rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + log(lnews+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                           deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                           spline3,
                         data=model1vars,
                         family=binomial)
+
 # summary(rep.model.tv.nonlin)
 
 # plot(rep.model.tv.nonlin, main="Effect of TV Density on Civil War Across Levels of TV Density")
 # abline(a=0,b=0, col = "red", lty = 9)
 
-rep.model.radio.nonlin <- gam(onset ~ s(log(lradio+1)) + log(ltv+1) + log(lnews+1) +  lgdpl + larea + lmtn + lpopl + oil2l + deml +
+rep.model.radio.nonlin <- gam(onset ~ s(log(lradio+1)) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                              deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                              spline3,
                            data=model1vars,
@@ -72,7 +73,7 @@ rep.model.radio.nonlin <- gam(onset ~ s(log(lradio+1)) + log(ltv+1) + log(lnews+
 # plot(rep.model.radio.nonlin, main="Effect of Radio Density on Civil War Across Levels of Radio Density")
 # abline(a=0,b=0, col = "red", lty = 9)
 
-rep.model.news.nonlin <- gam(onset ~ s(log(lnews+1)) + log(ltv+1) + log(lradio+1) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+rep.model.news.nonlin <- gam(onset ~ s(log(lnews+1)) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                                 deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                                 spline3,
                               data=model1vars,
