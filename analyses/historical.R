@@ -152,17 +152,14 @@ z.out.hist2<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 
 # plot(modelvars2$l.tvlong, z.out.hist3$result$residuals)
 # plot(modelvars2$onsets, z.out.hist3$result$residuals)
 
-short<-modelvars2[74:182,] # from 1891
+modelvars2$imputed<-ifelse(modelvars2$Year<0.352, 1, 0) # scaled "1945"
 z.out.hist3<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
-                     l.onsets + d.onsets + Year + ww1 + ww2 + cold,
+                     l.onsets + d.onsets + Year + ww1 + ww2 + cold + imputed,
                    model="negbinom",
                    robust=TRUE,
-                   data=short,
+                   data=modelvars2,
                    cite=F)
 # summary(z.out.hist3)
-# plot(modelvars2$Year, z.out.hist3$result$residuals)
-# plot(modelvars2$l.tvlong, z.out.hist3$result$residuals)
-# plot(modelvars2$onsets, z.out.hist3$result$residuals)
 
 
 z.out.hist2.unscaled<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 +
