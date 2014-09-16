@@ -32,15 +32,25 @@ civil war.
 
 \onehalfspacing
 
-In a recent issue of *International Organization*, Camber Warren argues
-that the spread of mass media technologies throughout a particular
-country decreases the probability of observing civil war because mass
-media technologies increase state strength and therefore deter
-insurgencies. The reason that technologies such as televisions, radios,
-and newspapers enhance the state's strength is because they increase the
-state's normative influence and therefore its power to induce loyalty
-from citizens. More specifically, mass media technologies increase this
-"soft power" of the state in two ways.
+Many scholars of the modern nation-state have argued that by allowing
+political elites to communicate with subjects across large territories,
+the emergence of mass media technologies were a crucial condition for
+the emergence of the modern nation-state
+[@Anderson:1983vt; @Deutsch:1953ww]. Within this tradition, contemporary
+political scientists often conceptualize mass media technologies as
+instruments which increase the state's "soft power" to induce loyalty
+and symbolic attachments [@NyeJr:1990hs,
+168-169; @Keohane:1998hj; @nye2004soft, 47-48]. Issuing from this
+perspective, one article from a recent issue of *International
+Organization* [@Camber:2013ul] argues that precisely by increasing the
+state's communicative power, mass media deter potential insurgencies and
+therefore decrease the probability of civil war onset.
+
+According to Warren, the reason that technologies such as televisions,
+radios, and newspapers enhance the state's strength is because they
+increase the state's normative influence and therefore its power to
+induce loyalty from citizens. More specifically, mass media technologies
+increase this "soft power" of the state in two ways.
 
 First, mass media technologies lower the costs of communication in
 general, for states as well as insurgents. Second, however,mass media

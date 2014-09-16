@@ -72,11 +72,20 @@ civil war.
 
 \onehalfspacing
 
-In a recent issue of \emph{International Organization}, Camber Warren
-argues that the spread of mass media technologies throughout a
-particular country decreases the probability of observing civil war
-because mass media technologies increase state strength and therefore
-deter insurgencies. The reason that technologies such as televisions,
+Many scholars of the modern nation-state have argued that by allowing
+political elites to communicate with subjects across large territories,
+the emergence of mass media technologies were a crucial condition for
+the emergence of the modern nation-state (Anderson 1983; Deutsch 1953).
+Within this tradition, contemporary political scientists often
+conceptualize mass media technologies as instruments which increase the
+state's ``soft power'' to induce loyalty and symbolic attachments
+({\textbf{???}}; R. O. Keohane and Nye 1998; Nye 2004, 47--48). Issuing
+from this perspective, one article from a recent issue of
+\emph{International Organization} (Warren 2014) argues that precisely by
+increasing the state's communicative power, mass media deter potential
+insurgencies and therefore decrease the probability of civil war onset.
+
+According to Warren, the reason that technologies such as televisions,
 radios, and newspapers enhance the state's strength is because they
 increase the state's normative influence and therefore its power to
 induce loyalty from citizens. More specifically, mass media technologies
@@ -428,17 +437,17 @@ countries as far back as 1800 and is commonly used for
 international-level estimates. For the other key determinant of civil
 war onset, GDP per capita, the Maddison Project provides widely-used
 estimates for all countries as far back as possible, in many cases
-extending well before 1800 (Bolt and Zanden 2013). Finally, while no
-general measure of mass media density is available before 1945, I
-exploit a pecularity of television diffusion to reliably and
-substantially extend its time-series. Because the international mean for
-television density is zero in the earliest two years available (1945 and
-1946) and the time-series of television density is an integrated
-(unit-root) process which trends upward, the international mean for
-television density in every year prior to 1945 is highly likely to be
-zero. Thus, I construct an historically-extended international-level
-variable for \emph{TV} equivalent to the one discussed above but which
-takes a zero for all years prior to 1945.
+extending well before 1800 (Bolt 2013). Finally, while no general
+measure of mass media density is available before 1945, I exploit a
+pecularity of television diffusion to reliably and substantially extend
+its time-series. Because the international mean for television density
+is zero in the earliest two years available (1945 and 1946) and the
+time-series of television density is an integrated (unit-root) process
+which trends upward, the international mean for television density in
+every year prior to 1945 is highly likely to be zero. Thus, I construct
+an historically-extended international-level variable for \emph{TV}
+equivalent to the one discussed above but which takes a zero for all
+years prior to 1945.
 
 To test observable implication 3, I estimate a series of regressions
 using the negative binomial distribution for count data, where the
@@ -596,13 +605,11 @@ different levels of MDI. Specifically, I estimate the model
 \[ Onset_{it} = \alpha + f_1 (LogMDI_{it}) + Controls_{it} \beta  + \varepsilon_i \]
 
 where the partial-regression function $f_1 (\cdot)$ is fit by a
-smoothing spline (Fox 2002; ``Modelling and Smoothing Parameter
-Estimation with Multiple Quadratic Penalties'' 2000) and $CONTROLS_{it}$
-is the vector of control variables used in Warren's original models. The
-number of smoothing splines is determined by generalized cross
-validation as part of the estimation procedure.\footnote{The model was
-  estimated using the function \emph{gam} in the \emph{mgcv} package for
-  R.}
+smoothing spline (Fox 2002; Wood 2000) and $CONTROLS_{it}$ is the vector
+of control variables used in Warren's original models. The number of
+smoothing splines is determined by generalized cross validation as part
+of the estimation procedure.\footnote{The model was estimated using the
+  function \emph{gam} in the \emph{mgcv} package for R.}
 
 Figure 3 plots the value of the smooth terms for each level of the
 logarithm of MDI, i.e.~the estimated effect of the logarithm of MDI on
@@ -686,7 +693,8 @@ comparable.\footnote{For continuous independent variables, the
   reflects the change in log-odds of a civil war beginning due to a
   change from 0 to 1 on the dichotomous variable, which is roughly
   equivalent to a two-standard deviation change in a continuous variable
-  (Gelman 2008).}
+  (``Scaling Regression Inputs by Dividing by Two Standard Deviations''
+  2008).}
 
 The first two columns of the following table display the results of a
 baseline model which replicates Warren's original findings (Model 1) and
@@ -1002,9 +1010,15 @@ lines represent 95\% confidence bands.
 \setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
 \setlength{\parskip}{8pt} \vspace*{-0.2in} \noindent
 
-Bolt, J, and J L van Zanden. 2013. ``The First Update of the Maddison
-Project; Re-Estimating Growth Before 1820.'' \emph{Maddison Project
-Working Paper} 4.
+Anderson, Benedict. 1983. \emph{Imagined Communities: Reflections on the
+Origin and Spread of Nationalism}. London: Verso.
+
+Bolt, J. 2013. ``The First Update of the Maddison Project; Re-Estimating
+Growth Before 1820.'' \emph{Maddison Project Working Paper} 4.
+
+Deutsch, Karl W. 1953. \emph{Nationalism and Social Communication : an
+Inquiry into the Foundations of Nationality}. New York: Technology Press
+(M.I.T.).
 
 Fox, John. 2002. ``Nonparametric Regression.'' In \emph{An R and S-Plus
 Companion to Applied Regression}, Thousand Oaks, CA.
@@ -1012,12 +1026,8 @@ Companion to Applied Regression}, Thousand Oaks, CA.
 Fr{ö}lich, Markus. 2006. ``Non-Parametric Regression for Binary
 Dependent Variables.'' \emph{Econometrics Journal} 9(3): 511--40.
 
-Gelman, Andrew. 2008. ``Scaling Regression Inputs by Dividing by Two
-Standard Deviations.'' \emph{Statistics in Medicine} 27(15): 2865--73.
-
 Hintze, Jerry L, and Ray D Nelson. 1998. ``Violin Plots: A Box
-Plot-Density Trace Synergism.'' \emph{The American Statistician} 52(2):
-181--84.
+Plot-Density Trace Synergism.'' 52(2): 181--84.
 
 Im, Kyung So, M Hashem Pesaran, and Yongcheol Shin. 2003. ``Testing for
 Unit Roots in Heterogeneous Panels.'' \emph{Journal of Econometrics}
@@ -1026,6 +1036,9 @@ Unit Roots in Heterogeneous Panels.'' \emph{Journal of Econometrics}
 Kastellec, Jonathan P, and Eduardo L Leoni. 2007. ``Using Graphs Instead
 of Tables in Political Science.'' \emph{Perspectives on Politics} 5(04):
 755--71.
+
+Keohane, Robert O, and Joseph S Nye. 1998. ``Power and Interdependence
+in the Information Age.'' \emph{Foreign Affairs} 77(5): 81.
 
 King, G, R O Keohane, and S Verba. 1994. \emph{Designing Social Inquiry:
 Scientific Inference in Qualitative Research}. Princeton University
@@ -1038,13 +1051,23 @@ Levin, Andrew, Chien-Fu Lin, and Chia-Shang James Chu. 2002. ``Unit Root
 Tests in Panel Data: Asymptotic and Finite-Sample Properties.''
 \emph{Journal of Econometrics} 108(1): 1--24.
 
-``Modelling and Smoothing Parameter Estimation with Multiple Quadratic
-Penalties.'' 2000. \emph{Journal of the Royal Statistical Society (B)}
-62(2): 413--28.
+Nye, Joseph S. 2004. \emph{Soft Power: The Means to Success in World
+Politics}. New York: Public Affairs.
 
 Sambanis, N. 2004. ``What Is Civil War?: Conceptual and Empirical
 Complexities of an Operational Definition.'' \emph{Journal of Conflict
 Resolution} 48(6): 814--58.
+
+``Scaling Regression Inputs by Dividing by Two Standard Deviations.''
+2008. \emph{Statistics in Medicine} 27(15): 2865--73.
+
+Warren, Camber T. 2014. ``Not by the Sword Alone: Soft Power, Mass
+Media, and the Production of State Sovereignty.'' \emph{International
+Organization} 68(01): 111--41.
+
+Wood, S N. 2000. ``Modelling and Smoothing Parameter Estimation with
+Multiple Quadratic Penalties.'' \emph{onlinelibrary.wiley.com} 62(2):
+413--28.
 
 
 \end{document}
