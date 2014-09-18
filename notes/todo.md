@@ -1,9 +1,20 @@
-- finalize var names in historical regression output
-
 
 - cite Polity IV
-- cite Maddison
-- run non linear regressions for disaggregated media
+- do other cites as listed in text
+- fix Gelman citation where title instead of name is displayed
+- standardize / explain first instance of:
+	MDI
+	ICT
+	pacification theory
+	war-before-peace theory
+	post-war v post-war
+	all appendix etc to "supplementary information"
+
+Fix appearance of disag non-lin graphs in SI
+
+remove any suggestions that affect is increasingly bellicose
+up to the threshold. the argument is just that below the threshold,
+increases in mass media increase probability of civil war.
 
 
 
