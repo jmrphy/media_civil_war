@@ -1038,8 +1038,13 @@ semi-parametric regression in which all independent variables are
 estimated parametrically except the variable of interest. The dashed
 lines represent 95% confidence bands.
 
-![plot of chunk
-disaggregated-nonlinear](./media_civil_war_files/figure-markdown/disaggregated-nonlinear.pdf)
+\clearpage
+![The non-linear effects of disaggregated media technologies on civil
+war
+onset](./media_civil_war_files/figure-markdown/disaggregated-nonlinear.pdf)
+\begin{figure}
+\caption{The non-linear effects of disaggregated media technologies on civil war onset}  
+\end{figure}
 \pagebreak   
 
 References
