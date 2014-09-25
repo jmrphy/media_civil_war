@@ -40,7 +40,7 @@ the causes of civil war and contributes to the burgeoning research
 agenda on the nexus of information-communication technology (ICT) and
 political conflict.\newline
 
-Last update: September 25, 2014[^1] \newline
+Last updated: September 25, 2014[^1] \newline
 
 \clearpage
 \pagenumbering{arabic}

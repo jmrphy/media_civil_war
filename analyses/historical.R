@@ -180,6 +180,8 @@ s.out.d <- sim(z.out.hist2.unscaled, x = x.dtv)
 s.out <- sim(z.out.hist2.unscaled, x = x.tv)
 
 pdf(file="figure/dtv_effect.pdf", pointsize=15)
+#png(file="figure/dtv_effect.png", pointsize=15)
+
 par(xpd=TRUE)
 plot(s.out.d,
      xlab="Change in International Mean of TV Density",

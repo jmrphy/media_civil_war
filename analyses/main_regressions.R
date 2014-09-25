@@ -212,6 +212,8 @@ s.out <- sim(warren.unscaled, x = x.mdi)
 
 
 pdf(file="figure/mdi_effect.pdf", pointsize=15)
+#png(file="figure/mdi_effect.png", pointsize=15)
+
 par(xpd=TRUE)
 plot(s.out,
      main="All Communications Systems",
@@ -256,6 +258,8 @@ x.ld.mdi <- setx(diff.unscaled, ld.mdi= ld.mdi.r)
 s.out.d <- sim(diff.unscaled, x = x.ld.mdi)
 
 pdf(file="figure/d_mdi_effect.pdf", pointsize=15)
+#png(file="figure/d_mdi_effect.png", pointsize=15)
+
 par(xpd=TRUE)
 plot(s.out.d,
      main="Pre-Mass Communications Systems",
