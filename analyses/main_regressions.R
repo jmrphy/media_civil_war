@@ -258,7 +258,7 @@ s.out.d <- sim(diff.unscaled, x = x.ld.mdi)
 pdf(file="figure/d_mdi_effect.pdf", pointsize=15)
 par(xpd=TRUE)
 plot(s.out.d,
-     main="Pre- Mass Communications Systems",
+     main="Pre-Mass Communications Systems",
      xlab="Change in Mass Media Density",
      ylab="Probability of Civil War Onset",
      cex.lab=3,

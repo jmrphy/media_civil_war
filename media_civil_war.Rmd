@@ -24,7 +24,7 @@ Last update: September 25, 2014^[This is a draft working paper. Comments, questi
 
 ```{r setup, include=FALSE, warning=FALSE}
 require(knitr)
-opts_chunk$set(dev=c("pdf"), fig.width=12, fig.height=10, fig.show='hold', fig.lp="fig:", par=TRUE, echo=FALSE, results="hide", message=FALSE, warning=FALSE, error=FALSE)
+opts_chunk$set(dev=c("pdf", "png"), fig.width=12, fig.height=10, fig.show='hold', fig.lp="fig:", par=TRUE, echo=FALSE, results="hide", message=FALSE, warning=FALSE, error=FALSE)
 knit_hooks$set(par=function(before, options, envir){
 if (before && options$fig.show!='none') par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.3)
 }, crop=hook_pdfcrop)
