@@ -26,7 +26,7 @@ warren$tvlong[warren$Year<=1944]<-0
 ### Merge Warren and Intra-state war data
 
 globalmdi<-merge(hist_intrastate, warren, by=c("Year"), all.x=TRUE)
-globalmdi.war<-globalmdi[,c("Year", "civil.wars", "onsets", "mdi", "tvli", "radioli", "newsli", "tvlong")]
+globalmdi.war<-globalmdi[,c("Year", "civil.wars", "onsets", "states", "mdi", "tvli", "radioli", "newsli", "tvlong")]
 globalmdi.war$tvlong<-globalmdi.war$tvli
 globalmdi.war$tvlong[1:129]<-0
 
@@ -113,7 +113,7 @@ longrun.plot<-ggplot(molten, aes(x=Year)) +
 
 modelvars2.unscaled<-subset(historical, select=c("Year", "d.civil.wars", "d.onsets", "onsets", "ww1", "ww2", "cold", "l.tvlong", "d.tvlong", "l.gdppc",
                                         "l.polity2", "l2.polity2", "d.polity2", "d.gdppc", "civil.wars", "l.civil.wars", "d2.civil.wars", "l.onsets", "l2.onsets",
-                                        "d2.onsets"))
+                                        "d2.onsets", "states"))
 modelvars2.unscaled<-modelvars2.unscaled[complete.cases(modelvars2.unscaled),]
 
 # require(tseries)
@@ -126,7 +126,7 @@ detach("package:Zelig", unload=TRUE)
 require(arm)
 modelvars2<-subset(historical, select=c("Year", "d.civil.wars", "d.onsets", "onsets", "ww1", "ww2", "cold", "l.tvlong", "d.tvlong", "l.gdppc",
                                        "l.polity2", "l2.polity2", "d.gdppc", "d.polity2", "civil.wars", "l.civil.wars", "d2.civil.wars", "l.onsets", "l2.onsets",
-                                       "d2.onsets", "ld.onsets"))
+                                       "d2.onsets", "ld.onsets", "states"))
 modelvars2[c(1,6:length(names(modelvars2)))]<-sapply(modelvars2[c(1,6:length(names(modelvars2)))], function(x) rescale(x))
 modelvars2<-modelvars2[complete.cases(modelvars2),]
 
@@ -134,7 +134,7 @@ detach("package:arm", unload=TRUE)
 require(Zelig)
 
 z.out.hist1<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
-                     l.onsets + d.onsets + Year,
+                     l.onsets + d.onsets + states + Year,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2,
@@ -142,7 +142,7 @@ z.out.hist1<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 
 # summary(z.out.hist1)
 
 z.out.hist2<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
-                     l.onsets + d.onsets + Year + ww1 + ww2 + cold,
+                     l.onsets + d.onsets + states + Year + ww1 + ww2 + cold,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2,
@@ -154,7 +154,7 @@ z.out.hist2<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 
 
 modelvars2$imputed<-ifelse(modelvars2$Year<0.352, 1, 0) # scaled "1945"
 z.out.hist3<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 + civil.wars +
-                     l.onsets + d.onsets + Year + ww1 + ww2 + cold + imputed,
+                     l.onsets + d.onsets + states + Year + ww1 + ww2 + cold + imputed,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2,
@@ -163,12 +163,25 @@ z.out.hist3<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 
 
 
 z.out.hist2.unscaled<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l.polity2 + d.polity2 + l2.polity2 +
-                              civil.wars + l.onsets + d.onsets + Year + ww1 + ww2 + cold,
+                              civil.wars + l.onsets + d.onsets + states + Year + ww1 + ww2 + cold,
                    model="negbinom",
                    robust=TRUE,
                    data=modelvars2.unscaled,
                    cite=F)
 # summary(z.out.hist2.unscaled)
+
+# 
+# source("http://www.utdallas.edu/~pbrandt/code/pests.r")
+# 
+# modelvars2<-subset(historical, select=c("Year", "d.civil.wars", "d.onsets", "onsets", "ww1", "ww2", "cold", "l.tvlong", "d.tvlong", "l.gdppc",
+#                                         "l.polity2", "l2.polity2", "civil.wars", "l.civil.wars", "d2.civil.wars", "l2.onsets",
+#                                         "d2.onsets", "states"))
+# 
+# modelvars2<-modelvars2[complete.cases(modelvars2),]
+# 
+# pewmod<-Pewma(modelvars2$onsets ~ -1 + modelvars2$l.tvlong + modelvars2$d.tvlong + modelvars2$l.gdppc + modelvars2$l.polity2 + modelvars2$ww1 + modelvars2$ww2 + modelvars2$cold + modelvars2$Year + modelvars2$states)
+
+
 
 dtv.r<-seq(-.1827,.9664,.1)
 tv.r<-seq(0,20,1)

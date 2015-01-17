@@ -119,7 +119,7 @@ war around the world in recent decades.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{./media_civil_war_files/figure-markdown/globalplot.pdf}
+\includegraphics{media_civil_war_files/figure-markdown/globalplot.pdf}
 \caption{Mass Media Density and Civil Wars Globally, 1816-1999}
 \end{figure}
 
@@ -625,14 +625,18 @@ measure of mass media density which averages all media technologies.
 
 As robustness checks, subsequent models of the international-level
 dynamics include controls for global events likely to shape the
-likelihood of civil war onsets. \emph{WWI} is a dummy variable for the
-years 1914-1918, \emph{WWII} is a dummy variable for the years
-1939-1944, and \emph{Cold War} is a dummy variable for the years
-1947-1991. Finally, to check that results are not dependent on the years
-in which a value of 0 is imputed to televison density, I include the
-variable \emph{IMPUTED} which is a dummy variable for all years before
-1945. All dummy variables take a value of 1 when they are equal to the
-condition they state, and a value of 0 otherwise.
+likelihood of civil war onsets. The variable \emph{STATES} controls for
+the number of states in the international system in each year
+(Correlates of War Project 2011) to control for the possibility that
+civil war prevalence is shaped by the number of units subject to the
+possibility of civil war. \emph{WWI} is a dummy variable for the years
+1914-1918, \emph{WWII} is a dummy variable for the years 1939-1944, and
+\emph{Cold War} is a dummy variable for the years 1947-1991. Finally, to
+check that results are not dependent on the years in which a value of 0
+is imputed to televison density, I include the variable \emph{IMPUTED}
+which is a dummy variable for all years before 1945. All dummy variables
+take a value of 1 when they are equal to the condition they state, and a
+value of 0 otherwise.
 
 \section{Analysis}\label{analysis}
 
@@ -655,7 +659,7 @@ mass media density in this sample of countries between 1945-1999.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{./media_civil_war_files/figure-markdown/violinplot.pdf}
+\includegraphics{media_civil_war_files/figure-markdown/violinplot.pdf}
 \caption{Violin plot of media density for all civil war onsets}
 \end{figure}
 
@@ -744,7 +748,7 @@ statistically significant.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{./media_civil_war_files/figure-markdown/nonlinear-plot.pdf}
+\includegraphics{media_civil_war_files/figure-markdown/nonlinear-plot.pdf}
 \caption{The Non-Linear Effect of MDI on Civil War Across Levels of MDI}
 \end{figure}
 
@@ -1006,7 +1010,7 @@ observable at the level of the international system.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{./media_civil_war_files/figure-markdown/longrunplot.pdf}
+\includegraphics{media_civil_war_files/figure-markdown/longrunplot.pdf}
 \caption{TV, Democracy, Economic Growth, and Civil Wars Globally,
 1816-1999}
 \end{figure}
@@ -1020,42 +1024,44 @@ observable at the level of the international system.
 \\[-1.8ex] & \multicolumn{3}{c}{onsets} \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- TV$_{t-1}$ & $-$0.80$^{***}$ & $-$0.53 & $-$0.43 \\ 
-  & (0.30) & (0.35) & (0.34) \\ 
-  $\Delta$TV & 0.36$^{**}$ & 0.46$^{***}$ & 0.51$^{***}$ \\ 
-  & (0.14) & (0.15) & (0.15) \\ 
-  GDP PER CAPITA$_{t-1}$ & $-$0.11 & $-$0.06 & $-$0.26 \\ 
-  & (0.50) & (0.55) & (0.54) \\ 
+ TV$_{t-1}$ & $-$0.91$^{**}$ & $-$0.66 & $-$0.60 \\ 
+  & (0.37) & (0.40) & (0.40) \\ 
+  $\Delta$TV & 0.33$^{**}$ & 0.42$^{***}$ & 0.46$^{***}$ \\ 
+  & (0.15) & (0.16) & (0.16) \\ 
+  GDP PER CAPITA$_{t-1}$ & $-$0.07 & $-$0.03 & $-$0.24 \\ 
+  & (0.51) & (0.57) & (0.57) \\ 
   $\Delta$GDP PER CAPITA & $-$0.01 & $-$0.03 & $-$0.06 \\ 
   & (0.06) & (0.06) & (0.06) \\ 
-  DEMOCRACY$_{t-1}$ & 0.20 & 0.86$^{***}$ & 0.89$^{***}$ \\ 
-  & (0.16) & (0.22) & (0.22) \\ 
-  $\Delta$DEMOCRACY & $-$0.21$^{**}$ & $-$0.21$^{**}$ & $-$0.25$^{***}$ \\ 
-  & (0.09) & (0.09) & (0.09) \\ 
-  DEMOCRACY$^2_{t-1}$ & 0.21 & 0.36$^{*}$ & 0.40$^{**}$ \\ 
-  & (0.15) & (0.20) & (0.19) \\ 
-  CIVIL WARS & 0.94$^{***}$ & 0.97$^{***}$ & 1.00$^{***}$ \\ 
-  & (0.22) & (0.24) & (0.25) \\ 
-  ONSETS$_{t-1}$ & 0.91$^{***}$ & 0.97$^{***}$ & 0.99$^{***}$ \\ 
-  & (0.16) & (0.16) & (0.17) \\ 
+  DEMOCRACY$_{t-1}$ & 0.25 & 0.94$^{***}$ & 0.99$^{***}$ \\ 
+  & (0.19) & (0.27) & (0.27) \\ 
+  $\Delta$DEMOCRACY & $-$0.19$^{*}$ & $-$0.18$^{*}$ & $-$0.21$^{**}$ \\ 
+  & (0.10) & (0.11) & (0.11) \\ 
+  DEMOCRACY$^2_{t-1}$ & 0.20 & 0.36$^{*}$ & 0.41$^{**}$ \\ 
+  & (0.16) & (0.20) & (0.19) \\ 
+  CIVIL WARS & 0.91$^{***}$ & 0.93$^{***}$ & 0.95$^{***}$ \\ 
+  & (0.24) & (0.25) & (0.25) \\ 
+  ONSETS$_{t-1}$ & 0.90$^{***}$ & 0.95$^{***}$ & 0.97$^{***}$ \\ 
+  & (0.16) & (0.16) & (0.16) \\ 
   $\Delta$ONSETS & 0.16$^{***}$ & 0.17$^{***}$ & 0.17$^{***}$ \\ 
   & (0.02) & (0.02) & (0.02) \\ 
-  YEAR & $-$0.09 & $-$0.93$^{*}$ & $-$0.77 \\ 
-  & (0.39) & (0.55) & (0.53) \\ 
-  WWI &  & $-$0.10 & $-$0.15 \\ 
-  &  & (0.17) & (0.17) \\ 
-  WWII &  & 0.43$^{**}$ & 1.50$^{***}$ \\ 
-  &  & (0.22) & (0.33) \\ 
-  COLD WAR &  & $-$0.88$^{***}$ & $-$0.96$^{***}$ \\ 
-  &  & (0.20) & (0.20) \\ 
+  STATES & 0.24 & 0.37 & 0.49 \\ 
+  & (0.57) & (0.59) & (0.59) \\ 
+  YEAR & $-$0.28 & $-$1.10$^{*}$ & $-$1.10 \\ 
+  & (0.56) & (0.69) & (0.69) \\ 
+  WWI &  & $-$0.12 & $-$0.17 \\ 
+  &  & (0.18) & (0.17) \\ 
+  WWII &  & 0.41$^{*}$ & 1.60$^{***}$ \\ 
+  &  & (0.22) & (0.34) \\ 
+  COLD WAR &  & $-$0.92$^{***}$ & $-$1.00$^{***}$ \\ 
+  &  & (0.22) & (0.22) \\ 
   IMPUTED &  &  & 1.20$^{***}$ \\ 
-  &  &  & (0.34) \\ 
-  CONSTANT & 0.53$^{***}$ & 0.56$^{***}$ & $-$0.24 \\ 
-  & (0.04) & (0.08) & (0.25) \\ 
+  &  &  & (0.36) \\ 
+  CONSTANT & 0.53$^{***}$ & 0.57$^{***}$ & $-$0.28 \\ 
+  & (0.04) & (0.08) & (0.26) \\ 
  \textit{Observations} & 182 & 182 & 182 \\ 
 \textit{Log likelihood} & $-$260.00 & $-$257.00 & $-$256.00 \\ 
-$\theta$ & 45,390.00  (485,212.00) & 45,395.00  (461,838.00) & 46,325.00  (469,369.00) \\ 
-\textit{Akaike information criterion} & 544.00 & 544.00 & 545.00 \\ 
+$\theta$ & 45,133.00  (484,186.00) & 44,773.00  (456,964.00) & 45,671.00  (465,362.00) \\ 
+\textit{Akaike information criterion} & 546.00 & 546.00 & 546.00 \\ 
 \hline \\[-1.8ex] 
 \textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
@@ -1129,7 +1135,7 @@ of civil war risk which has been poorly understood by previous research.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{./media_civil_war_files/figure-markdown/full_panel_plot.pdf}
+\includegraphics{media_civil_war_files/figure-markdown/full_panel_plot.pdf}
 \caption{Disaggregated media density and all civil war onsets over time,
 by country}
 \end{figure}
@@ -1178,7 +1184,7 @@ estimated parametrically except the variable of interest. The dashed
 lines represent 95\% confidence bands.
 
 \clearpage
-\includegraphics{./media_civil_war_files/figure-markdown/disaggregated-nonlinear.pdf}
+\includegraphics{media_civil_war_files/figure-markdown/disaggregated-nonlinear.pdf}
 
 \begin{figure}
 \caption{The non-linear effects of disaggregated media technologies on civil war onset}  
@@ -1207,6 +1213,9 @@ Publicity, Common Knowledge, and Social Coordination.''
 
 ---------. 2001. ``Rational Ritual: Culture, Coordination, and Common
 Knowledge.''
+
+Correlates of War Project. 2011. ``State System Membership List,
+V2011.'' \url{http://correlatesofwar.org}.
 
 Des Forges, Allison. 1999. \emph{Leave None to Tell the Story: Genocide
 in Rwanda}. New York: Human Rights Watch.

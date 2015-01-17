@@ -43,6 +43,16 @@ rm(startyear.int)
 data$Year<-as.numeric(levels(data$Year))
 summary(data$Year)
 
+#### Number of states in the international system
+
+setwd("~/Dropbox/gh_projects/media_civil_war/data")
+system<-read.csv("system2011.csv")
+
+states<-as.data.frame(table(as.factor(system$year)))
+names(states)<-c("Year", "states")
+
+data<-merge(data, states, by=c("Year"))
+
 setwd("~/Dropbox/gh_projects/media_civil_war")
 write.csv(data, "data/hist_intrastate.csv")
 

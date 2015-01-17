@@ -72,7 +72,7 @@ very little to understanding the troublingly high prevalence of civil
 war around the world in recent decades.
 
 ![Mass Media Density and Civil Wars Globally,
-1816-1999](./media_civil_war_files/figure-markdown/globalplot.pdf)
+1816-1999](media_civil_war_files/figure-markdown/globalplot.pdf)
 
 This research note advances a novel theoretical proposition on the
 relationship between mass media and civil war which accounts for
@@ -536,7 +536,11 @@ measure of mass media density which averages all media technologies.
 
 As robustness checks, subsequent models of the international-level
 dynamics include controls for global events likely to shape the
-likelihood of civil war onsets. *WWI* is a dummy variable for the years
+likelihood of civil war onsets. The variable *STATES* controls for the
+number of states in the international system in each year
+[@CorrelatesofWarProject:2011wm] to control for the possibility that
+civil war prevalence is shaped by the number of units subject to the
+possibility of civil war. *WWI* is a dummy variable for the years
 1914-1918, *WWII* is a dummy variable for the years 1939-1944, and *Cold
 War* is a dummy variable for the years 1947-1991. Finally, to check that
 results are not dependent on the years in which a value of 0 is imputed
@@ -564,7 +568,7 @@ the distributions of civil war onset and mass media density in this
 sample of countries between 1945-1999.
 
 ![Violin plot of media density for all civil war
-onsets](./media_civil_war_files/figure-markdown/violinplot.pdf)
+onsets](media_civil_war_files/figure-markdown/violinplot.pdf)
 
 First, these distributions challenge a key rationale for questioning the
 qualitative evidence that mass media plays a causal role in generating
@@ -648,7 +652,7 @@ suggest that the non-linear fit reduces the deviance by 17.9 and is
 statistically significant.
 
 ![The Non-Linear Effect of MDI on Civil War Across Levels of
-MDI](./media_civil_war_files/figure-markdown/nonlinear-plot.pdf)
+MDI](media_civil_war_files/figure-markdown/nonlinear-plot.pdf)
 
 \begin{table}[!htbp] \centering 
   \caption{ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset} 
@@ -886,7 +890,7 @@ threshold at which its pacifying effects would become observable at the
 level of the international system.
 
 ![TV, Democracy, Economic Growth, and Civil Wars Globally,
-1816-1999](./media_civil_war_files/figure-markdown/longrunplot.pdf)
+1816-1999](media_civil_war_files/figure-markdown/longrunplot.pdf)
 
 \begin{table}[!htbp] \centering 
   \caption{International-Level Regressions} 
@@ -897,42 +901,44 @@ level of the international system.
 \\[-1.8ex] & \multicolumn{3}{c}{onsets} \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- TV$_{t-1}$ & $-$0.80$^{***}$ & $-$0.53 & $-$0.43 \\ 
-  & (0.30) & (0.35) & (0.34) \\ 
-  $\Delta$TV & 0.36$^{**}$ & 0.46$^{***}$ & 0.51$^{***}$ \\ 
-  & (0.14) & (0.15) & (0.15) \\ 
-  GDP PER CAPITA$_{t-1}$ & $-$0.11 & $-$0.06 & $-$0.26 \\ 
-  & (0.50) & (0.55) & (0.54) \\ 
+ TV$_{t-1}$ & $-$0.91$^{**}$ & $-$0.66 & $-$0.60 \\ 
+  & (0.37) & (0.40) & (0.40) \\ 
+  $\Delta$TV & 0.33$^{**}$ & 0.42$^{***}$ & 0.46$^{***}$ \\ 
+  & (0.15) & (0.16) & (0.16) \\ 
+  GDP PER CAPITA$_{t-1}$ & $-$0.07 & $-$0.03 & $-$0.24 \\ 
+  & (0.51) & (0.57) & (0.57) \\ 
   $\Delta$GDP PER CAPITA & $-$0.01 & $-$0.03 & $-$0.06 \\ 
   & (0.06) & (0.06) & (0.06) \\ 
-  DEMOCRACY$_{t-1}$ & 0.20 & 0.86$^{***}$ & 0.89$^{***}$ \\ 
-  & (0.16) & (0.22) & (0.22) \\ 
-  $\Delta$DEMOCRACY & $-$0.21$^{**}$ & $-$0.21$^{**}$ & $-$0.25$^{***}$ \\ 
-  & (0.09) & (0.09) & (0.09) \\ 
-  DEMOCRACY$^2_{t-1}$ & 0.21 & 0.36$^{*}$ & 0.40$^{**}$ \\ 
-  & (0.15) & (0.20) & (0.19) \\ 
-  CIVIL WARS & 0.94$^{***}$ & 0.97$^{***}$ & 1.00$^{***}$ \\ 
-  & (0.22) & (0.24) & (0.25) \\ 
-  ONSETS$_{t-1}$ & 0.91$^{***}$ & 0.97$^{***}$ & 0.99$^{***}$ \\ 
-  & (0.16) & (0.16) & (0.17) \\ 
+  DEMOCRACY$_{t-1}$ & 0.25 & 0.94$^{***}$ & 0.99$^{***}$ \\ 
+  & (0.19) & (0.27) & (0.27) \\ 
+  $\Delta$DEMOCRACY & $-$0.19$^{*}$ & $-$0.18$^{*}$ & $-$0.21$^{**}$ \\ 
+  & (0.10) & (0.11) & (0.11) \\ 
+  DEMOCRACY$^2_{t-1}$ & 0.20 & 0.36$^{*}$ & 0.41$^{**}$ \\ 
+  & (0.16) & (0.20) & (0.19) \\ 
+  CIVIL WARS & 0.91$^{***}$ & 0.93$^{***}$ & 0.95$^{***}$ \\ 
+  & (0.24) & (0.25) & (0.25) \\ 
+  ONSETS$_{t-1}$ & 0.90$^{***}$ & 0.95$^{***}$ & 0.97$^{***}$ \\ 
+  & (0.16) & (0.16) & (0.16) \\ 
   $\Delta$ONSETS & 0.16$^{***}$ & 0.17$^{***}$ & 0.17$^{***}$ \\ 
   & (0.02) & (0.02) & (0.02) \\ 
-  YEAR & $-$0.09 & $-$0.93$^{*}$ & $-$0.77 \\ 
-  & (0.39) & (0.55) & (0.53) \\ 
-  WWI &  & $-$0.10 & $-$0.15 \\ 
-  &  & (0.17) & (0.17) \\ 
-  WWII &  & 0.43$^{**}$ & 1.50$^{***}$ \\ 
-  &  & (0.22) & (0.33) \\ 
-  COLD WAR &  & $-$0.88$^{***}$ & $-$0.96$^{***}$ \\ 
-  &  & (0.20) & (0.20) \\ 
+  STATES & 0.24 & 0.37 & 0.49 \\ 
+  & (0.57) & (0.59) & (0.59) \\ 
+  YEAR & $-$0.28 & $-$1.10$^{*}$ & $-$1.10 \\ 
+  & (0.56) & (0.69) & (0.69) \\ 
+  WWI &  & $-$0.12 & $-$0.17 \\ 
+  &  & (0.18) & (0.17) \\ 
+  WWII &  & 0.41$^{*}$ & 1.60$^{***}$ \\ 
+  &  & (0.22) & (0.34) \\ 
+  COLD WAR &  & $-$0.92$^{***}$ & $-$1.00$^{***}$ \\ 
+  &  & (0.22) & (0.22) \\ 
   IMPUTED &  &  & 1.20$^{***}$ \\ 
-  &  &  & (0.34) \\ 
-  CONSTANT & 0.53$^{***}$ & 0.56$^{***}$ & $-$0.24 \\ 
-  & (0.04) & (0.08) & (0.25) \\ 
+  &  &  & (0.36) \\ 
+  CONSTANT & 0.53$^{***}$ & 0.57$^{***}$ & $-$0.28 \\ 
+  & (0.04) & (0.08) & (0.26) \\ 
  \textit{Observations} & 182 & 182 & 182 \\ 
 \textit{Log likelihood} & $-$260.00 & $-$257.00 & $-$256.00 \\ 
-$\theta$ & 45,390.00  (485,212.00) & 45,395.00  (461,838.00) & 46,325.00  (469,369.00) \\ 
-\textit{Akaike information criterion} & 544.00 & 544.00 & 545.00 \\ 
+$\theta$ & 45,133.00  (484,186.00) & 44,773.00  (456,964.00) & 45,671.00  (465,362.00) \\ 
+\textit{Akaike information criterion} & 546.00 & 546.00 & 546.00 \\ 
 \hline \\[-1.8ex] 
 \textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
@@ -998,7 +1004,7 @@ Contents
 3.  Semi-parametric regressions on disaggregated media density
 
 ![Disaggregated media density and all civil war onsets over time, by
-country](./media_civil_war_files/figure-markdown/full_panel_plot.pdf)
+country](media_civil_war_files/figure-markdown/full_panel_plot.pdf)
 
 ### Tests of Stationarity
 
@@ -1041,7 +1047,7 @@ lines represent 95% confidence bands.
 \clearpage
 ![The non-linear effects of disaggregated media technologies on civil
 war
-onset](./media_civil_war_files/figure-markdown/disaggregated-nonlinear.pdf)
+onset](media_civil_war_files/figure-markdown/disaggregated-nonlinear.pdf)
 \begin{figure}
 \caption{The non-linear effects of disaggregated media technologies on civil war onset}  
 \end{figure}
