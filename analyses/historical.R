@@ -104,7 +104,7 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 longrun.plot<-ggplot(molten, aes(x=Year)) +
   geom_line(aes(y=value, colour=variable, linetype=variable)) +
   scale_colour_manual(values=cbbPalette) +
-  labs(y="Z-scores (standardized values") +
+  labs(y="Z-scores (standardized values)") +
   theme_bw()
 
 

@@ -43,14 +43,14 @@ names(anov)<-c("Resid. Df","Resid. Dev", "Df", "Deviance", "P-value")
 # plot(rep.model.nonlin, main="Effect of MDI on Civil War Across Levels of MDI")
 # abline(a=0,b=0, col = "red", lty = 9)
 
-threshold<-mean(warren$mdi[warren$logmdi>=1.99 & warren$logmdi<=2.01], na.rm=TRUE)
+threshold<-mean(warren$mdi[warren$logmdi>=1.999 & warren$logmdi<=2.001], na.rm=TRUE)
 numcases<-nrow(subset(warren, mdi<=threshold))
 numcases.percent<-round(nrow(subset(warren, mdi<=threshold))/length(warren$mdi)*100)
 percentunder4<-round(nrow(subset(warren, mdi<=4))/length(warren$mdi)*100)
 percentunder10<-round(nrow(subset(warren, mdi<=10))/length(warren$mdi)*100)
-mindiff<-min(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
-meandiff<-mean(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
-maxdiff<-max(subset(warren, mdi<=quantile(warren$mdi, .25, na.rm=TRUE))$d.mdi, na.rm=TRUE)
+mindiff<-min(subset(warren, mdi<quantile(warren$mdi, .20, na.rm=TRUE))$ld.mdi, na.rm=TRUE)
+meandiff<-mean(subset(warren, mdi<quantile(warren$mdi, .20, na.rm=TRUE))$ld.mdi, na.rm=TRUE)
+maxdiff<-max(subset(warren, mdi<quantile(warren$mdi, .20, na.rm=TRUE))$ld.mdi, na.rm=TRUE)
 
 rep.model.tv.nonlin <- gam(onset ~ s(log(ltv+1)) + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                           deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
@@ -95,10 +95,10 @@ rep.model<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                  robust=TRUE,
                  cite=F)
 
-rep.belowsixtieth<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
+rep.belowmedian<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                    deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
                    spline3,
-                 data=subset(model1vars, mdi<quantile(model1vars$mdi, .60, na.rm=TRUE)),
+                 data=subset(model1vars, mdi<=quantile(model1vars$mdi, .5, na.rm=TRUE)),
                  model="relogit",
                  robust=TRUE,
                  cite=F)
@@ -107,16 +107,14 @@ rep.belowsixtieth<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + de
 # rep.model.mass<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
 #                    deml2 + ethfracl + relfracl + pcyrs + spline1 + spline2 +
 #                    spline3,
-#                  data=subset(model1vars, mdi>= quantile(model1vars$mdi, .25, na.rm=TRUE)),
+#                  data=subset(model1vars, mdi>= quantile(model1vars$mdi, .20, na.rm=TRUE)),
 #                  model="relogit",
 #                  robust=TRUE,
 #                  cite=F)
 # 
-# subset(warren, mdi<= quantile(warren$mdi, .25, na.rm=TRUE))
+# subset(warren, mdi< quantile(warren$mdi, .20, na.rm=TRUE))
 
-
-
-low.model1vars<-subset(warren, mdi<= quantile(warren$mdi, .25, na.rm=TRUE))
+low.model1vars<-subset(warren, mdi<=quantile(warren$mdi, .20, na.rm=TRUE))
 
 (table(warren$onset)[2]/table(warren$onset)[1])*100
 (table(low.model1vars$onset)[2]/table(low.model1vars$onset)[1])*100
@@ -132,8 +130,7 @@ rep.model2<-zelig(onset ~ mdi + lgdpl + larea + lmtn + lpopl + oil2l + deml +
                  cite=F)
 summary(rep.model2)
 
-
-model2vars<-subset(warren, mdi<= quantile(warren$mdi, .25, na.rm=TRUE))
+model2vars<-subset(warren, mdi<=quantile(warren$mdi, .20, na.rm=TRUE))
 
 model2vars<-subset(model2vars, select=c("country", "year", "onset", "oil2l", "mdi", "lgdpl", "larea",
                                     "lmtn", "lpopl", "deml", "ld.mdi", "ld.tv", "ld.news", "ld.radio",
@@ -224,10 +221,10 @@ plot(s.out,
      leg=4)
 dev.off()
 
-### Estimate baseline prediction of moving from 0 MDI to 25th percentile
+### Estimate baseline prediction of moving from 0 MDI to 20th percentile
 
 x.low<-setx(warren.unscaled, mdi = 0)
-x.hi<-setx(warren.unscaled, mdi = quantile(model1vars.unscaled$mdi, .25, na.rm=TRUE))
+x.hi<-setx(warren.unscaled, mdi = quantile(model1vars.unscaled$mdi, .20, na.rm=TRUE))
 
 s.out.warren <- sim(warren.unscaled, x = x.low, x1 = x.hi)
 
@@ -242,17 +239,17 @@ diff.unscaled<-zelig(onset ~ ld.mdi + lgdpl + larea + lmtn + lpopl + oil2l + dem
                    robust=TRUE,
                    cite=F)
 
-### Estimate baseline prediction of moving from 0 MDI to 25th percentile
+### Estimate baseline prediction of moving from 0 MDI to 20th percentile
 
 x.low<-setx(diff.unscaled, ld.mdi = 0)
-x.hi<-setx(diff.unscaled, ld.mdi = quantile(model1vars.unscaled$mdi, .25, na.rm=TRUE))
+x.hi<-setx(diff.unscaled, ld.mdi = quantile(model1vars.unscaled$mdi, .20, na.rm=TRUE))
 
 s.out.diff <- sim(diff.unscaled, x = x.low, x1 = x.hi)
 
 # summary(s.out.diff)
 
 
-ld.mdi.r<-seq(0,3,.5) # ~ min to max in sample
+ld.mdi.r<-seq(0,4,1) # ~ zero change to 1 sd above the mean
 
 x.ld.mdi <- setx(diff.unscaled, ld.mdi= ld.mdi.r)
 s.out.d <- sim(diff.unscaled, x = x.ld.mdi)

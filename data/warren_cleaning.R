@@ -14,18 +14,14 @@ df$country<-as.factor(df$country)
 # Make new variables panel-style
 pdf<-pdata.frame(df, index=c("cowcode", "year"))
 pdf$lonset<-lag(pdf$onset)
-pdf$lmdi<-lag(pdf$mdi)
-pdf$d.mdi<-diff(pdf$mdi, differences=1)
-pdf$ld.mdi<-diff(pdf$lmdi, differences=1)
-pdf$lnews<-lag(pdf$newsli)
-pdf$d.news<-diff(pdf$newsli, differences=1)
-pdf$ld.news<-diff(pdf$lnews, differences=1)
-pdf$lradio<-lag(pdf$radioli)
-pdf$d.radio<-diff(pdf$radioli, differences=1)
-pdf$ld.radio<-diff(pdf$lradio, differences=1)
-pdf$ltv<-lag(pdf$tvli)
-pdf$d.tv<-diff(pdf$tvli, differences=1)
-pdf$ld.tv<-diff(pdf$ltv, differences=1)
+pdf$lmdi<-pdf$mdi
+pdf$ld.mdi<-diff(pdf$mdi, differences=1)
+pdf$lnews<-pdf$newsli
+pdf$ld.news<-diff(pdf$newsli, differences=1)
+pdf$lradio<-pdf$radioli
+pdf$ld.radio<-diff(pdf$radioli, differences=1)
+pdf$ltv<-pdf$tvli
+pdf$ld.tv<-diff(pdf$tvli, differences=1)
 df<-as.data.frame(pdf)
 df<-subset(df, select=(1:length(df)))
 
