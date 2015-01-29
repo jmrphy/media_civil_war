@@ -182,15 +182,20 @@ z.out.hist2.unscaled<-zelig(onsets ~ l.tvlong + d.tvlong + l.gdppc + d.gdppc + l
 # pewmod<-Pewma(modelvars2$onsets ~ -1 + modelvars2$l.tvlong + modelvars2$d.tvlong + modelvars2$l.gdppc + modelvars2$l.polity2 + modelvars2$ww1 + modelvars2$ww2 + modelvars2$cold + modelvars2$Year + modelvars2$states)
 
 
+# From 0 change to a change of +2sd from the mean change
+x.low<-setx(z.out.hist2.unscaled, d.tvlong = 0)
+x.hi<-setx(z.out.hist2.unscaled, d.tvlong = .5)
+
+s.out.diff.hist <- sim(z.out.hist2.unscaled, x = x.low, x1 = x.hi)
+
+# summary(s.out.diff.hist)
+
 
 dtv.r<-seq(-.1827,.9664,.1)
-tv.r<-seq(0,20,1)
 
 x.dtv <- setx(z.out.hist2.unscaled, d.tvlong= dtv.r)
-x.tv <- setx(z.out.hist2.unscaled, l.tvlong= tv.r)
 
 s.out.d <- sim(z.out.hist2.unscaled, x = x.dtv)
-s.out <- sim(z.out.hist2.unscaled, x = x.tv)
 
 pdf(file="figure/dtv_effect.pdf", pointsize=15)
 #png(file="figure/dtv_effect.png", pointsize=15)

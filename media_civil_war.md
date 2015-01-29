@@ -18,29 +18,26 @@ Department of Politics and International Relations \newline
 
 Qualitative evidence suggests that mass media can play a causal role in
 the outbreak of civil wars, and at the international level the rapid
-increase of mass media in recent decades has generally coincided with a
-similarly dramatic spread of civil wars. Yet, recent quantitative
-research suggests that mass media decrease the probability of civil war
-onset by enhancing the power of states and therefore deterring
-insurgencies. To resolve this puzzling contradiction, I argue that mass
-media technologies have a non-linear effect on the probability of civil
-war onset. Mass media technologies should decrease the likelihood of
-civil war onset only above the threshold at which they constitute a mass
-communications system. Below that threshold, increases in mass media
-should increase the likelihood of civil war. The theory is tested with
-parametric and semi-parametric regressions on cross-sectional
-time-series data from a recent study [@Camber:2013ul] and historical
-time-series at the international level. Consistent with the theory, I
-find evidence of substantial non-linearity in the effect of mass media
-on civil war onset. Findings are also broadly consistent with additional
-observable implications pertaining to the relative effects of different
-media technologies and empirical patterns at the international level
-since 1816. This research note contributes an important new insight into
-the causes of civil war and contributes to the burgeoning research
-agenda on the nexus of information-communication technology (ICT) and
-political conflict.\newline
+increase of mass media in recent decades has coincided with a similarly
+notable spread of civil wars. Yet recent quantitative research suggests
+that mass media decrease the probability of civil war onset by enhancing
+the power of states and therefore deterring insurgencies. To explain
+this puzzling contradiction, I argue that mass media technologies have a
+non-linear effect on the probability of civil war onset. Mass media
+technologies should decrease the likelihood of civil war onset only
+above the threshold at which they constitute a mass communications
+system. Below that threshold, increases in mass media should increase
+the likelihood of civil war. The theory is tested with parametric and
+semi-parametric regressions on country-level, cross-sectional
+time-series data from a recent study [@Camber:2013ul] and long-run
+historical time-series at the international level. I find evidence of
+substantial non-linearity in the effect of mass media on civil war onset
+at both levels of analysis. This research note contributes an important
+new insight into the causes of civil war and contributes to the
+burgeoning research agenda on the nexus of information-communication
+technology (ICT) and political conflict.\newline
 
-Last updated: January 18, 2015.[^1] \newline
+Last updated: January 29, 2015.[^1] \newline
 
 \clearpage
 \pagenumbering{arabic}
@@ -63,17 +60,17 @@ likelihood of civil war onset [@Camber:2013ul]. Yet, as Figure 1
 illustrates, at the global level the exponential increase in mass media
 beginning in the 1950s coincides with a similarly dramatic increase in
 civil wars at the global level.[^2] If mass media decrease the
-probability of civil war, then why did the proliferation of mass media
-since the 1950s not prevent the surge in civil war prevalence beginning
-in the 1960s?
+probability of civil war, it is puzzling that the proliferation of mass
+media since the 1950s coincides with a surge in civil war prevalence
+beginning in the 1960s.
 
 ![Mass Media Density and Civil Wars Globally,
 1816-1999](media_civil_war_files/figure-markdown/globalplot.pdf)
 
 This research note advances a novel theoretical proposition on the
 relationship between mass media and civil war which accounts for
-previous qualitative findings of mass media fomenting civil war onset
-but also recent quantitative evidence that mass media decrease the
+previous qualitative findings of mass media fomenting civil war onset as
+well as recent quantitative evidence that mass media decrease the
 probability of civil war onset. Paradoxically, it is precisely because
 dense mass media systems strengthen the state that the first appearance
 and early spread of mass media within a country should *encourage*
@@ -94,22 +91,19 @@ media with a bellicose effect until the threshold of mass communications
 is crossed.
 
 To compare the non-linear, war-before-peace theory to the linear,
-general pacification theory, I generate causal leverage by deducing
-three new observable implications at two levels of analysis, within and
+general pacification theory, I generate causal leverage by deducing two
+new observable implications at two levels of analysis, within and
 outside the original sample used in the most recent and systematic study
 on this question [@Camber:2013ul]. I use a combination of parametric and
 semi-parametric regressions to compare linear and non-linear model fits
-on the original sample. I also explore the composition of this effect by
-disaggregating the specific information-communication technologies (ICT)
-which collectively serve as a proxy for mass media (television,
-newspaper, and radio). I then consider long-term historical time-series
+on the original sample. I then consider long-term historical time-series
 at the international level, to examine whether the war-before-peace
-theory helps explain the broad empirical pattern of civil war prevalence
-at the international level.
+theory helps explain the empirical pattern of civil war prevalence at
+the international level.
 
-The implications of this research note are two-fold. First, it
-contributes to the project of building "rich theory" for the new and
-burgeoning research agenda on the ICT and political conflict nexus
+The implications of this research note are twofold. First, this research
+note contributes to the project of building "rich theory" for the new
+and burgeoning research agenda on the ICT and political conflict nexus
 [@Lyall:2015uc], demonstrating in particular the importance of
 non-linearities in this area.[^4] Second, it contributes novel
 quantitative evidence helping to explain the severity and timing of one
@@ -121,9 +115,8 @@ This research note proceeds as follows. The first section provides a
 brief summary and critique of the general pacification theory, providing
 the basic rationale for why we should expect the relationship between
 mass media and civil war onset to be non-linear. The second section
-states the non-linear, war-before-peace theory and deduces one
-observable implication which is mutually exclusive with the general
-pacification theory and two which are not predicted by the general
+states the non-linear, war-before-peace theory and deduces two
+observable implications which are mutually exclusive with the general
 pacification theory. The third section explains the data sources,
 variables, and modeling strategy. A fourth section discusses the results
 and a fifth section concludes.
@@ -133,8 +126,8 @@ A Critique of the General Pacification Theory of Mass Media and Civil War
 
 Many scholars of the modern nation-state have argued that by allowing
 political elites to communicate with subjects across large territories,
-the emergence of mass media technologies were a crucial condition for
-the emergence of the modern nation-state
+the emergence of mass media technologies was a crucial condition for the
+emergence of the modern nation-state
 [@Anderson:1983vt; @Deutsch:1953ww]. Within this tradition, contemporary
 political scientists often conceptualize mass media technologies as
 instruments which increase the state's "soft power" to induce loyalty
@@ -146,26 +139,26 @@ probability of civil war onset [@Camber:2013ul].
 
 According to Warren, technologies such as televisions, radios, and
 newspapers decrease the probability of civil war onset because they
-increase the state's communicative powers to induce loyalty from the
-population more than they empower competing messages from challengers of
-state power. While mass media technologies lower the costs of
-communication for the state and potential challengers alike, mass media
-technologies increase the normative influence of the state in particular
-because of economies of scale which are unique to the production of
-normative influence. Because a media message achieves a larger effect on
-receivers who believe the message was widely disseminated, the
-production of normative influence through mass media brings increasing
-marginal returns for each additional unit of effort, as each additional
-recipient receiving the message increases the effect of the message on
-the rest of the receivers. Because the state is inherently a
-larger-scale producer of symbolic content than potential insurgent
-groups, higher levels of mass media are expected to make stronger states
-and therefore lower the probability of observing civil war.
+increase the state's communicative power more than the communicative
+power of potential challengers. While mass media technologies lower the
+costs of communication for the state and potential challengers alike,
+mass media technologies increase the normative influence of the state in
+particular because of economies of scale which are unique to the
+production of normative influence. Because a media message achieves a
+larger effect on receivers who believe the message was widely
+disseminated, the production of normative influence through mass media
+brings increasing marginal returns for each additional unit of effort,
+as each additional recipient receiving the message increases the effect
+of the message on the rest of the receivers. Because the state is
+inherently a larger-scale producer of symbolic content than potential
+insurgent groups, higher levels of mass media are expected to make
+stronger states and therefore lower the probability of observing civil
+war.
 
 Using state-level data for a large panel of countries from 1945 to 1999,
 Warren constructs a media density index (MDI) on a country-year basis
 capturing the total number of televisions, radios, and newspapers per
-person.[^5] Warren demonstrates that, after controlling for other
+100 people.[^5] Warren demonstrates that, after controlling for other
 predictors of civil war, mass media density is associated with more than
 a tenfold decrease in the likelihood of observing civil war in a
 particular country-year.
@@ -203,27 +196,27 @@ presence of a mass communications system at merely low levels; they
 imply a country which still categorically lacks the infrastructural
 capacity for properly mass communications.[^7]
 
-Second, if the level of mass media *in general* increases state
-strength, then the *first appearance and early growth* of mass media
-within a country should increase the utility of controlling the state
-relative to other means of influencing it. The first appearance of mass
-media technology should increase the incentives of opposition groups to
-risk insurgency before the development of a mass communications system
-significantly increases the power of the incumbent and decreaes the
-power of opposition groups outside the state. The closer a country's
-mass media density is to the threshold at which it will constitute a
-capacity for mass communications, the more attractive it will be for
-opposition groups outside the state to gain control of the state. It is
+Second, if the level of mass media increases state strength, then the
+*first appearance and early growth* of mass media within a country
+should increase the utility of controlling the state relative to other
+means of influencing it. The first appearance of mass media technology
+should increase the incentives of opposition groups to risk insurgency
+before the development of a mass communications system significantly
+increases the power of the incumbent and decreaes the power of
+opposition groups outside the state. The closer a country's mass media
+density is to the threshold at which it will constitute a capacity for
+mass communications, the more attractive it will be for opposition
+groups outside the state to gain control of the state. It is
 increasingly urgent as the state becomes nearer to consolidating its
-normative domination via mass communications and therefore significantly
-less vulnerable to insurgency; also, the closer the country is to the
-threshold the less time will a successful insurgency be vulnerable to
-yet another insurgency before it consolidates its own normative
-consolidation via mass communications. Thus, if it is true that
-increasing mass media density makes state power increasingly safe from
-insurgency, then before media density crosses the threshold of
-constituting mass communications power, each increase in mass media
-density should further increase the payoffs to violent insurgency.
+normative power via mass communications and therefore significantly less
+vulnerable to insurgency; also, the closer a country is to the threshold
+the less time will a successful insurgency be vulnerable to yet another
+insurgency before its own normative power is consolidated by a mass
+communications system. Thus, if it is true that increasing mass media
+density makes state power increasingly safe from insurgency, then before
+media density crosses the threshold of constituting mass communications
+power, each increase in mass media density should further increase the
+payoffs to violent insurgency.
 
 A Non-Linear Theory of Mass Media and Civil War
 ===============================================
@@ -243,12 +236,12 @@ negative relationship between mass media density and civil war should
 hold.
 
 To test whether this modified theory is preferable to the original,
-general pacification theory, I deduce three distinct observable
-implications which either contradict the original theory or are not
-implied by the original theory, increasing causal leverage by exposing
-the modified theory to new opportunities for falsification
-[@king1994designing, 30]. If the modified theory is correct, then each
-of the following should be true:
+general pacification theory, I deduce two distinct observable
+implications which are mutually exclusive with the original theory,
+increasing causal leverage by exposing the new, modified theory to new
+opportunities for falsification [@king1994designing, 30]. If the
+modified, non-linear theory is correct, then each of the following
+should be true:
 
 **Hypothesis 1:** There should exist a threshold of mass media density
 below which year-to-year increases in mass media density *increase* the
@@ -277,31 +270,30 @@ changes.
 Data and Method
 ===============
 
-The first two stages of analysis for the first two observable
-implications use the replication data from Warren (2014), a panel
-dataset of country-level variables covering 0 countries over a maximum
-of 55 years in the period 1945-1999. As the variables used in the
-present analyses follow the original analyses as exactly as possible,
-for the sake of consistency and comparison, readers may consult the
-original article for a more detailed discussion of the data. Briefly,
-the dependent variable in all analyses is *CIVIL WAR ONSET*, which takes
-a value of 1 for all country-years in which a civil war begins and zero
-otherwise. Civil wars are defined, following Sambanis
-[-@Sambanis:2004dv], as any armed challenge to state sovereignty with
-explicit political objectives, local recruits, and more than 500 deaths
-in the first year or more than 1,000 deaths within the first three
-years. The main indepdendent variable is *MDI,* which captures overall
-mass media density, or the total number of newspapers, televisions, and
-radios per 100 people. A battery of control variables which are believed
-to be associated with civil war onset include the following. *OIL
-EXPORTER* takes a value of 1 if greater than one-third of a country's
-total export revenus are from fossil fuels. *DEMOCRACY* is the
-traditional measure from the well-known Polity IV data set, on a scale
-from 1-21. *DEMOCRACY\^2* is the square *DEMOCRACY*, to control for the
-possibility of non-linear effects. *PEACE YEARS* counts the number of
-years since a previous civil war, and a natural cubic spline of peace
-years to control for temporal dependence. Finally, *GDP PER CAPITA*,
-*ETHNIC FRACTIONALIZATION*, *RELIGIOUS FRACTIONALIZATION*, and
+The first investigation for H1 uses the replication data from Warren
+(2014), a panel dataset of country-level variables covering 175
+countries over a maximum of 55 years in the period 1945-1999. As the
+variables used in the present analyses follow the original analyses as
+closely as possible, for the sake of consistency and comparison, readers
+may consult the original article for a more detailed discussion of the
+data. Briefly, the dependent variable in all analyses is *CIVIL WAR
+ONSET*, which takes a value of 1 for all country-years in which a civil
+war begins and zero otherwise. Civil wars are defined, following
+Sambanis [-@Sambanis:2004dv], as any armed challenge to state
+sovereignty with explicit political objectives, local recruits, and more
+than 500 deaths in the first year or more than 1,000 deaths within the
+first three years. The main indepdendent variable is *MDI,* which
+captures overall mass media density, or the total number of newspapers,
+televisions, and radios per 100 people. A battery of control variables
+which are believed to be associated with civil war onset include the
+following. *OIL EXPORTER* takes a value of 1 if greater than one-third
+of a country's total export revenus are from fossil fuels. *DEMOCRACY*
+is the traditional measure from the well-known Polity IV data set, on a
+scale from 1-21. *DEMOCRACY\^2* is the square *DEMOCRACY*, to control
+for the possibility of non-linear effects. *PEACE YEARS* counts the
+number of years since a previous civil war, and a natural cubic spline
+of peace years to control for temporal dependence. Finally, *GDP PER
+CAPITA*, *ETHNIC FRACTIONALIZATION*, *RELIGIOUS FRACTIONALIZATION*, and
 logarithms for *LAND AREA*, *MOUNTAINOUS TERRAIN*, and *POPULATION*
 complete the main battery of controls dictated by previous research and
 employed in the original analyses. Also following the original analyses,
@@ -421,7 +413,7 @@ period of modern world history.
 Another drawback to this strategy is that considering only television
 density apart from newspaper and radio density may fail to capture mass
 media density in general. However, first, television density is highly
-correlated with mass media density (r = 0.91. Second, television
+correlated with mass media density (r = 0.9108). Second, television
 plausibly is subject to the greatest economies of scale among the three
 components of mass media density, which means it should be the most
 pacifying of the three. Therefore, it should be a relatively harder test
@@ -495,8 +487,8 @@ however, Figure 2 illustrates that cases such as Yugoslavia and Rwanda
 are indeed fairly typical country-years in the period 1945-1999. While
 it is true that in these cases mass media density is below the global
 average *in that year*, these cases bracket the global median of MDI
-(37.03) by less than half of one standard deviation (8) on either side.
-Thus, some of the well-known cases which illustrate the bellicose
+(23.924) by less than half of one standard deviation (25.9347) on either
+side. Thus, some of the well-known cases which illustrate the bellicose
 effects of mass media are indeed highly representative of MDI levels
 globally in the post-war period until 1999.
 
@@ -562,7 +554,7 @@ MDI](media_civil_war_files/figure-markdown/nonlinear-plot.pdf)
  & RESID. DF & RESID. DEV & DF & DEVIANCE & P-VALUE \\ 
 \hline \\[-1.8ex] 
 1 & $5,884$ & $1,070.00$ & $$ & $$ & $$ \\ 
-2 & $5,882.00$ & $1,052.00$ & $1.60$ & $18.00$ & $0.0001$ \\ 
+2 & $5,882.00$ & $1,052.00$ & $1.56$ & $17.90$ & $0.0001$ \\ 
 \hline \\[-1.8ex] 
 \end{tabular} 
 \end{table}
@@ -576,11 +568,11 @@ effect size), I estimate a series of traditional parametric regressions.
 I begin by creating a subset of the original sample containing only
 country-years with MDI levels below the inflection point identified by
 the non-linear regression (when logged MDI is equal to about 2, or an
-MDI level of about 6.39). While it is reasonable to think such a low
+MDI level of about 6.3885). While it is reasonable to think such a low
 threshold might only correspond to a substantively trivial number of
 cases, on the contrary, this subset contains 1360 cases or about 20% of
-the original sample. I estimate traditional logistic regressions
-separately for each subset, all of which are variations on the form
+the original sample. I estimate traditional logistic regressions all of
+which are variations on the form
 
 $$ Onset_{it} = \alpha + MDI_{it} \beta_1 + Controls_{it} \beta_2  + \varepsilon_{it} $$
 
@@ -596,7 +588,7 @@ comparable.[^10]
 The first two columns of the following table display the results of a
 baseline model which replicates Warren's original findings (Model 1) and
 the same model estimated on the subset of country-years below the median
-level of MDI (37.03). While Model 1 successfully replicates Warren's
+level of MDI (23.924). While Model 1 successfully replicates Warren's
 main finding with a negative and statistically significant coefficient
 for MDI levels, Model 2 indicates that this coefficient is not
 statistically significant for country-years below the median level of
@@ -604,7 +596,7 @@ MDI. The third column estimates a model nearly equivalent to the first
 two but only for country-years below the 20th percentile of MDI, roughly
 the inflection point suggested by the semi-parametric regression
 estimated in the previous stage of analysis (the logarithm of MDI equal
-to 2). Distinct from Models 1 and 2, the independent variable of
+to 2).[^11] Distinct from Models 1 and 2, the independent variable of
 interest in Model 3 is the variable capturing year-to-year changes in
 MDI rather than levels of MDI. Levels of MDI are not included as an
 independent variable because Model 3 is effectively already controlling
@@ -613,16 +605,16 @@ media density. The coefficient for $\Delta$$MDI_{t-1}$ is negative and
 statistically significant, as predicted by Hypothesis 1.
 
 The results suggest that the general pacification theory would
-significantly under-estimate the probability of civil war onset in
+significantly underestimate the probability of civil war onset in
 countries first observing the introduction and early spread of mass
 media. Warren's baseline model (Model 1) would lead us to predict that a
-country moving from zero MDI to the 20th percentile (5.5) would, on
-average, cause the probability of civil war onset to decrease by 0, from
-an already quite low 0.04. However, when we estimate the same model on
-only those country-years in the 20th percentile of mass media density
-(Model 3), we would predict that an increase of 5.5 would cause the
-probability of civil war onset to increase by an average of 0.64, from
-0.02 to 0.66.
+country moving from zero MDI to the 20th percentile (5.4992) would, on
+average, cause the probability of civil war onset to decrease by
+-0.0047, from an already quite low 0.0355. However, when we estimate the
+same model on only those country-years in the 20th percentile of mass
+media density (Model 3), simulations suggest an increase of 5.4992 would
+cause the probability of civil war onset to increase by an average of
+0.6309, from 0.0208 to 0.6517.
 
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
@@ -633,11 +625,11 @@ probability of civil war onset to increase by an average of 0.64, from
  & Warren & <= Median MDI & <= 20th Percentile MDI \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- MDI$_{t-1}$ & $-$2.60$^{***}$ & $-$3.30 &  \\ 
-  & (0.71) & (2.40) &  \\ 
+ MDI$_{t-1}$ & $-$2.64$^{***}$ & $-$3.27 &  \\ 
+  & (0.71) & (2.38) &  \\ 
   $\Delta$MDI$_{t-1}$ &  &  & 0.67$^{**}$ \\ 
   &  &  & (0.31) \\ 
-  GDP PER CAPITA$_{t-1}$ & $-$0.09 & $-$0.33 & $-$1.00$^{**}$ \\ 
+  GDP PER CAPITA$_{t-1}$ & $-$0.09 & $-$0.33 & $-$1.04$^{**}$ \\ 
   & (0.36) & (0.48) & (0.45) \\ 
   AREA$_{t-1}$ & $-$0.31 & $-$0.19 & 0.13 \\ 
   & (0.32) & (0.39) & (0.57) \\ 
@@ -645,40 +637,40 @@ probability of civil war onset to increase by an average of 0.64, from
   & (0.24) & (0.27) & (0.40) \\ 
   POPULATION$_{t-1}$ & 0.80$^{***}$ & 0.75$^{***}$ & 0.78$^{*}$ \\ 
   & (0.25) & (0.29) & (0.46) \\ 
-  OIL EXPORTER$_{t-1}$ & 0.76$^{***}$ & 0.73$^{**}$ & 1.70$^{***}$ \\ 
+  OIL EXPORTER$_{t-1}$ & 0.76$^{***}$ & 0.73$^{**}$ & 1.74$^{***}$ \\ 
   & (0.28) & (0.36) & (0.57) \\ 
-  DEMOCRACY$_{t-1}$ & 2.70$^{**}$ & 2.70$^{*}$ & 1.90 \\ 
-  & (1.10) & (1.40) & (1.60) \\ 
-  DEMOCRACY$^2$$_{t-1}$ & $-$2.50$^{**}$ & $-$2.20 & $-$1.40 \\ 
-  & (1.20) & (1.50) & (1.60) \\ 
+  DEMOCRACY$_{t-1}$ & 2.68$^{**}$ & 2.68$^{*}$ & 1.93 \\ 
+  & (1.15) & (1.38) & (1.61) \\ 
+  DEMOCRACY$^2$$_{t-1}$ & $-$2.54$^{**}$ & $-$2.19 & $-$1.39 \\ 
+  & (1.22) & (1.49) & (1.55) \\ 
   ETHNIC FRAC.$_{t-1}$ & 0.11 & $-$0.09 & $-$0.40 \\ 
   & (0.21) & (0.24) & (0.41) \\ 
   RELIGIOUS FRAC.$_{t-1}$ & 0.60$^{***}$ & 0.56$^{**}$ & 0.47 \\ 
   & (0.23) & (0.27) & (0.39) \\ 
-  PEACE YEARS$_{t-1}$ & $-$1.90 & $-$2.90 & $-$0.20 \\ 
-  & (2.60) & (2.90) & (2.90) \\ 
-  SPLINE 1 & $-$0.55 & $-$8.00 & 3.50 \\ 
-  & (16.00) & (18.00) & (15.00) \\ 
-  SPLINE 2 & $-$5.20 & 3.50 & $-$5.30 \\ 
-  & (18.00) & (22.00) & (17.00) \\ 
-  SPLINE 3 & 3.50 & 0.90 & 1.20 \\ 
-  & (5.60) & (7.30) & (5.30) \\ 
-  CONSTANT & $-$4.50$^{***}$ & $-$4.70$^{***}$ & $-$3.90$^{***}$ \\ 
+  PEACE YEARS$_{t-1}$ & $-$1.89 & $-$2.85 & $-$0.20 \\ 
+  & (2.57) & (2.94) & (2.92) \\ 
+  SPLINE 1 & $-$0.55 & $-$7.95 & 3.46 \\ 
+  & (15.70) & (18.14) & (14.83) \\ 
+  SPLINE 2 & $-$5.22 & 3.52 & $-$5.29 \\ 
+  & (18.23) & (21.66) & (16.95) \\ 
+  SPLINE 3 & 3.49 & 0.90 & 1.20 \\ 
+  & (5.57) & (7.30) & (5.28) \\ 
+  CONSTANT & $-$4.54$^{***}$ & $-$4.66$^{***}$ & $-$3.86$^{***}$ \\ 
   & (0.18) & (0.78) & (0.25) \\ 
  \textit{Observations} & 5,899 & 2,950 & 1,220 \\ 
-\textit{Log likelihood} & $-$528.00 & $-$373.00 & $-$148.00 \\ 
-\textit{Akaike information criterion} & 1,085.00 & 776.00 & 326.00 \\ 
+\textit{Log likelihood} & $-$527.50 & $-$373.10 & $-$148.00 \\ 
+\textit{Akaike information criterion} & 1,085.00 & 776.10 & 326.10 \\ 
 \hline \\[-1.8ex] 
 \textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
 \end{table}
-While the difference between zero MDI and the 20th percentile of 5.5 is
-a useful yardstick with respect to the entire range of *levels* observed
-in the sample, the mean year-to-year change observed in the subset of
-pre-mass communications systems is only 0.21 and the maximum is only
-2.77. Thus, to gain a more realistic sense of how the early spread of
-mass media shapes civil war onset, and to better compare the substantive
-implications of the general pacification effect with the
+While the difference between zero MDI and the 20th percentile of 5.4992
+is a useful yardstick with respect to the entire range of *levels*
+observed in the sample, the mean year-to-year change observed in the
+subset of pre-mass communications systems is only 0.2118 and the maximum
+is only 2.77. Thus, to gain a more realistic sense of how the early
+spread of mass media shapes civil war onset, and to better compare the
+substantive implications of the general pacification effect with the
 war-before-peace effect, Figures 3 and 4 display the predicted
 probability of civil war onset given different values of MDI levels and
 year-to-year MDI changes across their historically observed ranges.
@@ -686,18 +678,17 @@ year-to-year MDI changes across their historically observed ranges.
 Considering all communications systems, the predicted probability of
 civil war onset decreases from about .03 at the zero level of MDI to
 roughly zero for any level of MDI greater than about 150, on average.
-However, considering only pre-mass communications systems, a 3-point
-change in MDI increases the probability of civil war onset from about
-.03 to roughly .1, on average. Figures 3 and 4 also highlight the
+However, considering only pre-mass communications systems, a 1-point
+change in MDI would cause the probability of civil war onset to increase
+by an average of 0.0311, from 0.021 to 0.052. A 2.5-point change in MDI
+would cause the probability of civil war onset to increase by an average
+of 0.1955, from 0.0206 to 0.2161. Figures 3 and 4 also highlight the
 essential assymetry of estimating negative versus postive effects on a
 rare event. The pacifying effect of levels of MDI as identified by
 Warren is an inherently small effect because the probability of
 observing civil war onset is already very small in general. However, the
 size of the war-before-peace effect is notably larger and represents a
-more politically salient risk for the same reason. Indeed, because of
-this assymetry, it is within the 95% confidence interval that a 3-point
-change in MDI is associated with as much as a 30% increase in the
-probability of civil war onset.
+more substantively salient risk for this same reason.
 
 \clearpage
 \begin{figure} 
@@ -749,6 +740,11 @@ international system.
 ![TV, Democracy, Economic Growth, and Civil Wars Globally,
 1816-1999](media_civil_war_files/figure-markdown/longrunplot.pdf)
 
+Simulations suggest that a .5 increase in the global mean TV density (an
+increase equal to two standard deviations above the mean yearly
+increase) would cause the number of civil wars to increase by an average
+of 0.9689, from 1.5175 to 2.4864.
+
 \begin{table}[!htbp] \centering 
   \caption{International-Level Regressions} 
   \label{} 
@@ -780,22 +776,22 @@ international system.
   & (0.02) & (0.02) & (0.02) \\ 
   STATES & 0.24 & 0.37 & 0.49 \\ 
   & (0.57) & (0.59) & (0.59) \\ 
-  YEAR & $-$0.28 & $-$1.10$^{*}$ & $-$1.10 \\ 
+  YEAR & $-$0.28 & $-$1.14$^{*}$ & $-$1.05 \\ 
   & (0.56) & (0.69) & (0.69) \\ 
   WWI &  & $-$0.12 & $-$0.17 \\ 
   &  & (0.18) & (0.17) \\ 
-  WWII &  & 0.41$^{*}$ & 1.60$^{***}$ \\ 
+  WWII &  & 0.41$^{*}$ & 1.57$^{***}$ \\ 
   &  & (0.22) & (0.34) \\ 
-  COLD WAR &  & $-$0.92$^{***}$ & $-$1.00$^{***}$ \\ 
+  COLD WAR &  & $-$0.92$^{***}$ & $-$1.01$^{***}$ \\ 
   &  & (0.22) & (0.22) \\ 
-  IMPUTED &  &  & 1.20$^{***}$ \\ 
+  IMPUTED &  &  & 1.23$^{***}$ \\ 
   &  &  & (0.36) \\ 
   CONSTANT & 0.53$^{***}$ & 0.57$^{***}$ & $-$0.28 \\ 
   & (0.04) & (0.08) & (0.26) \\ 
  \textit{Observations} & 182 & 182 & 182 \\ 
-\textit{Log likelihood} & $-$260.00 & $-$257.00 & $-$256.00 \\ 
+\textit{Log likelihood} & $-$260.00 & $-$257.00 & $-$256.10 \\ 
 $\theta$ & 45,133.00  (484,186.00) & 44,773.00  (456,964.00) & 45,671.00  (465,362.00) \\ 
-\textit{Akaike information criterion} & 546.00 & 546.00 & 546.00 \\ 
+\textit{Akaike information criterion} & 545.90 & 546.00 & 546.20 \\ 
 \hline \\[-1.8ex] 
 \textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
@@ -883,12 +879,12 @@ Norway, Denmark, Afghanistan, China.
     Levin-Lin-Chu Unit-Root Test (ex. var. : Individual Intercepts
     and Trend )
 
-data: unit\$mdi z.x1 = -0.32, p-value = 0.7473 alternative hypothesis:
+data: unit\$mdi z.x1 = -0.3222, p-value = 0.7473 alternative hypothesis:
 stationarity
 
     Pesaran's CIPS test for unit roots
 
-data: unit\$mdi CIPS test = -2.1, lag order = 2, p-value = 0.1
+data: unit\$mdi CIPS test = -2.064, lag order = 2, p-value = 0.1
 alternative hypothesis: Stationarity
 
 ### Semi-parametric regressions on disaggregated media density
@@ -948,7 +944,7 @@ References
     media density are non-stationary and trend upward. The Levin-Lin-Chu
     [-@Levin:2002hu] and Im-Pesaran-Shin [-@Im:2003ba] tests for
     stationarity in panel data fail to reject the null hypothesis that
-    media density is non-stationary (p = 0.75 and p = 0.1,
+    media density is non-stationary (p = 0.7473 and p = 0.1,
     respectively). See Supplementary Information for details.
 
 [^7]: There is no way to know *a priori* how many people need access to
@@ -962,7 +958,7 @@ References
 [^9]: Traditional logistic regression estimated by maximum-likelihood
     would likely underestimate the probability of civil war onsets
     because civil wars begin in relatively very few country-years. There
-    are 119 (2.06%) onsets in the full sample and 41 (3.24%) in the
+    are 119 (2.0588%) onsets in the full sample and 41 (3.2437%) in the
     subset of low-MDI country-years.
 
 [^10]: For continuous independent variables, the coefficient indicates
@@ -973,3 +969,7 @@ References
     to 1 on the dichotomous variable, which is roughly equivalent to a
     two-standard deviation change in a continuous variable
     [@Gelman:2008gz].
+
+[^11]: I use the 20th percentile of MDI because it is a convenient and
+    conventional cutoff for segmenting distributions; it is slightly
+    less than a logarithm of 2.

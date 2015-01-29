@@ -246,10 +246,27 @@ x.hi<-setx(diff.unscaled, ld.mdi = quantile(model1vars.unscaled$mdi, .20, na.rm=
 
 s.out.diff <- sim(diff.unscaled, x = x.low, x1 = x.hi)
 
-# summary(s.out.diff)
+
+### Estimate baseline prediction of moving from 0 MDI change to a MDI change of 1
+
+x.low<-setx(diff.unscaled, ld.mdi = 0)
+x.hi<-setx(diff.unscaled, ld.mdi = 1)
+
+s.out.diff1 <- sim(diff.unscaled, x = x.low, x1 = x.hi)
+
+# summary(s.out.diff1)
+
+### Estimate baseline prediction of moving from 0 MDI change to a MDI change of 2.5
+
+x.low<-setx(diff.unscaled, ld.mdi = 0)
+x.hi<-setx(diff.unscaled, ld.mdi = 2.5)
+
+s.out.diff2 <- sim(diff.unscaled, x = x.low, x1 = x.hi)
+
+# summary(s.out.diff2)
 
 
-ld.mdi.r<-seq(0,4,1) # ~ zero change to 1 sd above the mean
+ld.mdi.r<-seq(0,3,1) # ~ zero change to ~ max change
 
 x.ld.mdi <- setx(diff.unscaled, ld.mdi= ld.mdi.r)
 s.out.d <- sim(diff.unscaled, x = x.ld.mdi)
