@@ -17,25 +17,26 @@ Department of Politics and International Relations \newline
 #### Abstract:
 
 Qualitative evidence suggests that mass media can play a causal role in
-the outbreak of civil wars, and at the international level the rapid
+the outbreak of civil war and, at the international level, the rapid
 increase of mass media in recent decades has coincided with a similarly
-notable spread of civil wars. Yet recent quantitative research suggests
-that mass media decrease the probability of civil war onset by enhancing
-the power of states and therefore deterring insurgencies. To explain
-this puzzling contradiction, I argue that mass media technologies have a
-non-linear effect on the probability of civil war onset. Mass media
-technologies should decrease the likelihood of civil war onset only
-above the threshold at which they constitute a mass communications
-system. Below that threshold, increases in mass media should increase
-the likelihood of civil war. The theory is tested with parametric and
-semi-parametric regressions on country-level, cross-sectional
-time-series data from a recent study [@Camber:2013ul] and long-run
-historical time-series at the international level. I find evidence of
-substantial non-linearity in the effect of mass media on civil war onset
-at both levels of analysis. This research note contributes an important
-new insight into the causes of civil war and contributes to the
-burgeoning research agenda on the nexus of information-communication
-technology (ICT) and political conflict.\newline
+notable surge in civil war prevalence. Yet recent quantitative research
+suggests that mass media decrease the probability of civil war onset by
+enhancing the power of states and therefore deterring insurgencies. To
+explain this puzzling contradiction, I argue that mass media
+technologies have a non-linear effect on the probability of civil war
+onset. Mass media technologies should decrease the likelihood of civil
+war onset only above the threshold at which they constitute a mass
+communications system. Below that threshold, increases in mass media
+should increase the likelihood of civil war. The theory is tested with
+parametric and semi-parametric regressions on country-level,
+cross-sectional time-series data from a recent study [@Camber:2013ul]
+and long-run historical time-series at the international level. I find
+evidence of substantial non-linearity in the effect of mass media on
+civil war onset at both levels of analysis. This research note
+contributes an important new insight into the causes of civil war and
+contributes to the burgeoning research agenda on the nexus of
+information-communication technology (ICT) and political
+conflict.\newline
 
 Last updated: January 29, 2015.[^1] \newline
 
@@ -614,7 +615,7 @@ average, cause the probability of civil war onset to decrease by
 same model on only those country-years in the 20th percentile of mass
 media density (Model 3), simulations suggest an increase of 5.4992 would
 cause the probability of civil war onset to increase by an average of
-0.6309, from 0.0208 to 0.6517.
+0.6309, from 0.0208 to 0.6517.[^12]
 
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
@@ -671,9 +672,10 @@ subset of pre-mass communications systems is only 0.2118 and the maximum
 is only 2.77. Thus, to gain a more realistic sense of how the early
 spread of mass media shapes civil war onset, and to better compare the
 substantive implications of the general pacification effect with the
-war-before-peace effect, Figures 3 and 4 display the predicted
+war-before-peace effect, Figures 4 and 5 display the predicted
 probability of civil war onset given different values of MDI levels and
-year-to-year MDI changes across their historically observed ranges.
+year-to-year MDI changes, respectively, across their historically
+observed ranges.
 
 Considering all communications systems, the predicted probability of
 civil war onset decreases from about .03 at the zero level of MDI to
@@ -682,8 +684,8 @@ However, considering only pre-mass communications systems, a 1-point
 change in MDI would cause the probability of civil war onset to increase
 by an average of 0.0311, from 0.021 to 0.052. A 2.5-point change in MDI
 would cause the probability of civil war onset to increase by an average
-of 0.1955, from 0.0206 to 0.2161. Figures 3 and 4 also highlight the
-essential assymetry of estimating negative versus postive effects on a
+of 0.1955, from 0.0206 to 0.2161. Figures 4 and 5 also highlight the
+essential assymetry of estimating negative versus positive effects on a
 rare event. The pacifying effect of levels of MDI as identified by
 Warren is an inherently small effect because the probability of
 observing civil war onset is already very small in general. However, the
@@ -742,8 +744,8 @@ international system.
 
 Simulations suggest that a .5 increase in the global mean TV density (an
 increase equal to two standard deviations above the mean yearly
-increase) would cause the number of civil wars to increase by an average
-of 0.9689, from 1.5175 to 2.4864.
+increase) would generate approximately one extra civil war per year on
+average (0.9689, from 1.5175 to 2.4864).
 
 \begin{table}[!htbp] \centering 
   \caption{International-Level Regressions} 
@@ -823,26 +825,28 @@ time-series beginning in 1816.
 
 The implications are critical for political scientists as well as
 policymakers, activists, and other political actors concerned with
-issues of media, communications, and civil violence. First, this
-research note highlights that in the politics of mass communications,
-considerations of non-linearity are important. Assuming linear
+issues of media, communications, and civil violence. First, the
+implications are substantively critical for scholars, policymakers and
+other political practitioners interested in the causes of civil war
+because the most recent previous evidence would lead observers to
+underestimate the risk of civil war within countries experiencing the
+early spread of mass media. By demonstrating the bellicose effects of
+mass media in precisely such situations, this research note draws
+attention to a unique source of civil war risk which has been poorly
+understood by previous research. Second, this research note highlights
+that in the politics of mass communications, considerations of
+non-linearity are likely to be especially important. Assuming linear
 relationships between independent and dependent variables is not always
 warranted and can lead to substantively different predictions than those
-generated by models which account for non-linearity. This will be of
-interest in particular to those scholars in the burgeoning field of ICT
-and political conflict research who are building an increasingly "rich
-theory" of context-conditional findings [@Lyall:2015uc]. This research
-note contributes to this current of research both theoretically and
-empirically, by highlighting the theoretical importance of
-non-linearities in these types of phenomena and by providing an improved
-empirical accounting of mass media in patterns of civil war onset.
-Second, the implications are substantively critical for policymakers,
-activists, and other political actors because the most recent previous
-evidence would lead observers to underestimate the risk of civil war
-within countries experiencing the early spread of mass media. By
-demonstrating the bellicose effects of mass media in precisely such
-situations, this research note draws attention to a unique source of
-civil war risk which has been poorly understood by previous research.
+generated by models which account for non-linearity. The findings
+presented here will be of interest in particular to those scholars in
+the burgeoning field of ICT and political conflict research who are
+building an increasingly "rich theory" of context-conditional findings
+[@Lyall:2015uc]. This research note contributes to this current of
+research both theoretically and empirically, by highlighting the
+theoretical importance of non-linearities in these types of phenomena
+and by providing an improved empirical accounting of mass media in
+patterns of civil war onset.
 
 \clearpage
 
@@ -973,3 +977,6 @@ References
 [^11]: I use the 20th percentile of MDI because it is a convenient and
     conventional cutoff for segmenting distributions; it is slightly
     less than a logarithm of 2.
+
+[^12]: All simulations and predicted probability plots were generated
+    using the R package *Zelig* [@ZeligEveryonesSt:2009ts].
