@@ -42,7 +42,7 @@
 
 \begin{centering}
 
-\section{Mass Media and Civil War Onset}
+\section{The Non-Linear Effect of Mass Media on Civil War Onset}
 
 \end{centering}
 
@@ -70,12 +70,6 @@ level.\footnote{For a description of the variables see Data and Method
 puzzling that the proliferation of mass media since the 1950s coincides
 with a surge in civil war prevalence beginning in the 1960s.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{media_civil_war_files/figure-markdown/globalplot.pdf}
-\caption{Mass Media Density and Civil Wars Globally, 1816-1999}
-\end{figure}
-
 This research note advances a novel theoretical proposition on the
 relationship between mass media and civil war which accounts for
 previous qualitative findings of mass media fomenting civil war onset as
@@ -101,6 +95,14 @@ effect of a mass communications system charges the early spread of mass
 media with a bellicose effect until the threshold of mass communications
 is crossed.
 
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics{media_civil_war_files/figure-markdown/globalplot.pdf}
+\caption{Mass Media Density and Civil Wars Globally, 1816-1999}
+\end{figure}
+\clearpage
+
 To compare the non-linear, war-before-peace theory to the linear,
 general pacification theory, I generate causal leverage by deducing two
 new observable implications at two levels of analysis, within and
@@ -125,10 +127,11 @@ non-linearities in this area.\footnote{Lyall and Dafoe advocate that
   until some culminating point is reached,'' and they ``may change in
   sign over time, as actors strategically adapt to their new information
   environment'' (Lyall and Dafoe 2015, 3--4).} Second, it contributes
-novel quantitative evidence helping to explain the severity and timing
-of one of the most lethal dynamics in the world since World War II: the
-increase in civil wars around the world beginning in the 1950s and 1960s
-(Fearon and Laitin 2003, 75).
+novel evidence regarding one important driver of civil war onsets,
+substantially revising the conclusion of a recent study and helping
+to explain one of the most lethal dynamics
+in the world since World War II: the increase in civil wars around the
+world beginning in the 1950s and 1960s (Fearon and Laitin 2003, 75).
 
 This research note proceeds as follows. The first section provides a
 brief summary and critique of the general pacification theory, providing
@@ -208,7 +211,7 @@ threshold I refer to as ``pre-mass communications systems.''
 Increases in mass media density only uniquely benefit the state's
 production of influence and therefore decrease the likelihood of civil
 war beyond the threshold at which mass media technologies are
-sufficiently widespread to effectively consititute a mass communications
+sufficiently widespread to effectively constitute a mass communications
 system.\footnote{I assume throughout that mass media typically first
   appears within countries at very low levels relative to the population
   (low media density). I also assume throughout that, despite variable
@@ -235,7 +238,7 @@ should increase the utility of controlling the state relative to other
 means of influencing it. The first appearance of mass media technology
 should increase the incentives of opposition groups to risk insurgency
 before the development of a mass communications system significantly
-increases the power of the incumbent and decreaes the power of
+increases the power of the incumbent and decreases the power of
 opposition groups outside the state. The closer a country's mass media
 density is to the threshold at which it will constitute a capacity for
 mass communications, the more attractive it will be for opposition
@@ -494,11 +497,13 @@ bottom half are scaled with respect to the count of cases within each
 distribution. Each plot contains three points which indicate the 25th
 percentile, median, and 75th percentile within each distribution.
 
+\clearpage
 \begin{figure}[htbp]
 \centering
 \includegraphics{media_civil_war_files/figure-markdown/violinplot.pdf}
 \caption{Violin plot of media density for all civil war onsets}
 \end{figure}
+\clearpage
 
 These plots illustrate three important facts about the distributions of
 civil war onset and mass media density in this sample of countries
@@ -578,11 +583,13 @@ of each model. Table 1 displays the results, which suggest that the
 non-linear fit reduces the deviance by 18 and is statistically
 significant.
 
+\clearpage
 \begin{figure}[htbp]
 \centering
 \includegraphics{media_civil_war_files/figure-markdown/nonlinear-plot.pdf}
 \caption{The Non-Linear Effect of MDI on Civil War Across Levels of MDI}
 \end{figure}
+\clearpage
 
 \begin{table}[!htbp] \centering 
   \caption{ANOVA Comparing Linear and Non-Linear Effects of MDI on Civil War Onset} 
@@ -597,6 +604,8 @@ significant.
 \hline \\[-1.8ex] 
 \end{tabular} 
 \end{table}
+\clearpage
+
 
 \subsection{Estimating the Effect of Mass Media Density Before and After
 the Threshold of Mass
@@ -673,6 +682,7 @@ cause the probability of civil war onset to increase by an average of
   probability plots were generated using the R package \emph{Zelig}
   (Imai, King, and Lau 2009).}
 
+\clearpage
 \begin{table}[!htbp] \centering 
   \caption{Early Growth of Media Density Compared to Media Density in General} 
   \label{} 
@@ -721,6 +731,7 @@ cause the probability of civil war onset to increase by an average of
 \textit{Notes:} & \multicolumn{3}{l}{$^{***}$p $<$ .01; $^{**}$p $<$ .05; $^{*}$p $<$ .1} \\ 
 \end{tabular} 
 \end{table}
+\clearpage
 
 While the difference between zero MDI and the 20th percentile of 5.4992
 is a useful yardstick with respect to the entire range of \emph{levels}
@@ -742,7 +753,7 @@ change in MDI would cause the probability of civil war onset to increase
 by an average of 0.0311, from 0.021 to 0.052. A 2.5-point change in MDI
 would cause the probability of civil war onset to increase by an average
 of 0.1955, from 0.0206 to 0.2161. Figures 4 and 5 also highlight the
-essential assymetry of estimating negative versus positive effects on a
+essential asymmetry of estimating negative versus positive effects on a
 rare event. The pacifying effect of levels of MDI as identified by
 Warren is an inherently small effect because the probability of
 observing civil war onset is already very small in general. However, the
@@ -764,6 +775,8 @@ more substantively salient risk for this same reason.
 \caption{Predicted probability of civil war onset given changes in media density} 
 \label{myFigz} 
 \end{figure}
+
+\clearpage
 
 \subsection{Mass Media Density and Civil Wars at the International
 Level}\label{mass-media-density-and-civil-wars-at-the-international-level}
@@ -800,18 +813,14 @@ television density remains relatively low and has not yet reached the
 threshold at which its pacifying effects would become observable at the
 level of the international system.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{media_civil_war_files/figure-markdown/longrunplot.pdf}
-\caption{TV, Democracy, Economic Growth, and Civil Wars Globally,
-1816-1999}
-\end{figure}
+\clearpage
 
 Simulations suggest that a .5 increase in the global mean TV density (an
 increase equal to two standard deviations above the mean yearly
 increase) would generate approximately one extra civil war per year on
 average (0.9689, from 1.5175 to 2.4864).
 
+\clearpage
 \begin{table}[!htbp] \centering 
   \caption{International-Level Regressions} 
   \label{} 
@@ -871,6 +880,8 @@ $\theta$ & 45,133.00  (484,186.00) & 44,773.00  (456,964.00) & 45,671.00  (465,3
 \caption{Predicted number of civil war onsets given changes in global TV density} 
 \label{myFigur} 
 \end{figure}
+
+\clearpage
 
 \section{Conclusion}\label{conclusion}
 
@@ -1014,7 +1025,7 @@ Publicity, Common Knowledge, and Social Coordination.''
 Common Knowledge}. Princeton: Princeton University Press.
 
 Correlates of War Project. 2011. ``State System Membership List,
-V2011.'' \url{http://correlatesofwar.org}.
+V2011.'' \url{http://www.correlatesofwar.org}.
 
 Des Forges, Allison. 1999. \emph{Leave None to Tell the Story: Genocide
 in Rwanda}. New York: Human Rights Watch.
